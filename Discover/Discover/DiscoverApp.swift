@@ -10,11 +10,12 @@ import SwiftUI
 @main
 struct DiscoverApp: App {
     @StateObject var viewmodel = AuthentificationViewModel()
+    @StateObject var testModel = DiscoverViewModel()
     
     var body: some Scene {
         WindowGroup {
-            RegistrierenView()
-                .environmentObject(viewmodel)
+            DiscoverView()
+                .environmentObject(testModel)
         }
     }
 }

@@ -13,7 +13,13 @@
 		AEFCDACC2B8DE2E700D3BACD /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDACB2B8DE2E700D3BACD /* Repository.swift */; };
 		AEFCDAD32B8DE62A00D3BACD /* RegistrierenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDAD22B8DE62A00D3BACD /* RegistrierenView.swift */; };
 		AEFCDAD62B8DE69600D3BACD /* AuthentificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDAD52B8DE69600D3BACD /* AuthentificationViewModel.swift */; };
-		AEFCDAD82B8DE9D900D3BACD /* AnmeldenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDAD72B8DE9D900D3BACD /* AnmeldenView.swift */; };
+		AEFCDADC2B8DEDAE00D3BACD /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDADB2B8DEDAE00D3BACD /* SplashScreen.swift */; };
+		AEFCDADE2B8DF25B00D3BACD /* AnmeldenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDADD2B8DF25B00D3BACD /* AnmeldenView.swift */; };
+		AEFCDAE02B8DF28A00D3BACD /* AnmeldenPerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDADF2B8DF28A00D3BACD /* AnmeldenPerView.swift */; };
+		AEFCDAFD2B8E104C00D3BACD /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDAFC2B8E104C00D3BACD /* DiscoverView.swift */; };
+		AEFCDB002B8E13A500D3BACD /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDAFF2B8E13A500D3BACD /* DiscoverViewModel.swift */; };
+		AEFCDB052B8E1D9C00D3BACD /* EinBildReihe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDB042B8E1D9C00D3BACD /* EinBildReihe.swift */; };
+		AEFCDB072B8E283900D3BACD /* DiscoverListenElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDB062B8E283900D3BACD /* DiscoverListenElement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,7 +30,13 @@
 		AEFCDACB2B8DE2E700D3BACD /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		AEFCDAD22B8DE62A00D3BACD /* RegistrierenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrierenView.swift; sourceTree = "<group>"; };
 		AEFCDAD52B8DE69600D3BACD /* AuthentificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationViewModel.swift; sourceTree = "<group>"; };
-		AEFCDAD72B8DE9D900D3BACD /* AnmeldenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnmeldenView.swift; sourceTree = "<group>"; };
+		AEFCDADB2B8DEDAE00D3BACD /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		AEFCDADD2B8DF25B00D3BACD /* AnmeldenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnmeldenView.swift; sourceTree = "<group>"; };
+		AEFCDADF2B8DF28A00D3BACD /* AnmeldenPerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnmeldenPerView.swift; sourceTree = "<group>"; };
+		AEFCDAFC2B8E104C00D3BACD /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
+		AEFCDAFF2B8E13A500D3BACD /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		AEFCDB042B8E1D9C00D3BACD /* EinBildReihe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EinBildReihe.swift; sourceTree = "<group>"; };
+		AEFCDB062B8E283900D3BACD /* DiscoverListenElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverListenElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +69,9 @@
 		AEFCDABB2B8DE25900D3BACD /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				AEFCDAFB2B8E103900D3BACD /* Discover */,
+				AEFCDADB2B8DEDAE00D3BACD /* SplashScreen.swift */,
+				AEFCDADD2B8DF25B00D3BACD /* AnmeldenView.swift */,
 				AEFCDACF2B8DE5ED00D3BACD /* Authentifikation */,
 				AEFCDACA2B8DE2AC00D3BACD /* Datenbanken */,
 				AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */,
@@ -103,9 +118,36 @@
 		AEFCDAD12B8DE60E00D3BACD /* Anmelden */ = {
 			isa = PBXGroup;
 			children = (
-				AEFCDAD72B8DE9D900D3BACD /* AnmeldenView.swift */,
+				AEFCDADF2B8DF28A00D3BACD /* AnmeldenPerView.swift */,
 			);
 			path = Anmelden;
+			sourceTree = "<group>";
+		};
+		AEFCDAFB2B8E103900D3BACD /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				AEFCDB012B8E1CEE00D3BACD /* Model */,
+				AEFCDAFE2B8E138800D3BACD /* ViewModel */,
+				AEFCDAFC2B8E104C00D3BACD /* DiscoverView.swift */,
+				AEFCDB062B8E283900D3BACD /* DiscoverListenElement.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		AEFCDAFE2B8E138800D3BACD /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AEFCDAFF2B8E13A500D3BACD /* DiscoverViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AEFCDB012B8E1CEE00D3BACD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AEFCDB042B8E1D9C00D3BACD /* EinBildReihe.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,11 +220,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEFCDADC2B8DEDAE00D3BACD /* SplashScreen.swift in Sources */,
 				AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */,
-				AEFCDAD82B8DE9D900D3BACD /* AnmeldenView.swift in Sources */,
+				AEFCDAE02B8DF28A00D3BACD /* AnmeldenPerView.swift in Sources */,
+				AEFCDB052B8E1D9C00D3BACD /* EinBildReihe.swift in Sources */,
+				AEFCDB002B8E13A500D3BACD /* DiscoverViewModel.swift in Sources */,
 				AEFCDACC2B8DE2E700D3BACD /* Repository.swift in Sources */,
+				AEFCDADE2B8DF25B00D3BACD /* AnmeldenView.swift in Sources */,
+				AEFCDB072B8E283900D3BACD /* DiscoverListenElement.swift in Sources */,
 				AEFCDAD62B8DE69600D3BACD /* AuthentificationViewModel.swift in Sources */,
 				AEFCDAD32B8DE62A00D3BACD /* RegistrierenView.swift in Sources */,
+				AEFCDAFD2B8E104C00D3BACD /* DiscoverView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
