@@ -10,26 +10,34 @@ import SwiftUI
 struct DiscoverView: View {
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
     var body: some View {
+        
+        HStack {
+            Text("Discover").font(.largeTitle).padding(.leading)
+            Spacer()
+            Button(){
+                //Filterfunktion
+            } label: {
+                Image(systemName: "gear")
+            }.background(.blue).foregroundColor(.white).buttonStyle(.bordered).cornerRadius(10).padding(.trailing)
+            
+            
+            
+        }
+        
         NavigationStack{
-                    
-                    List(discoverViewModel.listeDerBilder){ reihe in
+            
+            ScrollView{
+                VStack{
+                    ForEach(discoverViewModel.listeDerBilder){ reihe in
                         DiscoverListenElement(einbild: reihe)
                     }
-                
-                
-                    
+                }.frame(maxWidth: .infinity)
                 
                 
                 
-            .padding()
-                .toolbar(content:{
-                HStack{
-                    Text("Discover").font(.largeTitle)
-                    Spacer()
-                    Text("#Hamburg").foregroundStyle(.white).frame(width: 130, height: 30).background(.blue).cornerRadius(15)
-                }
-            })
-            
+            }//ScrollViewKlammer
+            .searchable(text: $discoverViewModel.searchInputDiscover)
+
         }//NavigationStackKlammer
     }//BodyKlammer
 }//StructKlammer
