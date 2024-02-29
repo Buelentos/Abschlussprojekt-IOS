@@ -9,26 +9,16 @@ import SwiftUI
 
 struct DiscoverView: View {
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
+    @EnvironmentObject private var testModel: AuthentificationViewModel
+    
+
     var body: some View {
         
-        HStack {
-            Text("Discover").font(.largeTitle).padding(.leading)
-            Spacer()
-            Button(){
-                //Filterfunktion
-            } label: {
-                Image(systemName: "gear")
-            }.background(.blue).foregroundColor(.white).buttonStyle(.bordered).cornerRadius(10).padding(.trailing)
-            
-            
-            
-        }
         
-        NavigationStack{
-            
             ScrollView{
-                VStack{
-                    ForEach(discoverViewModel.listeDerBilder){ reihe in
+                VStack(spacing: 0){
+                    
+                    ForEach(discoverViewModel.repo.listeDerBilder){ reihe in
                         DiscoverListenElement(einbild: reihe)
                     }
                 }.frame(maxWidth: .infinity)
@@ -36,12 +26,36 @@ struct DiscoverView: View {
                 
                 
             }//ScrollViewKlammer
-            .searchable(text: $discoverViewModel.searchInputDiscover)
-
-        }//NavigationStackKlammer
+            
+            .searchable(text: $discoverViewModel.repo.searchInputDiscover, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Freunde")
+            
+            .toolbar{
+                
+                
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button() {
+                        
+                    } label: {
+                        Image(systemName: "gear")
+                            .foregroundColor(.white)
+                    }
+                    .buttonStyle(.bordered).background(.blue).cornerRadius(10).padding(.vertical)
+                    .padding()
+                    
+                }
+                
+                
+            }
+            .navigationTitle("Discover")
+            
+            
+            
+        
     }//BodyKlammer
 }//StructKlammer
 
 #Preview {
-    DiscoverView().environmentObject(DiscoverViewModel())
+    NavigationStack{
+        DiscoverView().environmentObject(DiscoverViewModel()).environmentObject(AuthentificationViewModel())
+    }
 }

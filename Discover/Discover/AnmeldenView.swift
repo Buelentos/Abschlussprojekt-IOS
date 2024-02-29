@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AnmeldenView: View {
     @EnvironmentObject private var viewModel: AuthentificationViewModel
+    
 
     var body: some View {
         NavigationStack{
@@ -18,14 +19,14 @@ struct AnmeldenView: View {
             
             
             
-            TextField("Email-Addresse", text: $viewModel.emailAdress)
+            TextField("Email-Addresse", text: $viewModel.repo.emailAdress)
                 .textFieldStyle(.roundedBorder)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 .padding(.leading)
                 .padding(.trailing)
             
-            SecureField("Passwort", text: $viewModel.password)
+            SecureField("Passwort", text: $viewModel.repo.password)
                 .textFieldStyle(.roundedBorder)
                 .padding()
             
@@ -77,4 +78,5 @@ struct AnmeldenView: View {
 
 #Preview {
     AnmeldenView().environmentObject(AuthentificationViewModel())
+
 }

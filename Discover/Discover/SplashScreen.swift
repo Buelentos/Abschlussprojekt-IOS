@@ -31,3 +31,9 @@ struct SplashScreen: View {
     }//BodyKlammer
 }//StructKlammer
 
+#Preview {
+        
+        SplashScreen().environmentObject(AuthentificationViewModel())
+            
+    }
+

@@ -8,23 +8,8 @@
 import Foundation
 import SwiftUI
 
+
 class DiscoverViewModel: ObservableObject{
-    @Published var searchInputDiscover = ""
-    @Published var listeDerBilder = [
-        EinBildReihe(einBildReihe: .logo, zweiBilder: .logo),
-        EinBildReihe(einBildReihe: .logo),
-        EinBildReihe(einBildReihe: .logo),
-        EinBildReihe(einBildReihe: .logo, zweiBilder: .logo),
-        EinBildReihe(einBildReihe: .logo),
-        EinBildReihe(einBildReihe: .logo),
-        EinBildReihe(einBildReihe: .logo),
-        EinBildReihe(einBildReihe: .logo, zweiBilder: .logo),
-        EinBildReihe(einBildReihe: .logo),
-        
-    ]
-    
-    
-    
-    
+    @Published var repo = Repository.sharedRepo
     
 }
