@@ -32,7 +32,7 @@ struct AnmeldenView: View {
             
             
             Button("Anmelden"){
-                
+                viewModel.login()
             }.foregroundStyle(.white).frame(width: 350, height: 50).background(.blue).cornerRadius(10)
                 .padding()
             

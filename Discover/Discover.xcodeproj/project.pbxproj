@@ -38,6 +38,10 @@
 		AE69B18B2B90D7EF00247433 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = AE69B18A2B90D7EF00247433 /* FirebaseStorage */; };
 		AE69B18D2B90D7EF00247433 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = AE69B18C2B90D7EF00247433 /* FirebaseStorageCombine-Community */; };
 		AE69B1902B90D98900247433 /* FireBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B18F2B90D98900247433 /* FireBaseManager.swift */; };
+		AE69B1922B90DF4300247433 /* ABMELDEBUTTON.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1912B90DF4300247433 /* ABMELDEBUTTON.swift */; };
+		AE69B1972BA0A57000247433 /* SearchMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1962BA0A57000247433 /* SearchMainView.swift */; };
+		AE69B1992BA0A59800247433 /* MessagesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1982BA0A59800247433 /* MessagesMainView.swift */; };
+		AE69B19B2BA0A5B900247433 /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B19A2BA0A5B900247433 /* ProfileMainView.swift */; };
 		AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */; };
 		AEFCDAC12B8DE25900D3BACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */; };
 		AEFCDAC42B8DE25900D3BACD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC32B8DE25900D3BACD /* Preview Assets.xcassets */; };
@@ -58,6 +62,10 @@
 		AE69B1532B90D4FD00247433 /* FireUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireUser.swift; sourceTree = "<group>"; };
 		AE69B1552B90D7A600247433 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AE69B18F2B90D98900247433 /* FireBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseManager.swift; sourceTree = "<group>"; };
+		AE69B1912B90DF4300247433 /* ABMELDEBUTTON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABMELDEBUTTON.swift; sourceTree = "<group>"; };
+		AE69B1962BA0A57000247433 /* SearchMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainView.swift; sourceTree = "<group>"; };
+		AE69B1982BA0A59800247433 /* MessagesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesMainView.swift; sourceTree = "<group>"; };
+		AE69B19A2BA0A5B900247433 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
 		AEFCDAB92B8DE25900D3BACD /* Discover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverApp.swift; sourceTree = "<group>"; };
 		AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +136,38 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		AE69B1932BA0A53C00247433 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				AE69B19A2BA0A5B900247433 /* ProfileMainView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		AE69B1942BA0A54600247433 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				AE69B1982BA0A59800247433 /* MessagesMainView.swift */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		AE69B1952BA0A55400247433 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AE69B1962BA0A57000247433 /* SearchMainView.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		AE69B19C2BA0A5F900247433 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				AE69B1912B90DF4300247433 /* ABMELDEBUTTON.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		AEFCDAB02B8DE25900D3BACD = {
 			isa = PBXGroup;
 			children = (
@@ -147,11 +187,13 @@
 		AEFCDABB2B8DE25900D3BACD /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				AE69B19C2BA0A5F900247433 /* Setting */,
+				AE69B1952BA0A55400247433 /* Search */,
+				AE69B1942BA0A54600247433 /* Messages */,
+				AE69B1932BA0A53C00247433 /* Profile */,
 				AE69B18E2B90D97A00247433 /* Manager */,
 				AE69B14E2B909F3500247433 /* TabBar */,
 				AEFCDAFB2B8E103900D3BACD /* Discover */,
-				AEFCDADB2B8DEDAE00D3BACD /* SplashScreen.swift */,
-				AEFCDADD2B8DF25B00D3BACD /* AnmeldenView.swift */,
 				AEFCDACF2B8DE5ED00D3BACD /* Authentifikation */,
 				AEFCDACA2B8DE2AC00D3BACD /* Datenbanken */,
 				AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */,
@@ -181,6 +223,7 @@
 		AEFCDACF2B8DE5ED00D3BACD /* Authentifikation */ = {
 			isa = PBXGroup;
 			children = (
+				AEFCDADB2B8DEDAE00D3BACD /* SplashScreen.swift */,
 				AEFCDAD52B8DE69600D3BACD /* AuthentificationViewModel.swift */,
 				AEFCDAD12B8DE60E00D3BACD /* Anmelden */,
 				AEFCDAD02B8DE60300D3BACD /* Registrieren */,
@@ -199,6 +242,7 @@
 		AEFCDAD12B8DE60E00D3BACD /* Anmelden */ = {
 			isa = PBXGroup;
 			children = (
+				AEFCDADD2B8DF25B00D3BACD /* AnmeldenView.swift */,
 				AEFCDADF2B8DF28A00D3BACD /* AnmeldenPerView.swift */,
 			);
 			path = Anmelden;
@@ -340,8 +384,12 @@
 				AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */,
 				AE69B1542B90D4FD00247433 /* FireUser.swift in Sources */,
 				AEFCDAE02B8DF28A00D3BACD /* AnmeldenPerView.swift in Sources */,
+				AE69B1972BA0A57000247433 /* SearchMainView.swift in Sources */,
 				AE69B1502B909F4C00247433 /* MainTabView.swift in Sources */,
+				AE69B1992BA0A59800247433 /* MessagesMainView.swift in Sources */,
 				AEFCDB052B8E1D9C00D3BACD /* EinBildReihe.swift in Sources */,
+				AE69B19B2BA0A5B900247433 /* ProfileMainView.swift in Sources */,
+				AE69B1922B90DF4300247433 /* ABMELDEBUTTON.swift in Sources */,
 				AEFCDB002B8E13A500D3BACD /* DiscoverViewModel.swift in Sources */,
 				AEFCDACC2B8DE2E700D3BACD /* Repository.swift in Sources */,
 				AEFCDADE2B8DF25B00D3BACD /* AnmeldenView.swift in Sources */,

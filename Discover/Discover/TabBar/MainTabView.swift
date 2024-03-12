@@ -13,18 +13,64 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             NavigationStack{
-                DiscoverView()
+                ABMELDEBUTTON()
             }
-            .tabItem { Image(systemName: "calendar") }
-            
-            
+            .tabItem {
+                HStack{
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+            }
             
             
             
             NavigationStack{
-                SplashScreen()
+                SearchMainView()
             }
-            .tabItem {Image(systemName: "person")}
+            .tabItem {
+                HStack{
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+            }
+        }
+
+            
+            
+            NavigationStack{
+                DiscoverView()
+            }
+            .tabItem {
+                HStack{
+                    Image(systemName: "globe.americas.fill")
+                    Text("Discover")
+            }
+            }
+
+            
+            
+            NavigationStack{
+                MessagesMainView()
+            }
+            .tabItem {
+                HStack{
+                    Image(systemName: "message")
+                    Text("Messages")
+            }
+            }
+
+            
+            
+            NavigationStack{
+                ProfileMainView()
+            }
+            .tabItem {
+                HStack {
+                    Image(systemName: "person.crop.circle.fill")
+                    Text("Profile")
+                }
+                
+            }
+            
         }
         
     }
