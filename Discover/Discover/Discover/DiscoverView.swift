@@ -10,6 +10,7 @@ import SwiftUI
 struct DiscoverView: View {
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
     @EnvironmentObject private var testModel: AuthentificationViewModel
+    @State var showFilter = false
     
 
     var body: some View {
@@ -34,13 +35,15 @@ struct DiscoverView: View {
                 
                 ToolbarItem(placement: .topBarTrailing) {
                     Button() {
-                        
+                        showFilter.toggle()
                     } label: {
                         Image(systemName: "gear")
                             .foregroundColor(.white)
                     }
                     .buttonStyle(.bordered).background(.blue).cornerRadius(10).padding(.vertical)
-                    .padding()
+                    .padding().sheet(isPresented: $showFilter, content: {
+                        FilterView()
+                    })
                     
                 }
                 

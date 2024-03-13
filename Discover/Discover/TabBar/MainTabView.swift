@@ -9,17 +9,17 @@ import SwiftUI
 
 struct MainTabView: View {
     
+    @State private var selcetedTab = 1
     
     var body: some View {
-        TabView {
+        TabView(selection: $selcetedTab) {
             NavigationStack{
                 ABMELDEBUTTON()
             }
             .tabItem {
-                HStack{
-                    Image(systemName: "gear")
-                    Text("Settings")
-                }
+                Image(systemName: "gear")
+                Text("Settings")
+                
             }
             
             
@@ -28,48 +28,45 @@ struct MainTabView: View {
                 SearchMainView()
             }
             .tabItem {
-                HStack{
-                    Image(systemName: "magnifyingglass")
-                    Text("Search")
+                Image(systemName: "magnifyingglass")
+                Text("Search")
+                
             }
-        }
-
+            
             
             
             NavigationStack{
                 DiscoverView()
             }
             .tabItem {
-                HStack{
-                    Image(systemName: "globe.americas.fill")
-                    Text("Discover")
+                Image(systemName: "globe.americas.fill")
+                Text("Discover")
             }
-            }
-
+            .tag(1)
+            
             
             
             NavigationStack{
                 MessagesMainView()
             }
             .tabItem {
-                HStack{
-                    Image(systemName: "message")
-                    Text("Messages")
+                Image(systemName: "message")
+                Text("Messages")
+                
             }
-            }
-
+            
             
             
             NavigationStack{
                 ProfileMainView()
             }
             .tabItem {
-                HStack {
-                    Image(systemName: "person.crop.circle.fill")
-                    Text("Profile")
-                }
+                Image(systemName: "person.crop.circle.fill")
+                Text("Profile")
                 
             }
+            
+            
             
         }
         

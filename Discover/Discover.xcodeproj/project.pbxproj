@@ -42,6 +42,11 @@
 		AE69B1972BA0A57000247433 /* SearchMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1962BA0A57000247433 /* SearchMainView.swift */; };
 		AE69B1992BA0A59800247433 /* MessagesMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1982BA0A59800247433 /* MessagesMainView.swift */; };
 		AE69B19B2BA0A5B900247433 /* ProfileMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B19A2BA0A5B900247433 /* ProfileMainView.swift */; };
+		AE69B19E2BA1BC9100247433 /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B19D2BA1BC9100247433 /* SettingViewModel.swift */; };
+		AE69B1A02BA1BCB500247433 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B19F2BA1BCB500247433 /* SearchViewModel.swift */; };
+		AE69B1A22BA1BCCB00247433 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1A12BA1BCCB00247433 /* MessageViewModel.swift */; };
+		AE69B1A42BA1BCE000247433 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1A32BA1BCE000247433 /* ProfileViewModel.swift */; };
+		AE69B1A82BA1BF4400247433 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1A72BA1BF4400247433 /* FilterView.swift */; };
 		AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */; };
 		AEFCDAC12B8DE25900D3BACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */; };
 		AEFCDAC42B8DE25900D3BACD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC32B8DE25900D3BACD /* Preview Assets.xcassets */; };
@@ -66,6 +71,11 @@
 		AE69B1962BA0A57000247433 /* SearchMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMainView.swift; sourceTree = "<group>"; };
 		AE69B1982BA0A59800247433 /* MessagesMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesMainView.swift; sourceTree = "<group>"; };
 		AE69B19A2BA0A5B900247433 /* ProfileMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMainView.swift; sourceTree = "<group>"; };
+		AE69B19D2BA1BC9100247433 /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		AE69B19F2BA1BCB500247433 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		AE69B1A12BA1BCCB00247433 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		AE69B1A32BA1BCE000247433 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		AE69B1A72BA1BF4400247433 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		AEFCDAB92B8DE25900D3BACD /* Discover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverApp.swift; sourceTree = "<group>"; };
 		AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,6 +141,7 @@
 		AE69B18E2B90D97A00247433 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				AE69B1A52BA1BEA000247433 /* Model */,
 				AE69B18F2B90D98900247433 /* FireBaseManager.swift */,
 			);
 			path = Manager;
@@ -140,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				AE69B19A2BA0A5B900247433 /* ProfileMainView.swift */,
+				AE69B1A32BA1BCE000247433 /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -148,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				AE69B1982BA0A59800247433 /* MessagesMainView.swift */,
+				AE69B1A12BA1BCCB00247433 /* MessageViewModel.swift */,
 			);
 			path = Messages;
 			sourceTree = "<group>";
@@ -156,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				AE69B1962BA0A57000247433 /* SearchMainView.swift */,
+				AE69B19F2BA1BCB500247433 /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -164,8 +178,25 @@
 			isa = PBXGroup;
 			children = (
 				AE69B1912B90DF4300247433 /* ABMELDEBUTTON.swift */,
+				AE69B19D2BA1BC9100247433 /* SettingViewModel.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		AE69B1A52BA1BEA000247433 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AE69B1532B90D4FD00247433 /* FireUser.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AE69B1A62BA1BF2000247433 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				AE69B1A72BA1BF4400247433 /* FilterView.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		AEFCDAB02B8DE25900D3BACD = {
@@ -191,9 +222,9 @@
 				AE69B1952BA0A55400247433 /* Search */,
 				AE69B1942BA0A54600247433 /* Messages */,
 				AE69B1932BA0A53C00247433 /* Profile */,
+				AEFCDAFB2B8E103900D3BACD /* Discover */,
 				AE69B18E2B90D97A00247433 /* Manager */,
 				AE69B14E2B909F3500247433 /* TabBar */,
-				AEFCDAFB2B8E103900D3BACD /* Discover */,
 				AEFCDACF2B8DE5ED00D3BACD /* Authentifikation */,
 				AEFCDACA2B8DE2AC00D3BACD /* Datenbanken */,
 				AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */,
@@ -251,27 +282,19 @@
 		AEFCDAFB2B8E103900D3BACD /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				AE69B1A62BA1BF2000247433 /* Filter */,
 				AEFCDB012B8E1CEE00D3BACD /* Model */,
-				AEFCDAFE2B8E138800D3BACD /* ViewModel */,
 				AEFCDAFC2B8E104C00D3BACD /* DiscoverView.swift */,
 				AEFCDB062B8E283900D3BACD /* DiscoverListenElement.swift */,
-			);
-			path = Discover;
-			sourceTree = "<group>";
-		};
-		AEFCDAFE2B8E138800D3BACD /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
 				AEFCDAFF2B8E13A500D3BACD /* DiscoverViewModel.swift */,
 			);
-			path = ViewModel;
+			path = Discover;
 			sourceTree = "<group>";
 		};
 		AEFCDB012B8E1CEE00D3BACD /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				AEFCDB042B8E1D9C00D3BACD /* EinBildReihe.swift */,
-				AE69B1532B90D4FD00247433 /* FireUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -380,10 +403,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE69B1902B90D98900247433 /* FireBaseManager.swift in Sources */,
+				AE69B19E2BA1BC9100247433 /* SettingViewModel.swift in Sources */,
 				AEFCDADC2B8DEDAE00D3BACD /* SplashScreen.swift in Sources */,
 				AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */,
+				AE69B1A22BA1BCCB00247433 /* MessageViewModel.swift in Sources */,
 				AE69B1542B90D4FD00247433 /* FireUser.swift in Sources */,
+				AE69B1A82BA1BF4400247433 /* FilterView.swift in Sources */,
 				AEFCDAE02B8DF28A00D3BACD /* AnmeldenPerView.swift in Sources */,
+				AE69B1A02BA1BCB500247433 /* SearchViewModel.swift in Sources */,
 				AE69B1972BA0A57000247433 /* SearchMainView.swift in Sources */,
 				AE69B1502B909F4C00247433 /* MainTabView.swift in Sources */,
 				AE69B1992BA0A59800247433 /* MessagesMainView.swift in Sources */,
@@ -394,6 +421,7 @@
 				AEFCDACC2B8DE2E700D3BACD /* Repository.swift in Sources */,
 				AEFCDADE2B8DF25B00D3BACD /* AnmeldenView.swift in Sources */,
 				AEFCDB072B8E283900D3BACD /* DiscoverListenElement.swift in Sources */,
+				AE69B1A42BA1BCE000247433 /* ProfileViewModel.swift in Sources */,
 				AEFCDAD62B8DE69600D3BACD /* AuthentificationViewModel.swift in Sources */,
 				AEFCDAD32B8DE62A00D3BACD /* RegistrierenView.swift in Sources */,
 				AEFCDAFD2B8E104C00D3BACD /* DiscoverView.swift in Sources */,
