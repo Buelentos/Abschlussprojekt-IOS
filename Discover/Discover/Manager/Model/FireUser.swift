@@ -12,4 +12,7 @@ struct FireUser: Codable{
     var email: String
     var benutzerName: String
     var registerAt: Date
+    var beschreibung: String?
+    var firstLogIn: Bool?
+    
 }
