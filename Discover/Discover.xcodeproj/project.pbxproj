@@ -47,6 +47,8 @@
 		AE69B1A22BA1BCCB00247433 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1A12BA1BCCB00247433 /* MessageViewModel.swift */; };
 		AE69B1A42BA1BCE000247433 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1A32BA1BCE000247433 /* ProfileViewModel.swift */; };
 		AE69B1A82BA1BF4400247433 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1A72BA1BF4400247433 /* FilterView.swift */; };
+		AE69B1AA2BA443EA00247433 /* DiscoverDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1A92BA443EA00247433 /* DiscoverDetailView.swift */; };
+		AE69B1AD2BA446AD00247433 /* ComentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1AC2BA446AD00247433 /* ComentView.swift */; };
 		AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */; };
 		AEFCDAC12B8DE25900D3BACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */; };
 		AEFCDAC42B8DE25900D3BACD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC32B8DE25900D3BACD /* Preview Assets.xcassets */; };
@@ -76,6 +78,8 @@
 		AE69B1A12BA1BCCB00247433 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		AE69B1A32BA1BCE000247433 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		AE69B1A72BA1BF4400247433 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		AE69B1A92BA443EA00247433 /* DiscoverDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDetailView.swift; sourceTree = "<group>"; };
+		AE69B1AC2BA446AD00247433 /* ComentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentView.swift; sourceTree = "<group>"; };
 		AEFCDAB92B8DE25900D3BACD /* Discover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverApp.swift; sourceTree = "<group>"; };
 		AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -199,6 +203,14 @@
 			path = Filter;
 			sourceTree = "<group>";
 		};
+		AE69B1AB2BA4469900247433 /* Coment */ = {
+			isa = PBXGroup;
+			children = (
+				AE69B1AC2BA446AD00247433 /* ComentView.swift */,
+			);
+			path = Coment;
+			sourceTree = "<group>";
+		};
 		AEFCDAB02B8DE25900D3BACD = {
 			isa = PBXGroup;
 			children = (
@@ -282,11 +294,13 @@
 		AEFCDAFB2B8E103900D3BACD /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				AE69B1AB2BA4469900247433 /* Coment */,
 				AE69B1A62BA1BF2000247433 /* Filter */,
 				AEFCDB012B8E1CEE00D3BACD /* Model */,
 				AEFCDAFC2B8E104C00D3BACD /* DiscoverView.swift */,
 				AEFCDB062B8E283900D3BACD /* DiscoverListenElement.swift */,
 				AEFCDAFF2B8E13A500D3BACD /* DiscoverViewModel.swift */,
+				AE69B1A92BA443EA00247433 /* DiscoverDetailView.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -402,6 +416,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE69B1AA2BA443EA00247433 /* DiscoverDetailView.swift in Sources */,
 				AE69B1902B90D98900247433 /* FireBaseManager.swift in Sources */,
 				AE69B19E2BA1BC9100247433 /* SettingViewModel.swift in Sources */,
 				AEFCDADC2B8DEDAE00D3BACD /* SplashScreen.swift in Sources */,
@@ -413,6 +428,7 @@
 				AE69B1A02BA1BCB500247433 /* SearchViewModel.swift in Sources */,
 				AE69B1972BA0A57000247433 /* SearchMainView.swift in Sources */,
 				AE69B1502B909F4C00247433 /* MainTabView.swift in Sources */,
+				AE69B1AD2BA446AD00247433 /* ComentView.swift in Sources */,
 				AE69B1992BA0A59800247433 /* MessagesMainView.swift in Sources */,
 				AEFCDB052B8E1D9C00D3BACD /* EinBildReihe.swift in Sources */,
 				AE69B19B2BA0A5B900247433 /* ProfileMainView.swift in Sources */,

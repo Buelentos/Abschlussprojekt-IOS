@@ -11,5 +11,6 @@ import SwiftUI
 
 class DiscoverViewModel: ObservableObject{
     @Published var repo = Repository.sharedRepo
-    
+    @Published var showFilter = false
+
 }
