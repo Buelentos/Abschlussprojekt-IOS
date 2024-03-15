@@ -15,43 +15,70 @@ struct DiscoverView: View {
     var body: some View {
         
         
+        NavigationStack {
             ScrollView{
-                VStack(spacing: 0){
+                
+                HStack {
+                    VStack(spacing: 0){
+                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
+                                    NavigationLink(value: reihe) {
+                                        DiscoverListenElement(einbild: reihe)
+                                    }
+                                }
+                    }
                     
-                    ForEach(discoverViewModel.repo.listeDerBilder){ reihe in
-                        DiscoverListenElement(einbild: reihe)
+                    VStack(spacing: 0){
+                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
+                                    NavigationLink(value: reihe) {
+                                        DiscoverListenElement(einbild: reihe)
+                                    }
+                                }
                     }
-                }.frame(maxWidth: .infinity)
-                
-                
-                
-            }//ScrollViewKlammer
-            
-            .searchable(text: $discoverViewModel.repo.searchInputDiscover, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Freunde")
-            
-            .toolbar{
-                
-                
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button() {
-                        withAnimation{
-                            discoverViewModel.showFilter.toggle()
-                        }
-                    } label: {
-                        Image(systemName: "gear")
-                            .foregroundColor(.white)
+                    
+                    VStack(spacing: 0){
+                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
+                                    NavigationLink(value: reihe) {
+                                        DiscoverListenElement(einbild: reihe)
+                                    }
+                                }
                     }
-                    .buttonStyle(.bordered).background(.blue).cornerRadius(10).padding(.vertical)
-                    .padding().sheet(isPresented: $discoverViewModel.showFilter, content: {
-                        FilterView()
-                    })//Sheet muss von rechts rein sliden
-
                     
                 }
+                    
+                    
+                    
+                }//ScrollViewKlammer
+            .navigationDestination(for: EinBildReihe.self, destination: {
+                selectedPicture in
+                DiscoverDetailView(bild: selectedPicture)
+            })
                 
+                .searchable(text: $discoverViewModel.repo.searchInputDiscover, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Freunde")
                 
-            }
+                .toolbar{
+                    
+                    
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button() {
+                            withAnimation{
+                                discoverViewModel.showFilter.toggle()
+                            }
+                        } label: {
+                            Image(systemName: "gear")
+                                .foregroundColor(.white)
+                        }
+                        .buttonStyle(.bordered).background(.blue).cornerRadius(10).padding(.vertical)
+                        .padding().sheet(isPresented: $discoverViewModel.showFilter, content: {
+                            FilterView()
+                        })//Sheet muss von rechts rein sliden
+
+                        
+                    }
+                    
+                    
+                }
             .navigationTitle("Discover")
+        }
             
             
             

@@ -9,6 +9,9 @@ import SwiftUI
 
 struct DiscoverDetailView: View {
     
+    @EnvironmentObject private var discoverViewModel: DiscoverViewModel
+    var bild: EinBildReihe
+
     var body: some View {
         
         ScrollView{
@@ -16,11 +19,13 @@ struct DiscoverDetailView: View {
                 
                 Text("TAG des Users, welches er beim Hochladen eingegeben hat.")
                 
-                Image(systemName: "globe")
+                Image(bild.einBildReihe)
                     .resizable().frame(width: 200, height: 200).scaledToFit()
                 
                 HStack{
-                    Image(systemName: "heart")
+                    Image(systemName: "heart").onTapGesture {
+                        discoverViewModel.like(bild: discoverViewModel.repo.mainList[0])
+                    }
                     Image(systemName: "text.bubble")
                     Spacer()
                     Image(systemName: "paperplane")
@@ -36,5 +41,6 @@ struct DiscoverDetailView: View {
 }
 
 #Preview {
-    DiscoverDetailView()
+    DiscoverDetailView(bild: EinBildReihe(einBildReihe: .a))
+        .environmentObject(DiscoverViewModel())
 }
