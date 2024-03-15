@@ -61,15 +61,35 @@ class ProfileViewModel: ObservableObject{
     private func updateUserProfileImageURL(_ url: URL) {
         guard let userId = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else { return }
         let userRef = FireBaseManager.sharedFireBase.fireStore.collection("users").document(userId)
-    
-        
-        userRef.updateData(["uploadedPictures": url.absoluteString]) { error in
-          if let error = error {
-            print("Failed to update profile image URL: \(error)")
-          } else {
-            print("Profile image-URL added successfully in FireUser.uploadedPictures")
-          }
+
+        // Fügen Sie das URL-String-Objekt zum Array hinzu
+        userRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                if var uploadedPictures = document.data()?["uploadedPictures"] as? [String] {
+                    // Falls das Array bereits vorhanden ist, fügen Sie das URL-String-Objekt hinzu
+                    uploadedPictures.append(url.absoluteString)
+                    userRef.updateData(["uploadedPictures": uploadedPictures]) { error in
+                        if let error = error {
+                            print("Failed to update profile image URL: \(error)")
+                        } else {
+                            print("Profile image URL added successfully in FireUser.uploadedPictures")
+                        }
+                    }
+                } else {
+                    // Falls das Array nicht vorhanden ist, erstellen Sie ein neues Array mit dem URL-String-Objekt
+                    userRef.updateData(["uploadedPictures": [url.absoluteString]]) { error in
+                        if let error = error {
+                            print("Failed to update profile image URL: \(error)")
+                        } else {
+                            print("Profile image URL added successfully in FireUser.uploadedPictures")
+                        }
+                    }
+                }
+            } else {
+                print("Document does not exist")
+            }
         }
-      }
+    }
+
     
 }
