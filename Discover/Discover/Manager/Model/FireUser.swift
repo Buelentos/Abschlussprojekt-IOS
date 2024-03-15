@@ -14,5 +14,6 @@ struct FireUser: Codable{
     var registerAt: Date
     var beschreibung: String?
     var firstLogIn: Bool?
-    
+    var likedPictures = [""]
+    var uploadedPictures = [""]
 }

@@ -12,6 +12,7 @@ import Firebase
 struct DiscoverApp: App {
     @StateObject var viewmodel = AuthentificationViewModel()
     @StateObject var testModel = DiscoverViewModel()
+    @StateObject var profileViewModel = ProfileViewModel()
     
     init(){
         FirebaseConfiguration.shared.setLoggerLevel(.min)
@@ -24,6 +25,7 @@ struct DiscoverApp: App {
                 MainTabView()
                     .environmentObject(viewmodel)
                     .environmentObject(testModel)
+                    .environmentObject(profileViewModel)
             } else {
                 SplashScreen()
                     .environmentObject(viewmodel)

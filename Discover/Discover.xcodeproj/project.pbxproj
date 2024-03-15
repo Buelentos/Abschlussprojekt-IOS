@@ -49,6 +49,7 @@
 		AE69B1A82BA1BF4400247433 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1A72BA1BF4400247433 /* FilterView.swift */; };
 		AE69B1AA2BA443EA00247433 /* DiscoverDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1A92BA443EA00247433 /* DiscoverDetailView.swift */; };
 		AE69B1AD2BA446AD00247433 /* ComentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1AC2BA446AD00247433 /* ComentView.swift */; };
+		AE69B1AF2BA4994D00247433 /* AddPictureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1AE2BA4994D00247433 /* AddPictureView.swift */; };
 		AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */; };
 		AEFCDAC12B8DE25900D3BACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */; };
 		AEFCDAC42B8DE25900D3BACD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC32B8DE25900D3BACD /* Preview Assets.xcassets */; };
@@ -80,6 +81,7 @@
 		AE69B1A72BA1BF4400247433 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		AE69B1A92BA443EA00247433 /* DiscoverDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverDetailView.swift; sourceTree = "<group>"; };
 		AE69B1AC2BA446AD00247433 /* ComentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComentView.swift; sourceTree = "<group>"; };
+		AE69B1AE2BA4994D00247433 /* AddPictureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPictureView.swift; sourceTree = "<group>"; };
 		AEFCDAB92B8DE25900D3BACD /* Discover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverApp.swift; sourceTree = "<group>"; };
 		AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 		AE69B1932BA0A53C00247433 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				AE69B1B02BA4995100247433 /* AddPicture */,
 				AE69B19A2BA0A5B900247433 /* ProfileMainView.swift */,
 				AE69B1A32BA1BCE000247433 /* ProfileViewModel.swift */,
 			);
@@ -209,6 +212,14 @@
 				AE69B1AC2BA446AD00247433 /* ComentView.swift */,
 			);
 			path = Coment;
+			sourceTree = "<group>";
+		};
+		AE69B1B02BA4995100247433 /* AddPicture */ = {
+			isa = PBXGroup;
+			children = (
+				AE69B1AE2BA4994D00247433 /* AddPictureView.swift */,
+			);
+			path = AddPicture;
 			sourceTree = "<group>";
 		};
 		AEFCDAB02B8DE25900D3BACD = {
@@ -417,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AE69B1AA2BA443EA00247433 /* DiscoverDetailView.swift in Sources */,
+				AE69B1AF2BA4994D00247433 /* AddPictureView.swift in Sources */,
 				AE69B1902B90D98900247433 /* FireBaseManager.swift in Sources */,
 				AE69B19E2BA1BC9100247433 /* SettingViewModel.swift in Sources */,
 				AEFCDADC2B8DEDAE00D3BACD /* SplashScreen.swift in Sources */,

@@ -11,6 +11,8 @@ import SwiftUI
 struct EinBildReihe: Identifiable, Hashable{
     var id = UUID()
     var einBildReihe: ImageResource
+    var tag = ""
+    var beschreibung = ""
     var likes: Int = 0
     var coments = [""]
  

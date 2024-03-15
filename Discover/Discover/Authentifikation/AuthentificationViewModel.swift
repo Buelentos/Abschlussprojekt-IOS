@@ -97,7 +97,16 @@ class AuthentificationViewModel: ObservableObject{
     
     
     func createUserFireStore(id: String, mail: String, name: String) {
-        let fireUser = FireUser(id: id, email: mail, benutzerName: name, registerAt: Date())
+        let fireUser = FireUser(
+            id: id,
+            email: mail,
+            benutzerName: name,
+            registerAt: Date(),
+            beschreibung: "",
+            firstLogIn: true,
+            likedPictures: [String](),
+            uploadedPictures: [String]()
+        )
         
         do{
             try manager.fireStore.collection("users").document(id).setData(from: fireUser)

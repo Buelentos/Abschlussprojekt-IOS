@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainTabView: View {
     
-    @State private var selcetedTab = 1
+    @State private var selcetedTab = 2
     
     var body: some View {
         TabView(selection: $selcetedTab) {
@@ -21,6 +21,8 @@ struct MainTabView: View {
                 Text("Settings")
                 
             }
+            .tag(0)
+
             
             
             
@@ -32,6 +34,8 @@ struct MainTabView: View {
                 Text("Search")
                 
             }
+            .tag(1)
+
             
             
             
@@ -42,7 +46,7 @@ struct MainTabView: View {
                 Image(systemName: "globe.americas.fill")
                 Text("Discover")
             }
-            .tag(1)
+            .tag(2)
             
             
             
@@ -54,6 +58,8 @@ struct MainTabView: View {
                 Text("Messages")
                 
             }
+            .tag(3)
+
             
             
             
@@ -65,6 +71,8 @@ struct MainTabView: View {
                 Text("Profile")
                 
             }
+            .tag(4)
+
             
             
             
