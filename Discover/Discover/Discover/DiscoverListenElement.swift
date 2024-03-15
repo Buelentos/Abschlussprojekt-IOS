@@ -14,7 +14,7 @@ struct DiscoverListenElement: View {
     var body: some View {
         
         HStack {
-            Image(einbild.einBildReihe).resizable().frame(width: 140, height: 140)
+            Image(einbild.einBildReihe).resizable().scaledToFit().border(.white)
         }
     }
 }

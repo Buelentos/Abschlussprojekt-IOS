@@ -20,7 +20,7 @@ struct DiscoverDetailView: View {
                 Text("TAG des Users, welches er beim Hochladen eingegeben hat.")
                 
                 Image(bild.einBildReihe)
-                    .resizable().frame(width: 200, height: 200).scaledToFit()
+                    .resizable().frame(width: 300, height: 300)
                 
                 HStack{
                     Image(systemName: "heart").onTapGesture {

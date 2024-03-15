@@ -43,7 +43,7 @@ struct DiscoverView: View {
                                 }
                     }
                     
-                }
+                }.padding(.leading).padding(.trailing)
                     
                     
                     
