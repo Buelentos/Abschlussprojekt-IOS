@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ABMELDEBUTTON: View {
-    @EnvironmentObject private var viewModel: AuthentificationViewModel
+    @EnvironmentObject private var viewModel: MainViewModel
 
     var body: some View {
         Button("ABMELDEN"){

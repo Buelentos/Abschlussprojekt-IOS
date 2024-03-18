@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct FireUser: Codable{
+struct FireUser: Codable, Identifiable{
     var id: String
     var email: String
     var benutzerName: String

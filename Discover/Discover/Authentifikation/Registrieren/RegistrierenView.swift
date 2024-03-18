@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegistrierenView: View {
-    @EnvironmentObject private var viewModel: AuthentificationViewModel
+    @EnvironmentObject private var viewModel: MainViewModel
     
     
     var body: some View {
@@ -71,7 +71,8 @@ struct RegistrierenView: View {
 }
 
 #Preview {
-        RegistrierenView().environmentObject(AuthentificationViewModel())
+        RegistrierenView()
+        .environmentObject(MainViewModel())
         
     
 }

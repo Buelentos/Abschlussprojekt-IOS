@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct DiscoverView: View {
-    @EnvironmentObject private var discoverViewModel: DiscoverViewModel
-    @EnvironmentObject private var testModel: AuthentificationViewModel
-    
+    @EnvironmentObject private var viewModel: MainViewModel
 
     var body: some View {
         
@@ -20,7 +18,7 @@ struct DiscoverView: View {
                 
                 HStack {
                     VStack(spacing: 0){
-                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
+                        ForEach(viewModel.repo.mainList.shuffled()){ reihe in
                                     NavigationLink(value: reihe) {
                                         DiscoverListenElement(einbild: reihe)
                                     }
@@ -28,7 +26,7 @@ struct DiscoverView: View {
                     }
                     
                     VStack(spacing: 0){
-                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
+                        ForEach(viewModel.repo.mainList.shuffled()){ reihe in
                                     NavigationLink(value: reihe) {
                                         DiscoverListenElement(einbild: reihe)
                                     }
@@ -36,7 +34,7 @@ struct DiscoverView: View {
                     }
                     
                     VStack(spacing: 0){
-                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
+                        ForEach(viewModel.repo.mainList.shuffled()){ reihe in
                                     NavigationLink(value: reihe) {
                                         DiscoverListenElement(einbild: reihe)
                                     }
@@ -53,7 +51,7 @@ struct DiscoverView: View {
                 DiscoverDetailView(bild: selectedPicture)
             })
                 
-                .searchable(text: $discoverViewModel.repo.searchInputDiscover, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Freunde")
+                .searchable(text: $viewModel.repo.searchInputDiscover, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Freunde")
                 
                 .toolbar{
                     
@@ -61,14 +59,14 @@ struct DiscoverView: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button() {
                             withAnimation{
-                                discoverViewModel.showFilter.toggle()
+                                viewModel.showFilter.toggle()
                             }
                         } label: {
                             Image(systemName: "gear")
                                 .foregroundColor(.white)
                         }
                         .buttonStyle(.bordered).background(.blue).cornerRadius(10).padding(.vertical)
-                        .padding().sheet(isPresented: $discoverViewModel.showFilter, content: {
+                        .padding().sheet(isPresented: $viewModel.showFilter, content: {
                             FilterView()
                         })//Sheet muss von rechts rein sliden
 
@@ -88,6 +86,7 @@ struct DiscoverView: View {
 
 #Preview {
     NavigationStack{
-        DiscoverView().environmentObject(DiscoverViewModel()).environmentObject(AuthentificationViewModel())
+        DiscoverView()
+            .environmentObject(MainViewModel())
     }
 }

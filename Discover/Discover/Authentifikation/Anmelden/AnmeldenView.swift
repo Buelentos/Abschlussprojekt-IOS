@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnmeldenView: View {
-    @EnvironmentObject private var viewModel: AuthentificationViewModel
+    @EnvironmentObject private var viewModel: MainViewModel
     
 
     var body: some View {
@@ -77,6 +77,7 @@ struct AnmeldenView: View {
 }
 
 #Preview {
-    AnmeldenView().environmentObject(AuthentificationViewModel())
+    AnmeldenView()
+        .environmentObject(MainViewModel())
 
 }

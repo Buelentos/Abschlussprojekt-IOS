@@ -11,7 +11,8 @@ import PhotosUI
 
 struct AddPictureView: View {
     
-    @EnvironmentObject var viewModel: ProfileViewModel
+    @EnvironmentObject var viewModel: MainViewModel
+    
     
     
     var body: some View {
@@ -53,5 +54,5 @@ struct AddPictureView: View {
 
 #Preview {
     AddPictureView()
-        .environmentObject(ProfileViewModel())
+        .environmentObject(MainViewModel())
 }

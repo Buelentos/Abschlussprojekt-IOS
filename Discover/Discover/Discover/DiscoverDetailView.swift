@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DiscoverDetailView: View {
     
-    @EnvironmentObject private var discoverViewModel: DiscoverViewModel
+    @EnvironmentObject private var viewModel: MainViewModel
     var bild: EinBildReihe
 
     var body: some View {
@@ -24,7 +24,7 @@ struct DiscoverDetailView: View {
                 
                 HStack{
                     Image(systemName: "heart").onTapGesture {
-                        discoverViewModel.like(bild: discoverViewModel.repo.mainList[0])
+                        viewModel.like(bild: viewModel.repo.mainList[0])
                     }
                     Image(systemName: "text.bubble")
                     Spacer()
@@ -42,5 +42,5 @@ struct DiscoverDetailView: View {
 
 #Preview {
     DiscoverDetailView(bild: EinBildReihe(einBildReihe: .a))
-        .environmentObject(DiscoverViewModel())
+        .environmentObject(MainViewModel())
 }

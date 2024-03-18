@@ -33,7 +33,8 @@ struct SplashScreen: View {
 
 #Preview {
         
-        SplashScreen().environmentObject(AuthentificationViewModel())
+        SplashScreen()
+        .environmentObject(MainViewModel())
             
     }
 

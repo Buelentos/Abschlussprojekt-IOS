@@ -10,9 +10,7 @@ import Firebase
 
 @main
 struct DiscoverApp: App {
-    @StateObject var viewmodel = AuthentificationViewModel()
-    @StateObject var testModel = DiscoverViewModel()
-    @StateObject var profileViewModel = ProfileViewModel()
+    @StateObject var mainViewModel = MainViewModel()
     
     init(){
         FirebaseConfiguration.shared.setLoggerLevel(.min)
@@ -21,15 +19,12 @@ struct DiscoverApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if viewmodel.userIsLoggedIn {
+            if mainViewModel.userIsLoggedIn {
                 MainTabView()
-                    .environmentObject(viewmodel)
-                    .environmentObject(testModel)
-                    .environmentObject(profileViewModel)
+                    .environmentObject(mainViewModel)
             } else {
                 SplashScreen()
-                    .environmentObject(viewmodel)
-                    .environmentObject(testModel)
+                    .environmentObject(mainViewModel)
             }
         }
     }
