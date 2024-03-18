@@ -23,13 +23,16 @@ struct ProfileMainView: View {
                 Image(systemName: "globe")
                     .resizable().frame(width: 90,height:90).clipShape(Circle()).border(.blue).padding()
                 VStack{
-                    Text("USER BENUTZERNAME")
-                    Text("USER HERKUNFT")
+                    Text(viewModel.user?.benutzerName ?? "lala")
+                    HStack {
+                        Text("Member since:")
+                      
+                    }
                 }
                 Spacer()
             }
             HStack {
-                Text("USER BESCHREIBUNG").padding()
+                Text(viewModel.user?.beschreibung ?? "Keine Beschreibung").padding()
                 Spacer()
                 Button("Add Picture"){
                     viewModel.pictureSheetShow.toggle()
@@ -44,24 +47,26 @@ struct ProfileMainView: View {
                 
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.user?.uploadedPictures ?? [""], id: \.self){ picture in
-                        AsyncImage(
-                            url: URL(string: picture),
-                            content: { image in
-                                image.resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(maxWidth: 100, maxHeight: 100)
-                            },
-                            placeholder: {
-                                ProgressView()
-                            }
-                        )
+                        
+                            AsyncImage(
+                                url: URL(string: picture),
+                                content: { image in
+                                    image.resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(maxWidth: 90, maxHeight: 90)
+                                        .scaledToFill()
+                                },
+                                placeholder: {
+                                    ProgressView()
+                                }
+                            )
+                        }
                     }
-                }
+                
                 
                 
                 
             }//ScrollViewKlammer
-            
         }
     }
 }

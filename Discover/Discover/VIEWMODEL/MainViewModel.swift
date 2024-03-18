@@ -61,6 +61,7 @@ class MainViewModel: ObservableObject{
                     self.updateUserProfileImageURL(downloadURL)
                     print("Succesfully pushed Image to Storage")
                 }
+                
             }
         }
     }
@@ -230,6 +231,10 @@ class MainViewModel: ObservableObject{
         }
         
     }
+    
+    
+    
+    
     
     
     
