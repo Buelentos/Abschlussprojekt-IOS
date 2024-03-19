@@ -56,7 +56,7 @@
 		AEFCDADE2B8DF25B00D3BACD /* AnmeldenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDADD2B8DF25B00D3BACD /* AnmeldenView.swift */; };
 		AEFCDAE02B8DF28A00D3BACD /* AnmeldenPerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDADF2B8DF28A00D3BACD /* AnmeldenPerView.swift */; };
 		AEFCDAFD2B8E104C00D3BACD /* DiscoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDAFC2B8E104C00D3BACD /* DiscoverView.swift */; };
-		AEFCDB052B8E1D9C00D3BACD /* Firepicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDB042B8E1D9C00D3BACD /* Firepicture.swift */; };
+		AEFCDB052B8E1D9C00D3BACD /* FirePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDB042B8E1D9C00D3BACD /* FirePost.swift */; };
 		AEFCDB072B8E283900D3BACD /* DiscoverListenElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDB062B8E283900D3BACD /* DiscoverListenElement.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,7 +84,7 @@
 		AEFCDADD2B8DF25B00D3BACD /* AnmeldenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnmeldenView.swift; sourceTree = "<group>"; };
 		AEFCDADF2B8DF28A00D3BACD /* AnmeldenPerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnmeldenPerView.swift; sourceTree = "<group>"; };
 		AEFCDAFC2B8E104C00D3BACD /* DiscoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverView.swift; sourceTree = "<group>"; };
-		AEFCDB042B8E1D9C00D3BACD /* Firepicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firepicture.swift; sourceTree = "<group>"; };
+		AEFCDB042B8E1D9C00D3BACD /* FirePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirePost.swift; sourceTree = "<group>"; };
 		AEFCDB062B8E283900D3BACD /* DiscoverListenElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverListenElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,7 +187,7 @@
 		AE69B1A52BA1BEA000247433 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AEFCDB042B8E1D9C00D3BACD /* Firepicture.swift */,
+				AEFCDB042B8E1D9C00D3BACD /* FirePost.swift */,
 				AE69B1532B90D4FD00247433 /* FireUser.swift */,
 			);
 			path = Model;
@@ -424,7 +424,7 @@
 				AE69B1502B909F4C00247433 /* MainTabView.swift in Sources */,
 				AE69B1AD2BA446AD00247433 /* ComentView.swift in Sources */,
 				AE69B1992BA0A59800247433 /* MessagesMainView.swift in Sources */,
-				AEFCDB052B8E1D9C00D3BACD /* Firepicture.swift in Sources */,
+				AEFCDB052B8E1D9C00D3BACD /* FirePost.swift in Sources */,
 				AE69B19B2BA0A5B900247433 /* ProfileMainView.swift in Sources */,
 				AE457EB12BA85B3700003648 /* MainViewModel.swift in Sources */,
 				AE69B1922B90DF4300247433 /* ABMELDEBUTTON.swift in Sources */,

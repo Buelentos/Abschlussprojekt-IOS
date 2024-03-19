@@ -10,7 +10,7 @@ import SwiftUI
 struct DiscoverDetailView: View {
     
     @EnvironmentObject private var viewModel: MainViewModel
-    var bild: Firepicture
+    var bild: FirePost
 
     var body: some View {
         
@@ -19,8 +19,18 @@ struct DiscoverDetailView: View {
                 
                 Text("TAG des Users, welches er beim Hochladen eingegeben hat.")
                 
-                Image(bild.einBildReihe)
-                    .resizable().frame(width: 300, height: 300)
+                AsyncImage(
+                    url: URL(string: bild.url),
+                    content: { image in
+                        image.resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(maxWidth: 300, maxHeight: 300)
+                            .scaledToFill()
+                    },
+                    placeholder: {
+                        ProgressView()
+                    }
+                )
                 
                 HStack{
                     Image(systemName: "heart").onTapGesture {
@@ -40,7 +50,7 @@ struct DiscoverDetailView: View {
     }
 }
 
-#Preview {
-    DiscoverDetailView(bild: Firepicture(einBildReihe: .a))
-        .environmentObject(MainViewModel())
-}
+//#Preview {
+//    DiscoverDetailView(bild: FirePost(einBildReihe: .a))
+//        .environmentObject(MainViewModel())
+//}

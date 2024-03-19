@@ -12,7 +12,7 @@ class Repository {
     
      var searchInputDiscover = ""
     
-    var mainList = [Firepicture]()
+    var mainList = [FirePost]()
 
     
     

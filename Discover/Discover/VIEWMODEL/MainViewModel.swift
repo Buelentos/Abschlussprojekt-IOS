@@ -39,6 +39,24 @@ class MainViewModel: ObservableObject{
         self.profileImage = uiImage
     }
     
+    func createPost(url: String){
+        var id = UUID().uuidString
+        let firePost = FirePost(
+            id: id,
+            url: url,
+            tag: self.pictureTAG,
+            beschreibung: self.pictureBeschreibung,
+            likes: 0,
+            comments: [String]()
+        )
+        
+        do{
+            try manager.fireStore.collection("posts").document(id).setData(from: firePost)
+        }catch{
+            print("Fehler beim erstellen von einem Post: \(error)")
+        }
+    }
+    
     func selectedPicturetoStorage(){
         guard let uid = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else {return}
         let ref = Storage.storage().reference().child(uid).child("\(pictureTAG)")
@@ -74,7 +92,7 @@ class MainViewModel: ObservableObject{
     private func updateUserProfileImageURL(_ url: URL) {
         guard let userId = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else { return }
         let userRef = FireBaseManager.sharedFireBase.fireStore.collection("users").document(userId)
-
+        
         // Fügen Sie das URL-String-Objekt zum Array hinzu
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
@@ -88,6 +106,7 @@ class MainViewModel: ObservableObject{
                             print("Profile image URL added successfully in FireUser.uploadedPictures")
                         }
                         self.fetchUser(id: self.user?.id ?? "")
+                        self.createPost(url: url.absoluteString)
                     }
                 } else {
                     // Falls das Array nicht vorhanden ist, erstellen Sie ein neues Array mit dem URL-String-Objekt
@@ -98,6 +117,7 @@ class MainViewModel: ObservableObject{
                             print("Profile image URL added successfully in FireUser.uploadedPictures")
                         }
                         self.fetchUser(id: self.user?.id ?? "")
+                        self.createPost(url: url.absoluteString)
                     }
                 }
             } else {
@@ -106,16 +126,16 @@ class MainViewModel: ObservableObject{
         }
     }
     
-        
+    
     func resetPictureSelections (){
         self.pictureTAG = ""
         self.pictureBeschreibung = ""
         self.profileImage = nil
         
     }
-  
     
-    func like(bild: Firepicture){
+    
+    func like(bild: FirePost){
         //Hier muss über den angemeldeten User eine Datenbank erstellt werden, wo alle gelikedten bilder/videos gespeichert werden.
         //Zusätzlich, muss geprüft werden, ob das Bild bereits geliked ist. Falls ja, dann muss das Bild getogglet werden auf "filed.heart" andernfalls auf "heart"
     }
@@ -135,7 +155,7 @@ class MainViewModel: ObservableObject{
     
     func login() {
         manager.authenticator.signIn(withEmail: repo.emailAdress, password: repo.password) { authResult, error in
-           if let userAuth = self.handleAuthResult(authResult: authResult, error: error){
+            if let userAuth = self.handleAuthResult(authResult: authResult, error: error){
                 self.fetchUser(id: userAuth.uid)
             }
         }
@@ -143,9 +163,9 @@ class MainViewModel: ObservableObject{
     
     func register() {
         manager.authenticator.createUser(withEmail: repo.emailAdress, password: repo.password) { authResult, error in
-           if let userAuth = self.handleAuthResult(authResult: authResult, error: error){
-               self.createUserFireStore(id: userAuth.uid, mail: self.repo.emailAdress, name: self.repo.benutzername)
-               self.fetchUser(id: userAuth.uid)
+            if let userAuth = self.handleAuthResult(authResult: authResult, error: error){
+                self.createUserFireStore(id: userAuth.uid, mail: self.repo.emailAdress, name: self.repo.benutzername)
+                self.fetchUser(id: userAuth.uid)
             }
         }
     }
@@ -191,15 +211,15 @@ class MainViewModel: ObservableObject{
         
         
         manager.fireStore.collection("users").document(fisch!.uid).delete { error in
-                    if let error = error {
-                        print("Error deleting user with id \(fisch!.uid): \(error)")
-                    } else {
-                        print("User with id \(fisch!.uid) deleted from Firestore")
-                    }
-                }
+            if let error = error {
+                print("Error deleting user with id \(fisch!.uid): \(error)")
+            } else {
+                print("User with id \(fisch!.uid) deleted from Firestore")
             }
-         
-     
+        }
+    }
+    
+    
     
     
     func createUserFireStore(id: String, mail: String, name: String) {
@@ -241,18 +261,18 @@ class MainViewModel: ObservableObject{
                     print("Error decoding FireUser: \(error)")
                 }
             }
-
+        
         manager.fireStore.collection("users").document(id).getDocument { userInFire, error in
             if let error = error {
                 print("Error reading user with id \(id): \(error)")
                 return
             }
-
+            
             guard let userInFire = userInFire else {
                 print("Document with id \(id) is empty")
                 return
             }
-
+            
             do {
                 let tempUser = try userInFire.data(as: FireUser.self)
                 self.user = tempUser
@@ -261,7 +281,7 @@ class MainViewModel: ObservableObject{
             }
         }
     }
-
+    
     
     func removeListener(){
         self.listener = nil

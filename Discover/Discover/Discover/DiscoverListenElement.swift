@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct DiscoverListenElement: View {
-    var einbild: Firepicture
+    var einbild: FirePost
     
     
     var body: some View {
         
         HStack {
-            Image(einbild.einBildReihe).resizable().scaledToFit().border(.white)
+//            Image(einbild.einBildReihe).resizable().scaledToFit().border(.white)
         }
     }
 }
 
-#Preview {
-    DiscoverListenElement(einbild: Firepicture(einBildReihe: .logo))
-}
+//#Preview {
+//    DiscoverListenElement(einbild: FirePost(einBildReihe: .logo))
+//}
