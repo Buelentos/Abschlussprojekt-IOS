@@ -14,7 +14,18 @@ struct DiscoverListenElement: View {
     var body: some View {
         
         HStack {
-//            Image(einbild.einBildReihe).resizable().scaledToFit().border(.white)
+            AsyncImage(
+                url: URL(string: einbild.url),
+                content: { image in
+                    image.resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: 300, maxHeight: 300)
+                        .scaledToFill()
+                },
+                placeholder: {
+                    ProgressView()
+                }
+            )
         }
     }
 }

@@ -23,6 +23,7 @@ class MainViewModel: ObservableObject{
     private var manager = FireBaseManager.sharedFireBase
     @Published var user: FireUser?
     @Published var listener: ListenerRegistration?
+    @Published var uploadURL: String?
     
     
     @Published var selectedPhotosPickerItem: PhotosPickerItem? {
@@ -39,28 +40,30 @@ class MainViewModel: ObservableObject{
         self.profileImage = uiImage
     }
     
-    func createPost(url: String){
-        var id = UUID().uuidString
+    func createPost(url: String, tag: String, beschreibung: String){
+        print("Tag: \(self.pictureTAG), Beschreibung: \(self.pictureBeschreibung)")
+        let id = UUID().uuidString
         let firePost = FirePost(
             id: id,
             url: url,
-            tag: self.pictureTAG,
-            beschreibung: self.pictureBeschreibung,
+            tag: tag,
+            beschreibung: beschreibung,
             likes: 0,
             comments: [String]()
         )
         
         do{
             try manager.fireStore.collection("posts").document(id).setData(from: firePost)
-        }catch{
+        } catch {
             print("Fehler beim erstellen von einem Post: \(error)")
         }
     }
-    
+
     func selectedPicturetoStorage(){
         guard let uid = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else {return}
         let ref = Storage.storage().reference().child(uid).child("\(pictureTAG)")
-        
+        self.createPost(url: uploadURL ?? "failed", tag: self.pictureTAG, beschreibung: self.pictureBeschreibung)
+
         
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
@@ -81,6 +84,7 @@ class MainViewModel: ObservableObject{
                 if let downloadURL = url {
                     self.updateUserProfileImageURL(downloadURL)
                     print("Succesfully pushed Image to Storage")
+
                 }
                 
             }
@@ -106,24 +110,23 @@ class MainViewModel: ObservableObject{
                             print("Profile image URL added successfully in FireUser.uploadedPictures")
                         }
                         self.fetchUser(id: self.user?.id ?? "")
-                        self.createPost(url: url.absoluteString)
                     }
                 } else {
                     // Falls das Array nicht vorhanden ist, erstellen Sie ein neues Array mit dem URL-String-Objekt
-                    userRef.updateData(["uploadedPictures": [url.absoluteString]]) { error in
+                    userRef.updateData(["uploadedPictures": [url.absoluteString]]) { [self] error in
                         if let error = error {
                             print("Failed to update profile image URL: \(error)")
                         } else {
                             print("Profile image URL added successfully in FireUser.uploadedPictures")
                         }
                         self.fetchUser(id: self.user?.id ?? "")
-                        self.createPost(url: url.absoluteString)
                     }
                 }
             } else {
                 print("Document does not exist")
             }
         }
+        uploadURL = url.absoluteString
     }
     
     
@@ -149,9 +152,12 @@ class MainViewModel: ObservableObject{
     }
     
     
+    
     init() {
         self.checkLogin()
     }
+    
+    
     
     func login() {
         manager.authenticator.signIn(withEmail: repo.emailAdress, password: repo.password) { authResult, error in
