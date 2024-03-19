@@ -12,22 +12,7 @@ class Repository {
     
      var searchInputDiscover = ""
     
-    var mainList = [
-        EinBildReihe(einBildReihe: .a),
-        EinBildReihe(einBildReihe: .b),
-        EinBildReihe(einBildReihe: .c),
-        EinBildReihe(einBildReihe: .d),
-        EinBildReihe(einBildReihe: .e),
-        EinBildReihe(einBildReihe: .f),
-        EinBildReihe(einBildReihe: .g),
-        EinBildReihe(einBildReihe: .h),
-        EinBildReihe(einBildReihe: .i),
-        EinBildReihe(einBildReihe: .j),
-        EinBildReihe(einBildReihe: .k),
-        EinBildReihe(einBildReihe: .l),
-        EinBildReihe(einBildReihe: .m),
-        EinBildReihe(einBildReihe: .n),
-    ]
+    var mainList = [Firepicture]()
 
     
     

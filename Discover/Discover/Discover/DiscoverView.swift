@@ -46,7 +46,7 @@ struct DiscoverView: View {
                     
                     
                 }//ScrollViewKlammer
-            .navigationDestination(for: EinBildReihe.self, destination: {
+            .navigationDestination(for: Firepicture.self, destination: {
                 selectedPicture in
                 DiscoverDetailView(bild: selectedPicture)
             })

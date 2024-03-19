@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DiscoverListenElement: View {
-    var einbild: EinBildReihe
+    var einbild: Firepicture
     
     
     var body: some View {
@@ -20,5 +20,5 @@ struct DiscoverListenElement: View {
 }
 
 #Preview {
-    DiscoverListenElement(einbild: EinBildReihe(einBildReihe: .logo))
+    DiscoverListenElement(einbild: Firepicture(einBildReihe: .logo))
 }

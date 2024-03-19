@@ -22,6 +22,7 @@ class MainViewModel: ObservableObject{
     @Published var showFilter = false
     private var manager = FireBaseManager.sharedFireBase
     @Published var user: FireUser?
+    @Published var listener: ListenerRegistration?
     
     
     @Published var selectedPhotosPickerItem: PhotosPickerItem? {
@@ -29,6 +30,7 @@ class MainViewModel: ObservableObject{
     }
     
     @Published var profileImage: UIImage?
+    
     @MainActor
     func loadImage() async throws {
         guard let item = selectedPhotosPickerItem else {return}
@@ -57,13 +59,16 @@ class MainViewModel: ObservableObject{
                     print("Failed to download URL from Storage: \(error)")
                     return
                 }
+                
                 if let downloadURL = url {
                     self.updateUserProfileImageURL(downloadURL)
                     print("Succesfully pushed Image to Storage")
                 }
                 
             }
+            
         }
+        self.fetchUser(id: self.user?.id ?? "")
     }
     
     private func updateUserProfileImageURL(_ url: URL) {
@@ -82,6 +87,7 @@ class MainViewModel: ObservableObject{
                         } else {
                             print("Profile image URL added successfully in FireUser.uploadedPictures")
                         }
+                        self.fetchUser(id: self.user?.id ?? "")
                     }
                 } else {
                     // Falls das Array nicht vorhanden ist, erstellen Sie ein neues Array mit dem URL-String-Objekt
@@ -91,6 +97,7 @@ class MainViewModel: ObservableObject{
                         } else {
                             print("Profile image URL added successfully in FireUser.uploadedPictures")
                         }
+                        self.fetchUser(id: self.user?.id ?? "")
                     }
                 }
             } else {
@@ -99,12 +106,16 @@ class MainViewModel: ObservableObject{
         }
     }
     
-    
-    
-    
+        
+    func resetPictureSelections (){
+        self.pictureTAG = ""
+        self.pictureBeschreibung = ""
+        self.profileImage = nil
+        
+    }
   
     
-    func like(bild: EinBildReihe){
+    func like(bild: Firepicture){
         //Hier muss über den angemeldeten User eine Datenbank erstellt werden, wo alle gelikedten bilder/videos gespeichert werden.
         //Zusätzlich, muss geprüft werden, ob das Bild bereits geliked ist. Falls ja, dann muss das Bild getogglet werden auf "filed.heart" andernfalls auf "heart"
     }
@@ -211,30 +222,52 @@ class MainViewModel: ObservableObject{
     }
     
     
-    func fetchUser(id: String){
+    func fetchUser(id: String) {
+        self.listener = manager.fireStore.collection("user").document(id)
+            .addSnapshotListener { querySnapshot, error in
+                if let error = error {
+                    print("Error reading document with id \(id): \(error)")
+                    return
+                }
+                
+                guard let document = querySnapshot else {
+                    print("query snapshot has no documents")
+                    return
+                }
+                
+                do {
+                    self.user = try document.data(as: FireUser.self)
+                } catch {
+                    print("Error decoding FireUser: \(error)")
+                }
+            }
+
         manager.fireStore.collection("users").document(id).getDocument { userInFire, error in
-            if let error {
+            if let error = error {
                 print("Error reading user with id \(id): \(error)")
                 return
             }
-            guard let userInFire else {
+
+            guard let userInFire = userInFire else {
                 print("Document with id \(id) is empty")
                 return
             }
-            do{
+
+            do {
                 let tempUser = try userInFire.data(as: FireUser.self)
                 self.user = tempUser
             } catch {
-                 print("Decoding user failed with error: \(error)")
+                print("Decoding user failed with error: \(error)")
             }
-
         }
+    }
+
+    
+    func removeListener(){
+        self.listener = nil
+        self.user = nil
         
     }
-    
-    
-    
-    
     
     
     

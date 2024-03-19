@@ -11,7 +11,7 @@ import PhotosUI
 struct ProfileMainView: View {
     
     @EnvironmentObject var viewModel: MainViewModel
-    let columns = [GridItem(.flexible()), GridItem(.flexible())]
+    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
 
     
     var querreihe = 0
@@ -53,7 +53,7 @@ struct ProfileMainView: View {
                                 content: { image in
                                     image.resizable()
                                         .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 90, maxHeight: 90)
+                                        .frame(maxWidth: 130, maxHeight: 130)
                                         .scaledToFill()
                                 },
                                 placeholder: {
@@ -61,7 +61,8 @@ struct ProfileMainView: View {
                                 }
                             )
                         }
-                    }
+                }
+                
                 
                 
                 

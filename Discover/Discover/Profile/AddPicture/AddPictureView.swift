@@ -40,12 +40,12 @@ struct AddPictureView: View {
             TextField("Gebe hier deine Bildbeschreibung ein", text: $viewModel.pictureBeschreibung).padding().frame(width: 350)
             
                 Button("Neues Foto Hochladen"){
-                
                     viewModel.selectedPicturetoStorage()
-                    viewModel.pictureSheetShow.toggle()
                     if viewModel.pictureBeschreibung.isEmpty{
                         viewModel.pictureBeschreibung = "Keine Beschreibung"
                     }
+                    viewModel.resetPictureSelections()
+                    viewModel.pictureSheetShow.toggle()
                 }.background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0).disabled(viewModel.pictureTAG.isEmpty)
             Spacer()
             }

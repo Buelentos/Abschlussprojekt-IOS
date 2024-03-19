@@ -10,7 +10,7 @@ import SwiftUI
 struct DiscoverDetailView: View {
     
     @EnvironmentObject private var viewModel: MainViewModel
-    var bild: EinBildReihe
+    var bild: Firepicture
 
     var body: some View {
         
@@ -41,6 +41,6 @@ struct DiscoverDetailView: View {
 }
 
 #Preview {
-    DiscoverDetailView(bild: EinBildReihe(einBildReihe: .a))
+    DiscoverDetailView(bild: Firepicture(einBildReihe: .a))
         .environmentObject(MainViewModel())
 }

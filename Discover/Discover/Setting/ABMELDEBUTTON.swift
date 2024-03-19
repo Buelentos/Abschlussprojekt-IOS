@@ -13,6 +13,7 @@ struct ABMELDEBUTTON: View {
     var body: some View {
         Button("ABMELDEN"){
             viewModel.logout()
+            viewModel.removeListener()
         }
     }
 }
