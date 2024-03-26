@@ -21,6 +21,7 @@ struct DiscoverApp: App {
                     .environmentObject(authViewModel)
                     .environmentObject(SettingViewModel(authViewModel: authViewModel))
                     .environmentObject(ProfileViewModel(authViewModel: authViewModel))
+                    .environmentObject(DiscoverViewModel())
             } else {
                 SplashScreen()
                     .environmentObject(authViewModel)

@@ -21,7 +21,6 @@ class AuthentifikationViewModel: ObservableObject {
     @Published var istAngemeldet = false
     @Published var user: FireUser?
     private var manager = FireBaseManager.sharedFireBase
-    @Published var listener: ListenerRegistration?
 
 
     
@@ -36,25 +35,6 @@ class AuthentifikationViewModel: ObservableObject {
     
     
     func fetchUser(id: String) {
-        self.listener = manager.fireStore.collection("user").document(id)
-            .addSnapshotListener { querySnapshot, error in
-                if let error = error {
-                    print("Error reading document with id \(id): \(error)")
-                    return
-                }
-                
-                guard let document = querySnapshot else {
-                    print("query snapshot has no documents")
-                    return
-                }
-                
-                do {
-                    self.user = try document.data(as: FireUser.self)
-                } catch {
-                    print("Error decoding FireUser: \(error)")
-                }
-            }
-        
         manager.fireStore.collection("users").document(id).getDocument { userInFire, error in
             if let error = error {
                 print("Error reading user with id \(id): \(error)")
@@ -86,7 +66,7 @@ class AuthentifikationViewModel: ObservableObject {
     
     
     func login() {
-        manager.authenticator.signIn(withEmail: repo.emailAdress, password: repo.password) { authResult, error in
+        manager.authenticator.signIn(withEmail: self.mail, password: self.password) { authResult, error in
             if let userAuth = self.handleAuthResult(authResult: authResult, error: error){
                 self.fetchUser(id: userAuth.uid)
             }
@@ -94,9 +74,9 @@ class AuthentifikationViewModel: ObservableObject {
     }
     
     func register() {
-        manager.authenticator.createUser(withEmail: repo.emailAdress, password: repo.password) { authResult, error in
+        manager.authenticator.createUser(withEmail: self.mail, password: self.password) { authResult, error in
             if let userAuth = self.handleAuthResult(authResult: authResult, error: error){
-                self.createUserFireStore(id: userAuth.uid, mail: self.repo.emailAdress, name: self.repo.benutzername)
+                self.createUserFireStore(id: userAuth.uid, mail: self.mail, name: self.benutzername)
                 self.fetchUser(id: userAuth.uid)
             }
         }

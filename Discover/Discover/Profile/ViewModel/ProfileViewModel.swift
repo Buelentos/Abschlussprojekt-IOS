@@ -20,7 +20,6 @@ class ProfileViewModel: ObservableObject{
     
     init(authViewModel: AuthentifikationViewModel) {
         self.authViewModel = authViewModel
-        self.loadListInRepo()
     }
     
     
@@ -137,23 +136,5 @@ class ProfileViewModel: ObservableObject{
     
     
     
-    func loadListInRepo(){
-        authViewModel.listener = manager.fireStore.collection("posts")
-            .addSnapshotListener{ post, error in
-                if let error = error {
-                    print("Error reading pets: \(error)")
-                    return
-                }
-                guard let documents = post?.documents else {
-                          print("Query Snapshot is empty")
-                          return
-                        }
-                let firepost = documents.compactMap{ document in
-                    try? document.data(as: FirePost.self)
-                }
-                self.repo.mainList = firepost
-
-            }
-    }
-
+    
 }

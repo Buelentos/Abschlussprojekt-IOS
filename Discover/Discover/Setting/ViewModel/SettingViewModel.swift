@@ -34,7 +34,6 @@ class SettingViewModel: ObservableObject{
     
     
     func removeListener(){
-        authViewModel.listener = nil
         authViewModel.user = nil
     }
 }

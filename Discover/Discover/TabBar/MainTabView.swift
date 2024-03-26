@@ -12,49 +12,49 @@ struct MainTabView: View {
     
     var body: some View {
         
-      
+        
         
         TabView(selection: $selcetedTab) {
-
+            
             SettingMainView()
-            .tabItem {
-                Image(systemName: "gear")
-                Text("Settings")
-                
-            }
-            .tag(0)
-
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                    
+                }
+                .tag(0)
             
             
             
-                SearchMainView()
-            .tabItem {
-                Image(systemName: "magnifyingglass")
-                Text("Search")
-                
-            }
-            .tag(1)
-
+            
+            SearchMainView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                    
+                }
+                .tag(1)
             
             
             
-                DiscoverView()
-            .tabItem {
-                Image(systemName: "globe.americas.fill")
-                Text("Discover")
-            }
-            .tag(2)
+            
+            DiscoverView()
+                .tabItem {
+                    Image(systemName: "globe.americas.fill")
+                    Text("Discover")
+                }
+                .tag(2)
             
             
             
-                MessagesMainView()
-            .tabItem {
-                Image(systemName: "message")
-                Text("Messages")
-                
-            }
-            .tag(3)
-
+            MessagesMainView()
+                .tabItem {
+                    Image(systemName: "message")
+                    Text("Messages")
+                    
+                }
+                .tag(3)
+            
             
             
             NavigationStack{
@@ -66,13 +66,7 @@ struct MainTabView: View {
                 
             }
             .tag(4)
-
         }
-        .environmentObject(authViewModel)
-        .environmentObject(settingViewModel)
-        .environmentObject(discoverViewModel)
-        .environmentObject(profileViewModel)
-
     }
 }
 
@@ -82,5 +76,7 @@ struct MainTabView_Previews: PreviewProvider {
         MainTabView()
             .environmentObject(AuthentifikationViewModel())
             .environmentObject(DiscoverViewModel())
+            .environmentObject(SettingViewModel(authViewModel: AuthentifikationViewModel()))
+            .environmentObject(ProfileViewModel(authViewModel: AuthentifikationViewModel()))
     }
 }

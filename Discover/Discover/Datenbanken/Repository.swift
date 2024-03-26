@@ -21,10 +21,6 @@ class Repository {
     var citiesOfTurkey = ["Ankara", "Istanbul", "Kars", "Ardahan"]
     var citiesOfUSA = ["Washington", "New York", "Compton", "Miami"]
     var categories = ["All", "Sport", "Dinner", "Fun", "Gaming"]
-   
-    var emailAdress: String = ""
-    var benutzername: String = ""
-    var password: String = ""
     
     var zeigeButtons: Bool = false
     var istAngemeldet: Bool = false

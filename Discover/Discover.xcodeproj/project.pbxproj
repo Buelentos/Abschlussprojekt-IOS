@@ -136,13 +136,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		AE457EAF2BA85B2700003648 /* VIEWMODEL */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = VIEWMODEL;
-			sourceTree = "<group>";
-		};
 		AE69B14E2B909F3500247433 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,7 +290,6 @@
 		AEFCDABB2B8DE25900D3BACD /* Discover */ = {
 			isa = PBXGroup;
 			children = (
-				AE457EAF2BA85B2700003648 /* VIEWMODEL */,
 				AE69B19C2BA0A5F900247433 /* Setting */,
 				AE69B1952BA0A55400247433 /* Search */,
 				AE69B1942BA0A54600247433 /* Messages */,
