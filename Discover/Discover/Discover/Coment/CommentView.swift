@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CommentView: View {
     
-    @EnvironmentObject private var viewModel: MainViewModel
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
     
     var body: some View {
@@ -26,6 +25,5 @@ struct CommentView: View {
 
 #Preview {
     CommentView()
-        .environmentObject(MainViewModel())
         .environmentObject(DiscoverViewModel())
 }

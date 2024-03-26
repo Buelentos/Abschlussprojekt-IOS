@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct RegistrierenView: View {
-    @EnvironmentObject private var viewModel: MainViewModel
     @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     
     
@@ -22,19 +21,19 @@ struct RegistrierenView: View {
                 }
                 
                 
-                TextField("Email-Addresse", text: $viewModel.repo.emailAdress)
+                TextField("Email-Addresse", text: $authViewModel.mail)
                     .textFieldStyle(.roundedBorder)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
                     .padding()
                 
-                TextField("Benutzername", text: $viewModel.repo.benutzername)
+                TextField("Benutzername", text: $authViewModel.benutzername)
                     .textFieldStyle(.roundedBorder)
                     .textInputAutocapitalization(.never)
                     .autocorrectionDisabled()
                     .padding()
                 
-                SecureField("Passwort", text: $viewModel.repo.password)
+                SecureField("Passwort", text: $authViewModel.password)
                     .textFieldStyle(.roundedBorder)
                     .padding()
                 
@@ -48,7 +47,7 @@ struct RegistrierenView: View {
                     //  TOAST -> Deine Registrierung war erfolgreich
                     //  Weiterleitung auf den Homescreen der App
                     //  }
-                    authViewModel.repo.istAngemeldet.toggle()
+                    authViewModel.istAngemeldet.toggle()
                     authViewModel.register()
                     
                     
@@ -73,7 +72,6 @@ struct RegistrierenView: View {
 
 #Preview {
         RegistrierenView()
-        .environmentObject(MainViewModel())
         .environmentObject(AuthentifikationViewModel())
         
     

@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AnmeldenView: View {
-    @EnvironmentObject private var viewModel: MainViewModel
     @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     
 
@@ -20,14 +19,14 @@ struct AnmeldenView: View {
             
             
             
-            TextField("Email-Addresse", text: $viewModel.repo.emailAdress)
+            TextField("Email-Addresse", text: $authViewModel.mail)
                 .textFieldStyle(.roundedBorder)
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 .padding(.leading)
                 .padding(.trailing)
             
-            SecureField("Passwort", text: $viewModel.repo.password)
+            SecureField("Passwort", text: $authViewModel.password)
                 .textFieldStyle(.roundedBorder)
                 .padding()
             
@@ -59,8 +58,7 @@ struct AnmeldenView: View {
             
             
             Text("Wenn du noch kein Mitglied bist")
-            NavigationLink(destination: RegistrierenView().environmentObject(authViewModel)
-            ){
+            NavigationLink(destination: RegistrierenView()){
                     
                     Text("Registrieren").foregroundColor(.white)
                 
@@ -80,7 +78,6 @@ struct AnmeldenView: View {
 
 #Preview {
     AnmeldenView()
-        .environmentObject(MainViewModel())
         .environmentObject(AuthentifikationViewModel())
 
 }

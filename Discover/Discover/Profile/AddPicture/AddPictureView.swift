@@ -11,7 +11,7 @@ import PhotosUI
 
 struct AddPictureView: View {
     
-    @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var profileViewModel: ProfileViewModel
     
     
     
@@ -20,8 +20,8 @@ struct AddPictureView: View {
             Spacer()
             Text("Add Picture")
             Spacer()
-            PhotosPicker(selection: $viewModel.selectedPhotosPickerItem, label: {
-                if let profileImage = viewModel.profileImage {
+            PhotosPicker(selection: $profileViewModel.selectedPhotosPickerItem, label: {
+                if let profileImage = profileViewModel.profileImage {
                     Image(uiImage: profileImage)
                         .resizable()
                         .scaledToFill()
@@ -35,18 +35,18 @@ struct AddPictureView: View {
                 }
             })
                 
-            TextField("Gebe hier deinen Bild-Hashtag ein", text: $viewModel.pictureTAG).padding().frame(width: 300)
+            TextField("Gebe hier deinen Bild-Hashtag ein", text: $profileViewModel.pictureTAG).padding().frame(width: 300)
             
-            TextField("Gebe hier deine Bildbeschreibung ein", text: $viewModel.pictureBeschreibung).padding().frame(width: 350)
+            TextField("Gebe hier deine Bildbeschreibung ein", text: $profileViewModel.pictureBeschreibung).padding().frame(width: 350)
             
                 Button("Neues Foto Hochladen"){
-                    viewModel.selectedPicturetoStorage()
-                    if viewModel.pictureBeschreibung.isEmpty{
-                        viewModel.pictureBeschreibung = "Keine Beschreibung"
+                    profileViewModel.selectedPicturetoStorage()
+                    if profileViewModel.pictureBeschreibung.isEmpty{
+                        profileViewModel.pictureBeschreibung = "Keine Beschreibung"
                     }
-                    viewModel.resetPictureSelections()
-                    viewModel.pictureSheetShow.toggle()
-                }.background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0).disabled(viewModel.pictureTAG.isEmpty)
+                    profileViewModel.resetPictureSelections()
+                    profileViewModel.pictureSheetShow.toggle()
+                }.background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0).disabled(profileViewModel.pictureTAG.isEmpty)
             Spacer()
             }
     }
@@ -54,5 +54,5 @@ struct AddPictureView: View {
 
 #Preview {
     AddPictureView()
-        .environmentObject(MainViewModel())
+        .environmentObject(ProfileViewModel(authViewModel: AuthentifikationViewModel()))
 }

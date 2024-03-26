@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingMainView: View {
-    @EnvironmentObject private var viewModel: MainViewModel
     @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     @EnvironmentObject private var settingViewModel: SettingViewModel
 
@@ -22,7 +21,6 @@ struct SettingMainView: View {
 
 #Preview {
     SettingMainView()
-        .environmentObject(MainViewModel())
         .environmentObject(AuthentifikationViewModel())
         .environmentObject(SettingViewModel(authViewModel: AuthentifikationViewModel()
                                            ))

@@ -14,7 +14,11 @@ import FirebaseFirestore
 
 class AuthentifikationViewModel: ObservableObject {
     
-    @Published var repo = Repository.sharedRepo
+    private let repo = Repository.sharedRepo
+    @Published var mail = ""
+    @Published var password = ""
+    @Published var benutzername = ""
+    @Published var istAngemeldet = false
     @Published var user: FireUser?
     private var manager = FireBaseManager.sharedFireBase
     @Published var listener: ListenerRegistration?

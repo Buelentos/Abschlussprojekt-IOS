@@ -5,11 +5,14 @@ struct MainTabView: View {
     
     @EnvironmentObject var authViewModel: AuthentifikationViewModel
     @StateObject var discoverViewModel = DiscoverViewModel()
+    @EnvironmentObject var settingViewModel: SettingViewModel
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    
     @State private var selcetedTab = 2
     
     var body: some View {
         
-        @StateObject var settingViewModel = SettingViewModel(authViewModel: authViewModel)
+      
         
         TabView(selection: $selcetedTab) {
 
@@ -68,6 +71,7 @@ struct MainTabView: View {
         .environmentObject(authViewModel)
         .environmentObject(settingViewModel)
         .environmentObject(discoverViewModel)
+        .environmentObject(profileViewModel)
 
     }
 }
@@ -76,7 +80,6 @@ struct MainTabView: View {
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabView()
-            .environmentObject(MainViewModel())
             .environmentObject(AuthentifikationViewModel())
             .environmentObject(DiscoverViewModel())
     }

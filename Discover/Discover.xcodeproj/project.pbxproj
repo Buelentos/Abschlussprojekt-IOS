@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE457EB12BA85B3700003648 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE457EB02BA85B3700003648 /* MainViewModel.swift */; };
 		AE69B1502B909F4C00247433 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B14F2B909F4C00247433 /* MainTabView.swift */; };
 		AE69B1542B90D4FD00247433 /* FireUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1532B90D4FD00247433 /* FireUser.swift */; };
 		AE69B1562B90D7A600247433 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE69B1552B90D7A600247433 /* GoogleService-Info.plist */; };
@@ -67,7 +66,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AE457EB02BA85B3700003648 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AE69B14F2B909F4C00247433 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AE69B1532B90D4FD00247433 /* FireUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireUser.swift; sourceTree = "<group>"; };
 		AE69B1552B90D7A600247433 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 		AE457EAF2BA85B2700003648 /* VIEWMODEL */ = {
 			isa = PBXGroup;
 			children = (
-				AE457EB02BA85B3700003648 /* MainViewModel.swift */,
 			);
 			path = VIEWMODEL;
 			sourceTree = "<group>";
@@ -496,7 +493,6 @@
 				AE9144B42BB2D1E50007F831 /* ProfileViewModel.swift in Sources */,
 				AE69B19B2BA0A5B900247433 /* ProfileMainView.swift in Sources */,
 				AE9144AE2BB2D1A80007F831 /* SearchViewModel.swift in Sources */,
-				AE457EB12BA85B3700003648 /* MainViewModel.swift in Sources */,
 				AE69B1922B90DF4300247433 /* SettingMainView.swift in Sources */,
 				AEFCDACC2B8DE2E700D3BACD /* Repository.swift in Sources */,
 				AEFCDADE2B8DF25B00D3BACD /* AnmeldenView.swift in Sources */,

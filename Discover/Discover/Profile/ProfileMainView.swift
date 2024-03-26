@@ -10,7 +10,8 @@ import PhotosUI
 
 struct ProfileMainView: View {
     
-    @EnvironmentObject var viewModel: MainViewModel
+    @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var authViewModel: AuthentifikationViewModel
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
 
     
@@ -23,7 +24,7 @@ struct ProfileMainView: View {
                 Image(systemName: "globe")
                     .resizable().frame(width: 90,height:90).clipShape(Circle()).border(.blue).padding()
                 VStack{
-                    Text(viewModel.user?.benutzerName ?? "lala")
+                    Text(authViewModel.user?.benutzerName ?? "lala")
                     HStack {
                         Text("Member since:")
                       
@@ -32,13 +33,14 @@ struct ProfileMainView: View {
                 Spacer()
             }
             HStack {
-                Text(viewModel.user?.beschreibung ?? "Keine Beschreibung").padding()
+                Text(authViewModel.user?.beschreibung ?? "Keine Beschreibung").padding()
                 Spacer()
                 Button("Add Picture"){
-                    viewModel.pictureSheetShow.toggle()
+                    profileViewModel.pictureSheetShow.toggle()
                 }
-                .background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0).padding().sheet(isPresented: $viewModel.pictureSheetShow, content: {
+                .background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0).padding().sheet(isPresented: $profileViewModel.pictureSheetShow, content: {
                     AddPictureView()
+                        .environmentObject(profileViewModel)
                 })
             }
         }
@@ -46,7 +48,7 @@ struct ProfileMainView: View {
             ScrollView{
                 
                 LazyVGrid(columns: columns) {
-                    ForEach(viewModel.user?.uploadedPictures ?? [""], id: \.self){ picture in
+                    ForEach(authViewModel.user?.uploadedPictures ?? [""], id: \.self){ picture in
                         
                             AsyncImage(
                                 url: URL(string: picture),
@@ -74,5 +76,6 @@ struct ProfileMainView: View {
 
 #Preview {
     ProfileMainView()
-        .environmentObject(MainViewModel())
+        .environmentObject(ProfileViewModel(authViewModel: AuthentifikationViewModel()))
+        .environmentObject(AuthentifikationViewModel())
 }

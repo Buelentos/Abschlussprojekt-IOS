@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DiscoverView: View {
-    @EnvironmentObject private var viewModel: MainViewModel
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
 
     var body: some View {
@@ -19,7 +18,7 @@ struct DiscoverView: View {
                 
                 HStack {
                     VStack(spacing: 0){
-                        ForEach(viewModel.repo.mainList.shuffled()){ reihe in
+                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
                                     NavigationLink(value: reihe) {
                                         DiscoverListenElement(einbild: reihe)
                                     }
@@ -27,7 +26,7 @@ struct DiscoverView: View {
                     }
                     
                     VStack(spacing: 0){
-                        ForEach(viewModel.repo.mainList.shuffled()){ reihe in
+                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
                                     NavigationLink(value: reihe) {
                                         DiscoverListenElement(einbild: reihe)
                                     }
@@ -35,7 +34,7 @@ struct DiscoverView: View {
                     }
                     
                     VStack(spacing: 0){
-                        ForEach(viewModel.repo.mainList.shuffled()){ reihe in
+                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
                                     NavigationLink(value: reihe) {
                                         DiscoverListenElement(einbild: reihe)
                                     }
@@ -52,7 +51,7 @@ struct DiscoverView: View {
                 DiscoverDetailView(bild: selectedPicture)
             })
                 
-                .searchable(text: $viewModel.repo.searchInputDiscover, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Freunde")
+                .searchable(text: $discoverViewModel.repo.searchInputDiscover, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Freunde")
                 
                 .toolbar{
                     
@@ -60,15 +59,16 @@ struct DiscoverView: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button() {
                             withAnimation{
-                                viewModel.showFilter.toggle()
+                                discoverViewModel.showFilter.toggle()
                             }
                         } label: {
                             Image(systemName: "gear")
                                 .foregroundColor(.white)
                         }
                         .buttonStyle(.bordered).background(.blue).cornerRadius(10).padding(.vertical)
-                        .padding().sheet(isPresented: $viewModel.showFilter, content: {
+                        .padding().sheet(isPresented: $discoverViewModel.showFilter, content: {
                             FilterView()
+                                .environmentObject(discoverViewModel)
                         })
 
                         
@@ -89,7 +89,6 @@ struct DiscoverView: View {
 #Preview {
     NavigationStack{
         DiscoverView()
-            .environmentObject(MainViewModel())
             .environmentObject(DiscoverViewModel())
     }
 }

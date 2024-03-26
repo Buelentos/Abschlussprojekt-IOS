@@ -9,7 +9,6 @@ import SwiftUI
 
 struct FilterView: View {
     
-    @EnvironmentObject private var viewModel: MainViewModel
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
 
     
@@ -18,29 +17,29 @@ struct FilterView: View {
 
         List{
             Section(header: Text("Please choise your destination")){
-                Picker("Country", selection: $viewModel.repo.selectedCountry){
-                    ForEach(viewModel.repo.country, id: \.self){
+                Picker("Country", selection: $discoverViewModel.repo.selectedCountry){
+                    ForEach(discoverViewModel.repo.country, id: \.self){
                         Text($0)
                     }
                 }
                 
-                if viewModel.repo.selectedCountry == "Deutschland" {
-                    Picker("City", selection: $viewModel.repo.selctedCity){
-                        ForEach(viewModel.repo.citiesOfGermany, id: \.self){
+                if discoverViewModel.repo.selectedCountry == "Deutschland" {
+                    Picker("City", selection: $discoverViewModel.repo.selctedCity){
+                        ForEach(discoverViewModel.repo.citiesOfGermany, id: \.self){
                             Text($0)
                         }
                     }
                 }
-                else if (viewModel.repo.selectedCountry == "Türkiye"){
-                    Picker("City", selection: $viewModel.repo.selctedCity){
-                        ForEach(viewModel.repo.citiesOfTurkey, id: \.self){
+                else if (discoverViewModel.repo.selectedCountry == "Türkiye"){
+                    Picker("City", selection: $discoverViewModel.repo.selctedCity){
+                        ForEach(discoverViewModel.repo.citiesOfTurkey, id: \.self){
                             Text($0)
                         }
                     }
                 }
-                else if (viewModel.repo.selectedCountry == "USA"){
-                    Picker("City", selection: $viewModel.repo.selctedCity){
-                        ForEach(viewModel.repo.citiesOfUSA, id: \.self){
+                else if (discoverViewModel.repo.selectedCountry == "USA"){
+                    Picker("City", selection: $discoverViewModel.repo.selctedCity){
+                        ForEach(discoverViewModel.repo.citiesOfUSA, id: \.self){
                             Text($0)
                         }
                     }
@@ -49,8 +48,8 @@ struct FilterView: View {
                 
             }
             
-            Picker("category", selection: $viewModel.repo.categories){
-                ForEach(viewModel.repo.categories, id: \.self){
+            Picker("category", selection: $discoverViewModel.repo.categories){
+                ForEach(discoverViewModel.repo.categories, id: \.self){
                     Text($0)
                 }
             }
@@ -59,9 +58,9 @@ struct FilterView: View {
                 HStack{
                     Spacer()
                     Button("Save settings"){
-                        viewModel.showFilter.toggle()
-                        if !viewModel.repo.selectedCountry.isEmpty {
-                            print(viewModel.repo.selectedCountry)
+                        discoverViewModel.showFilter.toggle()
+                        if !discoverViewModel.repo.selectedCountry.isEmpty {
+                            print(discoverViewModel.repo.selectedCountry)
                         }
                     }
                     Spacer()
@@ -77,6 +76,5 @@ struct FilterView: View {
 
 #Preview {
     FilterView()
-        .environmentObject(MainViewModel())
         .environmentObject(DiscoverViewModel())
 }
