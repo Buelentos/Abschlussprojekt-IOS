@@ -11,20 +11,24 @@ import Firebase
 @main
 struct DiscoverApp: App {
     @StateObject var mainViewModel = MainViewModel()
+    @StateObject var authViewModel = AuthentifikationViewModel()
     
     init(){
         FirebaseConfiguration.shared.setLoggerLevel(.min)
         FirebaseApp.configure()
     }
     
+    
     var body: some Scene {
         WindowGroup {
-            if mainViewModel.userIsLoggedIn {
+            if authViewModel.userIsLoggedIn {
                 MainTabView()
                     .environmentObject(mainViewModel)
+                    .environmentObject(authViewModel)
             } else {
                 SplashScreen()
                     .environmentObject(mainViewModel)
+                    .environmentObject(authViewModel)
             }
         }
     }

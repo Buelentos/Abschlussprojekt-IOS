@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AnmeldenView: View {
     @EnvironmentObject private var viewModel: MainViewModel
+    @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     
 
     var body: some View {
@@ -32,7 +33,7 @@ struct AnmeldenView: View {
             
             
             Button("Anmelden"){
-                viewModel.login()
+                authViewModel.login()
             }.foregroundStyle(.white).frame(width: 350, height: 50).background(.blue).cornerRadius(10)
                 .padding()
             
@@ -58,7 +59,8 @@ struct AnmeldenView: View {
             
             
             Text("Wenn du noch kein Mitglied bist")
-            NavigationLink(destination: RegistrierenView()){
+            NavigationLink(destination: RegistrierenView().environmentObject(authViewModel)
+            ){
                     
                     Text("Registrieren").foregroundColor(.white)
                 
@@ -79,5 +81,6 @@ struct AnmeldenView: View {
 #Preview {
     AnmeldenView()
         .environmentObject(MainViewModel())
+        .environmentObject(AuthentifikationViewModel())
 
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SplashScreen: View {
-    
+    @EnvironmentObject var authViewModel: AuthentifikationViewModel
     @State private var isActive: Bool = false
 
     var body: some View {
@@ -16,6 +16,7 @@ struct SplashScreen: View {
         VStack{
             if (self.isActive){
                 AnmeldenView()
+                    .environmentObject(authViewModel)
             }else {
                 Text("SPLASHSCREEN")
                 Image(.logo)

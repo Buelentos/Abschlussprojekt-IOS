@@ -15,6 +15,8 @@ import FirebaseFirestore
 
 class MainViewModel: ObservableObject{
     
+    @StateObject var authViewModel = AuthentifikationViewModel()
+    
     @Published var pictureTAG = ""
     @Published var pictureBeschreibung = ""
     @Published var pictureSheetShow = false
@@ -24,7 +26,6 @@ class MainViewModel: ObservableObject{
     @Published var user: FireUser?
     @Published var listener: ListenerRegistration?
     @Published var uploadURL: String?
-    
     
     @Published var selectedPhotosPickerItem: PhotosPickerItem? {
         didSet { Task {try await loadImage() } }
@@ -41,7 +42,6 @@ class MainViewModel: ObservableObject{
     }
     
     func createPost(url: String, tag: String, beschreibung: String){
-        print("Tag: \(self.pictureTAG), Beschreibung: \(self.pictureBeschreibung)")
         let id = UUID().uuidString
         let firePost = FirePost(
             id: id,
@@ -58,12 +58,12 @@ class MainViewModel: ObservableObject{
             print("Fehler beim erstellen von einem Post: \(error)")
         }
     }
-
+    
     func selectedPicturetoStorage(){
         guard let uid = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else {return}
         let ref = Storage.storage().reference().child(uid).child("\(pictureTAG)")
-        self.createPost(url: uploadURL ?? "failed", tag: self.pictureTAG, beschreibung: self.pictureBeschreibung)
-
+        let tag = pictureTAG
+        let beschreibung = pictureBeschreibung
         
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
@@ -83,14 +83,15 @@ class MainViewModel: ObservableObject{
                 
                 if let downloadURL = url {
                     self.updateUserProfileImageURL(downloadURL)
+                    self.createPost(url: downloadURL.absoluteString, tag: tag, beschreibung: beschreibung)
                     print("Succesfully pushed Image to Storage")
-
+                    
                 }
                 
             }
             
         }
-        self.fetchUser(id: self.user?.id ?? "")
+        authViewModel.fetchUser(id: self.user?.id ?? "")
     }
     
     private func updateUserProfileImageURL(_ url: URL) {
@@ -109,7 +110,7 @@ class MainViewModel: ObservableObject{
                         } else {
                             print("Profile image URL added successfully in FireUser.uploadedPictures")
                         }
-                        self.fetchUser(id: self.user?.id ?? "")
+                        self.authViewModel.fetchUser(id: self.user?.id ?? "")
                     }
                 } else {
                     // Falls das Array nicht vorhanden ist, erstellen Sie ein neues Array mit dem URL-String-Objekt
@@ -119,7 +120,7 @@ class MainViewModel: ObservableObject{
                         } else {
                             print("Profile image URL added successfully in FireUser.uploadedPictures")
                         }
-                        self.fetchUser(id: self.user?.id ?? "")
+                        authViewModel.fetchUser(id: self.user?.id ?? "")
                     }
                 }
             } else {
@@ -142,158 +143,42 @@ class MainViewModel: ObservableObject{
         //Hier muss über den angemeldeten User eine Datenbank erstellt werden, wo alle gelikedten bilder/videos gespeichert werden.
         //Zusätzlich, muss geprüft werden, ob das Bild bereits geliked ist. Falls ja, dann muss das Bild getogglet werden auf "filed.heart" andernfalls auf "heart"
     }
+   
     
     
-    
-    
-    
-    var userIsLoggedIn: Bool {
-        self.user != nil
-    }
     
     
     
     init() {
-        self.checkLogin()
-    }
-    
-    
-    
-    func login() {
-        manager.authenticator.signIn(withEmail: repo.emailAdress, password: repo.password) { authResult, error in
-            if let userAuth = self.handleAuthResult(authResult: authResult, error: error){
-                self.fetchUser(id: userAuth.uid)
-            }
-        }
-    }
-    
-    func register() {
-        manager.authenticator.createUser(withEmail: repo.emailAdress, password: repo.password) { authResult, error in
-            if let userAuth = self.handleAuthResult(authResult: authResult, error: error){
-                self.createUserFireStore(id: userAuth.uid, mail: self.repo.emailAdress, name: self.repo.benutzername)
-                self.fetchUser(id: userAuth.uid)
-            }
-        }
-    }
-    
-    func logout() {
-        do {
-            try manager.authenticator.signOut()
-            self.user = nil
-        } catch {
-            print("error singing out: \(error)")
-        }
-    }
-    
-    private func checkLogin() {
-        guard let currentUser = manager.authenticator.currentUser else {
-            print("user not logged in")
-            return
-        }
-        
-        self.fetchUser(id: currentUser.uid)
-    }
-    
-    private func handleAuthResult(authResult: AuthDataResult?, error: Error?) -> User? {
-        if let error {
-            print("error singing in: \(error)")
-            return nil
-        }
-        
-        guard let authResult else {
-            print("auth result is empty!")
-            return nil
-        }
-        
-        return authResult.user
-    }
-    
-    
-    func delete (){
-        
-        let fisch = manager.authenticator.currentUser
-        manager.authenticator.currentUser?.delete()
-        self.user = nil
-        
-        
-        manager.fireStore.collection("users").document(fisch!.uid).delete { error in
-            if let error = error {
-                print("Error deleting user with id \(fisch!.uid): \(error)")
-            } else {
-                print("User with id \(fisch!.uid) deleted from Firestore")
-            }
-        }
+        self.loadListInRepo()
     }
     
     
     
     
-    func createUserFireStore(id: String, mail: String, name: String) {
-        let fireUser = FireUser(
-            id: id,
-            email: mail,
-            benutzerName: name,
-            registerAt: Date(),
-            beschreibung: "",
-            firstLogIn: true,
-            likedPictures: [String](),
-            uploadedPictures: [String]()
-        )
-        
-        do{
-            try manager.fireStore.collection("users").document(id).setData(from: fireUser)
-        }catch{
-            print("Fehler beim erstellen: \(error)")
-        }
-    }
     
     
-    func fetchUser(id: String) {
-        self.listener = manager.fireStore.collection("user").document(id)
-            .addSnapshotListener { querySnapshot, error in
+    
+    func loadListInRepo(){
+        self.listener = manager.fireStore.collection("posts")
+            .addSnapshotListener{ post, error in
                 if let error = error {
-                    print("Error reading document with id \(id): \(error)")
+                    print("Error reading pets: \(error)")
                     return
                 }
-                
-                guard let document = querySnapshot else {
-                    print("query snapshot has no documents")
-                    return
+                guard let documents = post?.documents else {
+                          print("Query Snapshot is empty")
+                          return
+                        }
+                let firepost = documents.compactMap{ document in
+                    try? document.data(as: FirePost.self)
                 }
-                
-                do {
-                    self.user = try document.data(as: FireUser.self)
-                } catch {
-                    print("Error decoding FireUser: \(error)")
-                }
+                self.repo.mainList = firepost
+
             }
-        
-        manager.fireStore.collection("users").document(id).getDocument { userInFire, error in
-            if let error = error {
-                print("Error reading user with id \(id): \(error)")
-                return
-            }
-            
-            guard let userInFire = userInFire else {
-                print("Document with id \(id) is empty")
-                return
-            }
-            
-            do {
-                let tempUser = try userInFire.data(as: FireUser.self)
-                self.user = tempUser
-            } catch {
-                print("Decoding user failed with error: \(error)")
-            }
-        }
     }
-    
-    
-    func removeListener(){
-        self.listener = nil
-        self.user = nil
-        
-    }
+
+
     
     
     

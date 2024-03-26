@@ -8,32 +8,26 @@
 import Foundation
 class Repository {
     
-     static var sharedRepo = Repository()
+    static var sharedRepo = Repository()
     
-     var searchInputDiscover = ""
+    var searchInputDiscover = ""
     
     var mainList = [FirePost]()
-
     
+    var selectedCountry = ""
+    var country = ["", "Deutschland", "Türkiye", "USA"]
+    var selctedCity = ""
+    var citiesOfGermany = ["Berlin", "Hamburg", "Frankfurt", "Stuttgart"]
+    var citiesOfTurkey = ["Ankara", "Istanbul", "Kars", "Ardahan"]
+    var citiesOfUSA = ["Washington", "New York", "Compton", "Miami"]
+    var categories = ["All", "Sport", "Dinner", "Fun", "Gaming"]
+   
+    var emailAdress: String = ""
+    var benutzername: String = ""
+    var password: String = ""
     
-    
-    
-    @Published var selectedCountry = ""
-    @Published var country = ["", "Deutschland", "Türkiye", "USA"]
-    @Published var selctedCity = ""
-    @Published var citiesOfGermany = ["Berlin", "Hamburg", "Frankfurt", "Stuttgart"]
-    @Published var citiesOfTurkey = ["Ankara", "Istanbul", "Kars", "Ardahan"]
-    @Published var citiesOfUSA = ["Washington", "New York", "Compton", "Miami"]
-    @Published var categories = ["All", "Sport", "Dinner", "Fun", "Gaming"]
-    
-    
-    
-     var emailAdress: String = ""
-     var benutzername: String = ""
-     var password: String = ""
-    
-     var zeigeButtons: Bool = false
-     var istAngemeldet: Bool = false
+    var zeigeButtons: Bool = false
+    var istAngemeldet: Bool = false
     
     
 }

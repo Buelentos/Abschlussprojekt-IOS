@@ -68,7 +68,7 @@ struct DiscoverView: View {
                         .buttonStyle(.bordered).background(.blue).cornerRadius(10).padding(.vertical)
                         .padding().sheet(isPresented: $viewModel.showFilter, content: {
                             FilterView()
-                        })//Sheet muss von rechts rein sliden
+                        })
 
                         
                     }

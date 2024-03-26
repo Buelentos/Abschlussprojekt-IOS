@@ -1,21 +1,18 @@
-//
-//  MainTabView.swift
-//  Swift_TA_TabView
-//
-//  Created by Brian Moyou on 07.07.23.
-//
 
 import SwiftUI
 
 struct MainTabView: View {
     
+    @EnvironmentObject var authViewModel: AuthentifikationViewModel
     @State private var selcetedTab = 2
     
     var body: some View {
+        
+        @StateObject var settingViewModel = SettingViewModel(authViewModel: authViewModel)
+        
         TabView(selection: $selcetedTab) {
-            NavigationStack{
-                ABMELDEBUTTON()
-            }
+
+            SettingMainView()
             .tabItem {
                 Image(systemName: "gear")
                 Text("Settings")
@@ -26,9 +23,7 @@ struct MainTabView: View {
             
             
             
-            NavigationStack{
                 SearchMainView()
-            }
             .tabItem {
                 Image(systemName: "magnifyingglass")
                 Text("Search")
@@ -39,9 +34,7 @@ struct MainTabView: View {
             
             
             
-            NavigationStack{
                 DiscoverView()
-            }
             .tabItem {
                 Image(systemName: "globe.americas.fill")
                 Text("Discover")
@@ -50,9 +43,7 @@ struct MainTabView: View {
             
             
             
-            NavigationStack{
                 MessagesMainView()
-            }
             .tabItem {
                 Image(systemName: "message")
                 Text("Messages")
@@ -60,7 +51,6 @@ struct MainTabView: View {
             }
             .tag(3)
 
-            
             
             
             NavigationStack{
@@ -73,11 +63,10 @@ struct MainTabView: View {
             }
             .tag(4)
 
-            
-            
-            
         }
-        
+        .environmentObject(authViewModel)
+        .environmentObject(settingViewModel)
+
     }
 }
 
@@ -86,5 +75,6 @@ struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabView()
             .environmentObject(MainViewModel())
+            .environmentObject(AuthentifikationViewModel())
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RegistrierenView: View {
     @EnvironmentObject private var viewModel: MainViewModel
+    @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     
     
     var body: some View {
@@ -47,8 +48,8 @@ struct RegistrierenView: View {
                     //  TOAST -> Deine Registrierung war erfolgreich
                     //  Weiterleitung auf den Homescreen der App
                     //  }
-                    viewModel.repo.istAngemeldet.toggle()
-                    viewModel.register()
+                    authViewModel.repo.istAngemeldet.toggle()
+                    authViewModel.register()
                     
                     
             }.foregroundColor(.white)
@@ -73,6 +74,7 @@ struct RegistrierenView: View {
 #Preview {
         RegistrierenView()
         .environmentObject(MainViewModel())
+        .environmentObject(AuthentifikationViewModel())
         
     
 }
