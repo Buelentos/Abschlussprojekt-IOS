@@ -12,7 +12,7 @@ class ProfileViewModel: ObservableObject{
     @Published var pictureTAG = ""
     @Published var pictureBeschreibung = ""
     @Published var pictureSheetShow = false
-    @Published var repo = Repository.sharedRepo
+    private let repo = Repository.sharedRepo
     private var manager = FireBaseManager.sharedFireBase
     @Published var uploadURL: String?
 

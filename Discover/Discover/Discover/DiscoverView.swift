@@ -18,7 +18,7 @@ struct DiscoverView: View {
                 
                 HStack {
                     VStack(spacing: 0){
-                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
+                        ForEach(discoverViewModel.mainList.shuffled()){ reihe in
                                     NavigationLink(value: reihe) {
                                         DiscoverListenElement(einbild: reihe)
                                     }
@@ -26,7 +26,7 @@ struct DiscoverView: View {
                     }
                     
                     VStack(spacing: 0){
-                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
+                        ForEach(discoverViewModel.mainList.shuffled()){ reihe in
                                     NavigationLink(value: reihe) {
                                         DiscoverListenElement(einbild: reihe)
                                     }
@@ -34,7 +34,7 @@ struct DiscoverView: View {
                     }
                     
                     VStack(spacing: 0){
-                        ForEach(discoverViewModel.repo.mainList.shuffled()){ reihe in
+                        ForEach(discoverViewModel.mainList.shuffled()){ reihe in
                                     NavigationLink(value: reihe) {
                                         DiscoverListenElement(einbild: reihe)
                                     }
@@ -51,7 +51,7 @@ struct DiscoverView: View {
                 DiscoverDetailView(bild: selectedPicture)
             })
                 
-                .searchable(text: $discoverViewModel.repo.searchInputDiscover, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Freunde")
+                .searchable(text: $discoverViewModel.searchInputDiscover, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach Freunde")
                 
                 .toolbar{
                     

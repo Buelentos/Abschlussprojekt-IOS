@@ -17,29 +17,29 @@ struct FilterView: View {
 
         List{
             Section(header: Text("Please choise your destination")){
-                Picker("Country", selection: $discoverViewModel.repo.selectedCountry){
-                    ForEach(discoverViewModel.repo.country, id: \.self){
+                Picker("Country", selection: $discoverViewModel.selectedCountry){
+                    ForEach(discoverViewModel.country, id: \.self){
                         Text($0)
                     }
                 }
                 
-                if discoverViewModel.repo.selectedCountry == "Deutschland" {
-                    Picker("City", selection: $discoverViewModel.repo.selctedCity){
-                        ForEach(discoverViewModel.repo.citiesOfGermany, id: \.self){
+                if discoverViewModel.selectedCountry == "Deutschland" {
+                    Picker("City", selection: $discoverViewModel.selctedCity){
+                        ForEach(discoverViewModel.citiesOfGermany, id: \.self){
                             Text($0)
                         }
                     }
                 }
-                else if (discoverViewModel.repo.selectedCountry == "Türkiye"){
-                    Picker("City", selection: $discoverViewModel.repo.selctedCity){
-                        ForEach(discoverViewModel.repo.citiesOfTurkey, id: \.self){
+                else if (discoverViewModel.selectedCountry == "Türkiye"){
+                    Picker("City", selection: $discoverViewModel.selctedCity){
+                        ForEach(discoverViewModel.citiesOfTurkey, id: \.self){
                             Text($0)
                         }
                     }
                 }
-                else if (discoverViewModel.repo.selectedCountry == "USA"){
-                    Picker("City", selection: $discoverViewModel.repo.selctedCity){
-                        ForEach(discoverViewModel.repo.citiesOfUSA, id: \.self){
+                else if (discoverViewModel.selectedCountry == "USA"){
+                    Picker("City", selection: $discoverViewModel.selctedCity){
+                        ForEach(discoverViewModel.citiesOfUSA, id: \.self){
                             Text($0)
                         }
                     }
@@ -48,8 +48,8 @@ struct FilterView: View {
                 
             }
             
-            Picker("category", selection: $discoverViewModel.repo.categories){
-                ForEach(discoverViewModel.repo.categories, id: \.self){
+            Picker("category", selection: $discoverViewModel.categories){
+                ForEach(discoverViewModel.categories, id: \.self){
                     Text($0)
                 }
             }
@@ -59,8 +59,8 @@ struct FilterView: View {
                     Spacer()
                     Button("Save settings"){
                         discoverViewModel.showFilter.toggle()
-                        if !discoverViewModel.repo.selectedCountry.isEmpty {
-                            print(discoverViewModel.repo.selectedCountry)
+                        if !discoverViewModel.selectedCountry.isEmpty {
+                            print(discoverViewModel.selectedCountry)
                         }
                     }
                     Spacer()

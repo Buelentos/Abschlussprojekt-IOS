@@ -10,20 +10,6 @@ class Repository {
     
     static var sharedRepo = Repository()
     
-    var searchInputDiscover = ""
-    
-    var mainList = [FirePost]()
-    
-    var selectedCountry = ""
-    var country = ["", "Deutschland", "Türkiye", "USA"]
-    var selctedCity = ""
-    var citiesOfGermany = ["Berlin", "Hamburg", "Frankfurt", "Stuttgart"]
-    var citiesOfTurkey = ["Ankara", "Istanbul", "Kars", "Ardahan"]
-    var citiesOfUSA = ["Washington", "New York", "Compton", "Miami"]
-    var categories = ["All", "Sport", "Dinner", "Fun", "Gaming"]
-    
     var zeigeButtons: Bool = false
     var istAngemeldet: Bool = false
-    
-    
 }

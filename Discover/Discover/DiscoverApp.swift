@@ -6,6 +6,7 @@ import Firebase
 @main
 struct DiscoverApp: App {
     @StateObject var authViewModel = AuthentifikationViewModel()
+    @StateObject var discoverViewModel = DiscoverViewModel()
     
     
     init(){
@@ -21,7 +22,7 @@ struct DiscoverApp: App {
                     .environmentObject(authViewModel)
                     .environmentObject(SettingViewModel(authViewModel: authViewModel))
                     .environmentObject(ProfileViewModel(authViewModel: authViewModel))
-                    .environmentObject(DiscoverViewModel())
+                    .environmentObject(discoverViewModel)
             } else {
                 SplashScreen()
                     .environmentObject(authViewModel)
