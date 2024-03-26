@@ -1,15 +1,12 @@
-//
-//  DiscoverDetailView.swift
-//  Discover
-//
-//  Created by Bülent Yavuz on 15.03.24.
-//
+
 
 import SwiftUI
 
 struct DiscoverDetailView: View {
     
     @EnvironmentObject private var viewModel: MainViewModel
+    @EnvironmentObject private var discoverViewModel: DiscoverViewModel
+    
     var bild: FirePost
 
     var body: some View {
@@ -40,6 +37,7 @@ struct DiscoverDetailView: View {
                         Text("\(bild.likes)")
                     }
                     VStack {
+                        //NavigationLink zur CommentView
                         Image(systemName: "text.bubble")
                         Text("Comments")
 
@@ -54,9 +52,14 @@ struct DiscoverDetailView: View {
                 
             }
         }//ScrollViewKlammer
+        .environmentObject(viewModel)
+        .environmentObject(discoverViewModel)
     }
 }
 
 #Preview{
     DiscoverDetailView(bild: FirePost(id: "1", url: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/ZkOpYY3jpRgpWpOWZaSLKrwHc3v2%2FBanane?alt=media&token=3abccf0b-4cca-4f71-9de4-d2f34a4f6d39", tag: "jk", beschreibung: "jk", likes: 2, comments: ["fdhgysfgv"]))
+        .environmentObject(DiscoverViewModel())
+        .environmentObject(MainViewModel())
+    
 }

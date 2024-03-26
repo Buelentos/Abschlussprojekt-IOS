@@ -4,6 +4,7 @@ import SwiftUI
 struct MainTabView: View {
     
     @EnvironmentObject var authViewModel: AuthentifikationViewModel
+    @StateObject var discoverViewModel = DiscoverViewModel()
     @State private var selcetedTab = 2
     
     var body: some View {
@@ -66,6 +67,7 @@ struct MainTabView: View {
         }
         .environmentObject(authViewModel)
         .environmentObject(settingViewModel)
+        .environmentObject(discoverViewModel)
 
     }
 }
@@ -76,5 +78,6 @@ struct MainTabView_Previews: PreviewProvider {
         MainTabView()
             .environmentObject(MainViewModel())
             .environmentObject(AuthentifikationViewModel())
+            .environmentObject(DiscoverViewModel())
     }
 }

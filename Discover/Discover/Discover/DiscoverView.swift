@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DiscoverView: View {
     @EnvironmentObject private var viewModel: MainViewModel
+    @EnvironmentObject private var discoverViewModel: DiscoverViewModel
 
     var body: some View {
         
@@ -77,6 +78,7 @@ struct DiscoverView: View {
                 }
             .navigationTitle("Discover")
         }
+        .environmentObject(discoverViewModel)
             
             
             
@@ -88,5 +90,6 @@ struct DiscoverView: View {
     NavigationStack{
         DiscoverView()
             .environmentObject(MainViewModel())
+            .environmentObject(DiscoverViewModel())
     }
 }

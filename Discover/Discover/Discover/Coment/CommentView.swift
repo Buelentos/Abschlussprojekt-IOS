@@ -7,7 +7,11 @@
 
 import SwiftUI
 
-struct ComentView: View {
+struct CommentView: View {
+    
+    @EnvironmentObject private var viewModel: MainViewModel
+    @EnvironmentObject private var discoverViewModel: DiscoverViewModel
+    
     var body: some View {
         List{
             VStack{
@@ -21,5 +25,7 @@ struct ComentView: View {
 }
 
 #Preview {
-    ComentView()
+    CommentView()
+        .environmentObject(MainViewModel())
+        .environmentObject(DiscoverViewModel())
 }

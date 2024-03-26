@@ -10,6 +10,7 @@ import SwiftUI
 struct FilterView: View {
     
     @EnvironmentObject private var viewModel: MainViewModel
+    @EnvironmentObject private var discoverViewModel: DiscoverViewModel
 
     
     var body: some View {
@@ -77,4 +78,5 @@ struct FilterView: View {
 #Preview {
     FilterView()
         .environmentObject(MainViewModel())
+        .environmentObject(DiscoverViewModel())
 }
