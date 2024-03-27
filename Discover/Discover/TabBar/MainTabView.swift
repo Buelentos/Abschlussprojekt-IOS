@@ -7,6 +7,7 @@ struct MainTabView: View {
     @StateObject var discoverViewModel = DiscoverViewModel()
     @EnvironmentObject var settingViewModel: SettingViewModel
     @EnvironmentObject var profileViewModel: ProfileViewModel
+    @EnvironmentObject var searchViewModel: SearchViewModel
     
     @State private var selcetedTab = 2
     
@@ -76,6 +77,7 @@ struct MainTabView_Previews: PreviewProvider {
         MainTabView()
             .environmentObject(AuthentifikationViewModel())
             .environmentObject(DiscoverViewModel())
+            .environmentObject(SearchViewModel())
             .environmentObject(SettingViewModel(authViewModel: AuthentifikationViewModel()))
             .environmentObject(ProfileViewModel(authViewModel: AuthentifikationViewModel()))
     }

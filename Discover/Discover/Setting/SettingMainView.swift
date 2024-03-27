@@ -12,10 +12,36 @@ struct SettingMainView: View {
     @EnvironmentObject private var settingViewModel: SettingViewModel
 
     var body: some View {
-        Button("ABMELDEN"){
-            authViewModel.logout()
-            settingViewModel.removeListener()
-        }
+        NavigationStack {
+            List {
+                
+                HStack {
+                    Image(systemName: "bell.circle")
+                    NavigationLink("Notification", destination: NotificationView())
+                }
+                
+                HStack {
+                    Image(systemName: "person.text.rectangle")
+                    NavigationLink("User", destination: UserView())
+                }
+                
+                HStack {
+                    Image(systemName: "lock")
+                    NavigationLink("Datenschutz", destination: DatenschutzView())
+                }
+                
+                HStack {
+                    Image(systemName: "person.circle")
+                    NavigationLink("Account", destination: AccountView())
+                }
+                
+            }//List-Klammer
+            .navigationTitle("Settings")
+            .environmentObject(authViewModel)
+            .environmentObject(settingViewModel)
+        }//NavStack-Klammer
+        
+        
     }
 }
 

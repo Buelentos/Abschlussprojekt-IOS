@@ -12,4 +12,6 @@ class Repository {
     
     var zeigeButtons: Bool = false
     var istAngemeldet: Bool = false
+    
+    
 }

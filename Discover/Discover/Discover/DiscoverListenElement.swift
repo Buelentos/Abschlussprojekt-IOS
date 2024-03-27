@@ -30,6 +30,6 @@ struct DiscoverListenElement: View {
     }
 }
 
-//#Preview {
-//    DiscoverListenElement(einbild: FirePost(einBildReihe: .logo))
-//}
+#Preview {
+    DiscoverListenElement(einbild: FirePost(id: "hdjsfbsdf", url: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/ZkOpYY3jpRgpWpOWZaSLKrwHc3v2%2FBanane?alt=media&token=3abccf0b-4cca-4f71-9de4-d2f34a4f6d39", tag: "#test", beschreibung: "Testbeschreibung", likes: 3, comments: ["String"]))
+}

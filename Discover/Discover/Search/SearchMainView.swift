@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct SearchMainView: View {
+    @EnvironmentObject var searchViewModel: SearchViewModel
     var body: some View {
-        Text("SEARCH MAIN VIEW")
+        
+        NavigationStack {
+            ForEach(searchViewModel.searchItemList){ searchItem in
+                //Die Ui für ein SearchElement
+                NavigationLink(value: searchItem) {
+                    SearchElement( einSearchElement: searchItem)
+                }
+            }
+        }
     }
 }
 
 #Preview {
     SearchMainView()
+        .environmentObject(SearchViewModel())
 }

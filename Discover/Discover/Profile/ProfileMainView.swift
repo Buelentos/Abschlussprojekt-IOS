@@ -26,7 +26,7 @@ struct ProfileMainView: View {
                 VStack{
                     Text(authViewModel.user?.benutzerName ?? "lala")
                     HStack {
-                        Text("Member since:")
+                        Text("Member since: \(String(describing: authViewModel.user?.registerAt.formatted()))")
                       
                     }
                 }
