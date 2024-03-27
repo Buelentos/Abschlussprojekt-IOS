@@ -19,14 +19,16 @@ struct DiscoverListenElement: View {
                 content: { image in
                     image.resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 300, maxHeight: 300)
+                        .frame(width: 121, height: 121)
                         .scaledToFill()
+                        .padding(.vertical)
+                        
                 },
                 placeholder: {
                     ProgressView()
                 }
             )
-        }
+        }.background(.gray.opacity(0.2))
     }
 }
 

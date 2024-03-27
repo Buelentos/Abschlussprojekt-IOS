@@ -9,6 +9,8 @@ import SwiftUI
 
 struct DiscoverView: View {
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
+    let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
+    
     
     var body: some View {
         
@@ -16,31 +18,18 @@ struct DiscoverView: View {
         NavigationStack {
             ScrollView{
                 
-                HStack {
-                    VStack(spacing: 0){
+                HStack (spacing: 0){
+                    LazyVGrid(columns: columns) {
+                        
                         ForEach(discoverViewModel.mainList.shuffled()){ reihe in
                             NavigationLink(value: reihe) {
                                 DiscoverListenElement(einbild: reihe)
                             }
                         }
+                        
+                        
+                        
                     }
-                    
-                    VStack(spacing: 0){
-                        ForEach(discoverViewModel.mainList.shuffled()){ reihe in
-                            NavigationLink(value: reihe) {
-                                DiscoverListenElement(einbild: reihe)
-                            }
-                        }
-                    }
-                    
-                    VStack(spacing: 0){
-                        ForEach(discoverViewModel.mainList.shuffled()){ reihe in
-                            NavigationLink(value: reihe) {
-                                DiscoverListenElement(einbild: reihe)
-                            }
-                        }
-                    }
-                    
                 }.padding(.leading).padding(.trailing)
                 
                 

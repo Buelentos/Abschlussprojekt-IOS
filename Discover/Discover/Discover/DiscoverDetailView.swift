@@ -18,10 +18,9 @@ struct DiscoverDetailView: View {
                 AsyncImage(
                     url: URL(string: bild.url),
                     content: { image in
-                        image.resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(maxWidth: 300, maxHeight: 300)
-                            .scaledToFill()
+                        image
+                            .resizable().aspectRatio(contentMode: .fit)
+                            .frame(width:.infinity).scaledToFill()
                     },
                     placeholder: {
                         ProgressView()

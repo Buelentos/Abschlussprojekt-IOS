@@ -61,7 +61,7 @@ struct ProfileMainView: View {
                             placeholder: {
                                 ProgressView()
                             }
-                        )
+                        ).background(.gray.opacity(0.2))
                     }
                 }
                 

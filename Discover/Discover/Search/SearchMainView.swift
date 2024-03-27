@@ -12,12 +12,17 @@ struct SearchMainView: View {
     var body: some View {
         
         NavigationStack {
-            ForEach(searchViewModel.searchItemList){ searchItem in
-                //Die Ui für ein SearchElement
-                NavigationLink(value: searchItem) {
-                    SearchElement( einSearchElement: searchItem)
+            ScrollView{
+                ForEach(searchViewModel.searchItemList){ searchItem in
+                    NavigationLink(value: searchItem) {
+                        SearchElement( einSearchElement: searchItem)
+                    }
                 }
             }
+            .navigationTitle("Search")
+            //Oben muss noch die Filterfunktion von aktivitäten, sport, essen, gaming eingebracht werden
+            .searchable(text: $searchViewModel.searchInput, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach etwas konkretem")
+
         }
     }
 }
