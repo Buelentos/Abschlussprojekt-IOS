@@ -4,7 +4,7 @@ import SwiftUI
 struct AnmeldenView: View {
     @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     
-
+    
     var body: some View {
         NavigationStack{
             Image(.logo).resizable().frame(width: 150, height: 150).padding(.top)
@@ -34,15 +34,15 @@ struct AnmeldenView: View {
             Divider().padding(.horizontal)
             
             
-                
+            
             
             
             NavigationLink(destination: AnmeldenPerView()){
-                    
-                    Text("Per Socialmedia anmelden").foregroundColor(.white)
+                
+                Text("Per Socialmedia anmelden").foregroundColor(.white)
                 
             }.frame(width: 350, height: 50).background(.orange).cornerRadius(10)
-
+            
             
             
             
@@ -53,8 +53,8 @@ struct AnmeldenView: View {
             
             Text("Wenn du noch kein Mitglied bist")
             NavigationLink(destination: RegistrierenView()){
-                    
-                    Text("Registrieren").foregroundColor(.white)
+                
+                Text("Registrieren").foregroundColor(.white)
                 
             }.frame(width: 350, height: 50).background(.yellow).cornerRadius(10)
             
@@ -73,5 +73,5 @@ struct AnmeldenView: View {
 #Preview {
     AnmeldenView()
         .environmentObject(AuthentifikationViewModel())
-
+    
 }

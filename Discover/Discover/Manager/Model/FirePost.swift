@@ -16,7 +16,7 @@ struct FirePost: Identifiable, Hashable, Codable{
     var beschreibung: String
     var likes: Int
     var comments: [String]
- 
+    
 }
 
 

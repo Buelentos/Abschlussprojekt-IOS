@@ -5,7 +5,7 @@ import SwiftUI
 struct SplashScreen: View {
     @EnvironmentObject var authViewModel: AuthentifikationViewModel
     @State private var isActive: Bool = false
-
+    
     var body: some View {
         
         VStack{
@@ -28,6 +28,6 @@ struct SplashScreen: View {
 }//StructKlammer
 
 #Preview {
-        SplashScreen()
-    }
+    SplashScreen()
+}
 

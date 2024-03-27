@@ -20,7 +20,7 @@ class DiscoverViewModel: ObservableObject {
     var categories = ["All", "Sport", "Dinner", "Fun", "Gaming"]
     var mainList = [FirePost]()
     var searchInputDiscover = ""
-
+    
     
     init(){
         loadListInRepo()
@@ -35,17 +35,17 @@ class DiscoverViewModel: ObservableObject {
                     return
                 }
                 guard let documents = post?.documents else {
-                          print("Query Snapshot is empty")
-                          return
-                        }
+                    print("Query Snapshot is empty")
+                    return
+                }
                 let firepost = documents.compactMap{ document in
                     try? document.data(as: FirePost.self)
                 }
                 self.mainList = firepost
-
+                
             }
     }
-
+    
     
     func like(bild: FirePost){
         //Hier muss über den angemeldeten User eine Datenbank erstellt werden, wo alle gelikedten bilder/videos gespeichert werden.

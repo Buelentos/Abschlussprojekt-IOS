@@ -15,7 +15,7 @@ class ProfileViewModel: ObservableObject{
     private let repo = Repository.sharedRepo
     private var manager = FireBaseManager.sharedFireBase
     @Published var uploadURL: String?
-
+    
     var authViewModel: AuthentifikationViewModel
     
     init(authViewModel: AuthentifikationViewModel) {

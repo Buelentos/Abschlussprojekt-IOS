@@ -10,11 +10,11 @@ import SwiftUI
 struct FilterView: View {
     
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
-
+    
     
     var body: some View {
-
-
+        
+        
         List{
             Section(header: Text("Please choise your destination")){
                 Picker("Country", selection: $discoverViewModel.selectedCountry){
@@ -44,7 +44,7 @@ struct FilterView: View {
                         }
                     }
                 }
-                    
+                
                 
             }
             
@@ -69,8 +69,8 @@ struct FilterView: View {
             
             
         }
-
-
+        
+        
     }
 }
 

@@ -11,7 +11,7 @@ class SettingViewModel: ObservableObject{
     
     var authViewModel: AuthentifikationViewModel
     private var manager = FireBaseManager.sharedFireBase
-
+    
     init(authViewModel: AuthentifikationViewModel) {
         self.authViewModel = authViewModel
     }

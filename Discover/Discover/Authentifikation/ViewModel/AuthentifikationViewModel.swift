@@ -21,8 +21,8 @@ class AuthentifikationViewModel: ObservableObject {
     @Published var istAngemeldet = false
     @Published var user: FireUser?
     private var manager = FireBaseManager.sharedFireBase
-
-
+    
+    
     
     init() {
         self.checkLogin()
@@ -114,7 +114,7 @@ class AuthentifikationViewModel: ObservableObject {
             print("Fehler beim erstellen: \(error)")
         }
     }
-
+    
     
     func logout() {
         do {

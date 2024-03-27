@@ -21,8 +21,8 @@ struct SearchModel: Identifiable, Hashable{
     
     
     func hash(into hasher: inout Hasher) {
-            hasher.combine(id)
-            hasher.combine(title)
-        }
+        hasher.combine(id)
+        hasher.combine(title)
+    }
     
 }

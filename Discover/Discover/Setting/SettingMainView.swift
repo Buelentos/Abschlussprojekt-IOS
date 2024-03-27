@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingMainView: View {
     @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     @EnvironmentObject private var settingViewModel: SettingViewModel
-
+    
     var body: some View {
         NavigationStack {
             List {

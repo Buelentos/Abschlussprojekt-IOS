@@ -7,7 +7,7 @@ struct DiscoverDetailView: View {
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
     
     var bild: FirePost
-
+    
     var body: some View {
         
         ScrollView{
@@ -39,7 +39,7 @@ struct DiscoverDetailView: View {
                         //NavigationLink zur CommentView
                         Image(systemName: "text.bubble")
                         Text("Comments")
-
+                        
                     }
                     Spacer()
                     Image(systemName: "paperplane")

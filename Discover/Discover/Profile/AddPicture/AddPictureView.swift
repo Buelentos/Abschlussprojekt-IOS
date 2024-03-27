@@ -34,21 +34,21 @@ struct AddPictureView: View {
                         .foregroundStyle(Color(.systemGray))
                 }
             })
-                
+            
             TextField("Gebe hier deinen Bild-Hashtag ein", text: $profileViewModel.pictureTAG).padding().frame(width: 300)
             
             TextField("Gebe hier deine Bildbeschreibung ein", text: $profileViewModel.pictureBeschreibung).padding().frame(width: 350)
             
-                Button("Neues Foto Hochladen"){
-                    profileViewModel.selectedPicturetoStorage()
-                    if profileViewModel.pictureBeschreibung.isEmpty{
-                        profileViewModel.pictureBeschreibung = "Keine Beschreibung"
-                    }
-                    profileViewModel.resetPictureSelections()
-                    profileViewModel.pictureSheetShow.toggle()
-                }.background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0).disabled(profileViewModel.pictureTAG.isEmpty)
+            Button("Neues Foto Hochladen"){
+                profileViewModel.selectedPicturetoStorage()
+                if profileViewModel.pictureBeschreibung.isEmpty{
+                    profileViewModel.pictureBeschreibung = "Keine Beschreibung"
+                }
+                profileViewModel.resetPictureSelections()
+                profileViewModel.pictureSheetShow.toggle()
+            }.background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0).disabled(profileViewModel.pictureTAG.isEmpty)
             Spacer()
-            }
+        }
     }
 }
 

@@ -13,7 +13,7 @@ struct ProfileMainView: View {
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var authViewModel: AuthentifikationViewModel
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
-
+    
     
     var querreihe = 0
     var verticalreihe = 0
@@ -27,7 +27,7 @@ struct ProfileMainView: View {
                     Text(authViewModel.user?.benutzerName ?? "lala")
                     HStack {
                         Text("Member since: \(String(describing: authViewModel.user?.registerAt.formatted()))")
-                      
+                        
                     }
                 }
                 Spacer()
@@ -50,19 +50,19 @@ struct ProfileMainView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(authViewModel.user?.uploadedPictures ?? [""], id: \.self){ picture in
                         
-                            AsyncImage(
-                                url: URL(string: picture),
-                                content: { image in
-                                    image.resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(maxWidth: 130, maxHeight: 130)
-                                        .scaledToFill()
-                                },
-                                placeholder: {
-                                    ProgressView()
-                                }
-                            )
-                        }
+                        AsyncImage(
+                            url: URL(string: picture),
+                            content: { image in
+                                image.resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(maxWidth: 130, maxHeight: 130)
+                                    .scaledToFill()
+                            },
+                            placeholder: {
+                                ProgressView()
+                            }
+                        )
+                    }
                 }
                 
                 
