@@ -12,12 +12,12 @@ import SwiftUI
 struct SearchModel: Identifiable, Hashable{
     
     var id: String
-    let picture: String
-    let title: String
-    let description: String
-    let destination: String
-    let opens: String
-    let rating: String
+    var picture: String
+    var title: String
+    var description: String
+    var destination: String
+    var opens: String
+    var rating: String
     
     
     func hash(into hasher: inout Hasher) {
