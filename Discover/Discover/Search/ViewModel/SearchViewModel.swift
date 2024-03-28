@@ -13,11 +13,11 @@ class SearchViewModel: ObservableObject{
     var searchInput = ""
     
     var searchItemList = [
-        SearchModel(id: "thfgjk", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/ZkOpYY3jpRgpWpOWZaSLKrwHc3v2%2FBanane?alt=media&token=3abccf0b-4cca-4f71-9de4-d2f34a4f6d39", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: "Adresse: BlaBlaStraße 6, PLZ/Ort", opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: "3/10"),
+        SearchModel(id: "thfgjk", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/bkVMulDpO4XDhUBmMbIdPdJhhKy1%2FBlatt?alt=media&token=30176601-d959-4581-9439-108d9f4f2e82", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: "Adresse: BlaBlaStraße 6, PLZ/Ort", opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: "3/10"),
         
-        SearchModel(id: "jkhkj", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/ZkOpYY3jpRgpWpOWZaSLKrwHc3v2%2FBanane?alt=media&token=3abccf0b-4cca-4f71-9de4-d2f34a4f6d39", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: "Adresse: BlaBlaStraße 6, PLZ/Ort", opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: "3/10"),
+        SearchModel(id: "jkhkj", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/bkVMulDpO4XDhUBmMbIdPdJhhKy1%2FRote%20Blumen?alt=media&token=f5016ce3-f9ca-4d7e-8792-feffe1dd3e0e", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: "Adresse: BlaBlaStraße 6, PLZ/Ort", opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: "3/10"),
         
-        SearchModel(id: "oiuztgh", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/ZkOpYY3jpRgpWpOWZaSLKrwHc3v2%2FBanane?alt=media&token=3abccf0b-4cca-4f71-9de4-d2f34a4f6d39", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: "Adresse: BlaBlaStraße 6, PLZ/Ort", opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: "3/10")
+        SearchModel(id: "oiuztgh", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/bkVMulDpO4XDhUBmMbIdPdJhhKy1%2FWasserfall?alt=media&token=9dcc9d8f-d783-4f7c-a59d-b1b72eb3c205", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: "Adresse: BlaBlaStraße 6, PLZ/Ort", opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: "3/10")
     ]
     
     func loadListOfSearchItems(){

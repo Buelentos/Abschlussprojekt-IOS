@@ -29,7 +29,7 @@ struct ProfileMainView: View {
                     placeholder: {
                         Image(systemName: "globe").resizable().frame(width: 100, height: 100)
                     }
-                ).padding(.leading).onTapGesture {
+                ).padding(.leading).padding(.top).onTapGesture {
                     profileViewModel.sheetProfilePicture.toggle()
                 }.sheet(isPresented: $profileViewModel.sheetProfilePicture, content: {
                     ProfilePictureSelectionView()
@@ -37,7 +37,7 @@ struct ProfileMainView: View {
                 VStack{
                     Text(authViewModel.user?.benutzerName ?? "lala")
                     HStack {
-                        Text("Member since: \(String(describing: authViewModel.user?.registerAt.formatted()))")
+                        Text("Member since: \(String(describing: authViewModel.user?.registerAt.formatted() ?? "failed"))")
                         
                     }
                 }

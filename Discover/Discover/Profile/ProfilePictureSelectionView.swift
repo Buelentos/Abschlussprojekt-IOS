@@ -33,9 +33,8 @@ struct ProfilePictureSelectionView: View {
                 }
             })
             
-            Button("Neues Profilfoto Speichern "){
+            Button("Neues Profilfoto Speichern"){
                 profileViewModel.selectedProfilePictureToStorage()
-                profileViewModel.loadProfilePicture()
                 profileViewModel.resetPictureSelections()
                 profileViewModel.sheetProfilePicture.toggle()
             }.background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0)            .padding()
