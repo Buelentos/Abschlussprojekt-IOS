@@ -16,4 +16,5 @@ struct FireUser: Codable, Identifiable{
     var firstLogIn: Bool?
     var likedPictures = [""]
     var uploadedPictures = [""]
+    var profilePicture = ""
 }

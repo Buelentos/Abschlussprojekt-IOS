@@ -15,6 +15,9 @@ class ProfileViewModel: ObservableObject{
     private let repo = Repository.sharedRepo
     private var manager = FireBaseManager.sharedFireBase
     @Published var uploadURL: String?
+    @Published var sheetProfilePicture = false
+    private var listener: ListenerRegistration?
+    
     
     var authViewModel: AuthentifikationViewModel
     
@@ -36,6 +39,8 @@ class ProfileViewModel: ObservableObject{
         guard let uiImage = UIImage(data: imageData) else {return}
         self.profileImage = uiImage
     }
+    
+    
     
     func createPost(url: String, tag: String, beschreibung: String){
         let id = UUID().uuidString
@@ -131,10 +136,79 @@ class ProfileViewModel: ObservableObject{
         self.pictureTAG = ""
         self.pictureBeschreibung = ""
         self.profileImage = nil
-        
     }
     
     
+    func selectedProfilePictureToStorage(){
+        guard let uid = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else {return}
+        let ref = Storage.storage().reference().child(uid).child("profilePicture")
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpeg"
+        
+        guard let imageData = self.profilePictureImage?.jpegData(compressionQuality: 0.5) else {return}
+        
+        ref.putData(imageData, metadata: metadata) { metadata, error in
+            if let error = error {
+                print("Failed to push Image to Storage: \(error)")
+                return
+            }
+            ref.downloadURL { url, error in
+                if let error = error {
+                    print("Failed to download URL from Storage: \(error)")
+                    return
+                }
+                
+                if let downloadURL = url {
+                    self.updateUserProfileImage(downloadURL)
+                    print("Succesfully pushed Image to Storage")
+                }
+                
+            }
+            
+        }
+    }
     
+    
+    private func updateUserProfileImage(_ url: URL) {
+        guard let userId = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else { return }
+        let userRef = FireBaseManager.sharedFireBase.fireStore.collection("users").document(userId)
+        
+        userRef.updateData(["profilePicture": url.absoluteString]) { error in
+            if let error = error {
+                print("Failed to update profile image URL: \(error)")
+            } else {
+                print("Profile image URL updated successfully.")
+            }
+        }
+    }
+    
+    @Published var selectedPhotosPickerItem2: PhotosPickerItem? {
+        didSet { Task {try await loadImage2() } }
+    }
+    
+    @Published var profilePictureImage: UIImage?
+    
+    @MainActor
+    func loadImage2() async throws {
+        guard let item = selectedPhotosPickerItem2 else {return}
+        guard let imageData = try await item.loadTransferable(type: Data.self) else {return}
+        guard let uiImage = UIImage(data: imageData) else {return}
+        self.profilePictureImage = uiImage
+    }
+    
+//    func loadProfilePicture(){
+//        self.listener = manager.fireStore.collection("\(String(describing: authViewModel.user?.profilePicture))")
+//            .addSnapshotListener{ post, error in
+//                if let error = error {
+//                    print("Error reading pets: \(error)")
+//                    return
+//                }
+//                guard let documents = post?.documents else {
+//                    print("Query Snapshot is empty")
+//                    return
+//                }
+//            }
+//    }
     
 }

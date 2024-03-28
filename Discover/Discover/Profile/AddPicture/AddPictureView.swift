@@ -20,6 +20,7 @@ struct AddPictureView: View {
             Spacer()
             Text("Add Picture")
             Spacer()
+            
             PhotosPicker(selection: $profileViewModel.selectedPhotosPickerItem, label: {
                 if let profileImage = profileViewModel.profileImage {
                     Image(uiImage: profileImage)

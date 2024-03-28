@@ -105,7 +105,8 @@ class AuthentifikationViewModel: ObservableObject {
             beschreibung: "",
             firstLogIn: true,
             likedPictures: [String](),
-            uploadedPictures: [String]()
+            uploadedPictures: [String](),
+            profilePicture: ""
         )
         
         do{

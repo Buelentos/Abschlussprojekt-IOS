@@ -21,8 +21,19 @@ struct ProfileMainView: View {
     var body: some View {
         VStack{
             HStack{
-                Image(systemName: "globe")
-                    .resizable().frame(width: 90,height:90).clipShape(Circle()).border(.blue).padding()
+                AsyncImage(
+                    url: URL(string: authViewModel.user?.profilePicture ?? "globe"),
+                    content: { image in
+                        image.resizable().frame(width: 100, height: 100).cornerRadius(15)
+                    },
+                    placeholder: {
+                        Image(systemName: "globe").resizable().frame(width: 100, height: 100)
+                    }
+                ).padding(.leading).onTapGesture {
+                    profileViewModel.sheetProfilePicture.toggle()
+                }.sheet(isPresented: $profileViewModel.sheetProfilePicture, content: {
+                    ProfilePictureSelectionView()
+                })
                 VStack{
                     Text(authViewModel.user?.benutzerName ?? "lala")
                     HStack {

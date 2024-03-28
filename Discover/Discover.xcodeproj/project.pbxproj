@@ -58,6 +58,7 @@
 		AE9144C22BB421800007F831 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9144C12BB421800007F831 /* AccountView.swift */; };
 		AE9144C92BB427070007F831 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9144C82BB427070007F831 /* SearchModel.swift */; };
 		AE9144CB2BB42A650007F831 /* SearchElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9144CA2BB42A650007F831 /* SearchElement.swift */; };
+		AE9144CD2BB57AD00007F831 /* ProfilePictureSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9144CC2BB57AD00007F831 /* ProfilePictureSelectionView.swift */; };
 		AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */; };
 		AEFCDAC12B8DE25900D3BACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */; };
 		AEFCDAC42B8DE25900D3BACD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC32B8DE25900D3BACD /* Preview Assets.xcassets */; };
@@ -96,6 +97,7 @@
 		AE9144C12BB421800007F831 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		AE9144C82BB427070007F831 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		AE9144CA2BB42A650007F831 /* SearchElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchElement.swift; sourceTree = "<group>"; };
+		AE9144CC2BB57AD00007F831 /* ProfilePictureSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureSelectionView.swift; sourceTree = "<group>"; };
 		AEFCDAB92B8DE25900D3BACD /* Discover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverApp.swift; sourceTree = "<group>"; };
 		AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				AE9144B22BB2D1C40007F831 /* ViewModel */,
 				AE69B1B02BA4995100247433 /* AddPicture */,
 				AE69B19A2BA0A5B900247433 /* ProfileMainView.swift */,
+				AE9144CC2BB57AD00007F831 /* ProfilePictureSelectionView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -519,6 +522,7 @@
 				AEFCDADE2B8DF25B00D3BACD /* AnmeldenView.swift in Sources */,
 				AEFCDB072B8E283900D3BACD /* DiscoverListenElement.swift in Sources */,
 				AE9144C22BB421800007F831 /* AccountView.swift in Sources */,
+				AE9144CD2BB57AD00007F831 /* ProfilePictureSelectionView.swift in Sources */,
 				AE9144C92BB427070007F831 /* SearchModel.swift in Sources */,
 				AE9144AB2BB2D1810007F831 /* SettingViewModel.swift in Sources */,
 				AEFCDAD32B8DE62A00D3BACD /* RegistrierenView.swift in Sources */,
