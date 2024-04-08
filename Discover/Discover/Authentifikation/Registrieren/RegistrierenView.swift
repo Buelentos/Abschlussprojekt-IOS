@@ -41,7 +41,6 @@ struct RegistrierenView: View {
             
             
             Button("Registrieren"){
-                //Noch keine Funktion für den Button
                 //PseudoCode =>
                 // if liste der registrietenUserListe.Contains(User){
                 //  TOAST -> Deine Registrierung war erfolgreich
