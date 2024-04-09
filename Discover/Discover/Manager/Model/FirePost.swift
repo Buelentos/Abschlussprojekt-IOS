@@ -18,6 +18,3 @@ struct FirePost: Identifiable, Hashable, Codable{
     var comments: [String]
     
 }
-
-
-

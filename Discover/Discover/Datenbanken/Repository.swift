@@ -14,4 +14,10 @@ class Repository {
     var istAngemeldet: Bool = false
     
     
+    
+    
+    
 }
+
+
+
