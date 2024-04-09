@@ -15,7 +15,7 @@ struct SearchElement: View {
     var body: some View {
         HStack{
             AsyncImage(
-                url: URL(string: einSearchElement.picture),
+                url: URL(string: einSearchElement.picture ?? ""),
                 content: { image in
                     image.resizable().frame(width: 100, height: 100).cornerRadius(15)
                 },
@@ -28,7 +28,7 @@ struct SearchElement: View {
             Spacer()
             VStack {
                 Text(einSearchElement.title)
-                Text(einSearchElement.description)
+                Text(einSearchElement.description ?? "FAIL")
                 Text("Rating: \(einSearchElement.rating)")
             }.foregroundColor(.black)
             Spacer()
@@ -37,6 +37,6 @@ struct SearchElement: View {
 }
 
 #Preview {
-    SearchElement(einSearchElement: SearchModel(id: "thfgjk", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/ZkOpYY3jpRgpWpOWZaSLKrwHc3v2%2FBanane?alt=media&token=3abccf0b-4cca-4f71-9de4-d2f34a4f6d39", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: "Adresse: BlaBlaStraße 6, PLZ/Ort", opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: "3/10"))
+    SearchElement(einSearchElement: SearchModel(id: "thfgjk", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/ZkOpYY3jpRgpWpOWZaSLKrwHc3v2%2FBanane?alt=media&token=3abccf0b-4cca-4f71-9de4-d2f34a4f6d39", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: ["Adresse: BlaBlaStraße 6, PLZ/Ort"], opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: "3/10"))
         .environmentObject(SearchViewModel())
 }

@@ -12,24 +12,30 @@ struct SearchMainView: View {
     var body: some View {
         
         NavigationStack {
-            ScrollView{
-                ForEach(searchViewModel.searchItemList){ searchItem in
-                    NavigationLink(value: searchItem) {
-                        SearchElement( einSearchElement: searchItem)
+            HStack{
+                Picker("Category", selection: $searchViewModel.selectedCategory) {
+                    Text("FOOD")
+                    Text("SPORT")
+                }
+                ScrollView{
+                    ForEach(searchViewModel.searchItemList){ searchItem in
+                        NavigationLink(value: searchItem) {
+                            SearchElement( einSearchElement: searchItem)
+                        }
                     }
                 }
+                .navigationTitle("Search")
+                
+                //Oben muss noch die Filterfunktion von aktivitäten, sport, essen, gaming eingebracht werden
+                .searchable(text: $searchViewModel.searchInput, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach etwas konkretem")
+                
+                .navigationDestination(for: SearchModel.self, destination: { selectedEvent in
+                    SearchDetailView(searchEvent: selectedEvent)
+                        .environmentObject(searchViewModel)
+                    
+                })
+                
             }
-            .navigationTitle("Search")
-            
-            //Oben muss noch die Filterfunktion von aktivitäten, sport, essen, gaming eingebracht werden
-            .searchable(text: $searchViewModel.searchInput, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach etwas konkretem")
-            
-            .navigationDestination(for: SearchModel.self, destination: { selectedEvent in
-                SearchDetailView(searchEvent: selectedEvent)
-                    .environmentObject(searchViewModel)
-
-            })
-            
         }
     }
 }

@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import _CoreLocationUI_SwiftUI
 
 struct AccountView: View {
     
     @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     @EnvironmentObject private var settingViewModel: SettingViewModel
+    @StateObject var locationManager = LocationManager()
+
     
     var body: some View {
         List (){
@@ -30,7 +33,17 @@ struct AccountView: View {
                 settingViewModel.delete()
                 settingViewModel.removeListener()
             }.foregroundColor(.red)
-        }
+            
+            
+
+//                LocationButton {
+//                    locationManager.requestLocation()
+//                }
+//                .frame(height: 44)
+//                .padding()
+//            // Button ist um standtort zu erfragen
+            }
+        
     }
 }
 

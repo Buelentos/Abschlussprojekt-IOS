@@ -12,11 +12,11 @@ import SwiftUI
 struct SearchModel: Identifiable, Hashable{
     
     var id: String
-    var picture: String
+    var picture: String?
     var title: String
-    var description: String
-    var destination: String
-    var opens: String
+    var description: String?
+    var destination: [String]
+    var opens: String?
     var rating: String
     
     

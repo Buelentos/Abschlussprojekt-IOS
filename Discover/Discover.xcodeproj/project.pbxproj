@@ -61,7 +61,9 @@
 		AE9144CD2BB57AD00007F831 /* ProfilePictureSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9144CC2BB57AD00007F831 /* ProfilePictureSelectionView.swift */; };
 		AE93A2F52BC3D461003AA73F /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A2F42BC3D461003AA73F /* SearchDetailView.swift */; };
 		AE93A2FB2BC54B34003AA73F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A2FA2BC54B34003AA73F /* Error.swift */; };
-		AE93A2FD2BC54D28003AA73F /* ApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A2FC2BC54D28003AA73F /* ApiModel.swift */; };
+		AE93A2FD2BC54D28003AA73F /* FoodApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A2FC2BC54D28003AA73F /* FoodApiModel.swift */; };
+		AE93A2FF2BC55FE0003AA73F /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A2FE2BC55FE0003AA73F /* GPS.swift */; };
+		AE93A3032BC56859003AA73F /* APIKEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A3022BC56859003AA73F /* APIKEY.swift */; };
 		AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */; };
 		AEFCDAC12B8DE25900D3BACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */; };
 		AEFCDAC42B8DE25900D3BACD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC32B8DE25900D3BACD /* Preview Assets.xcassets */; };
@@ -103,7 +105,9 @@
 		AE9144CC2BB57AD00007F831 /* ProfilePictureSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureSelectionView.swift; sourceTree = "<group>"; };
 		AE93A2F42BC3D461003AA73F /* SearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
 		AE93A2FA2BC54B34003AA73F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
-		AE93A2FC2BC54D28003AA73F /* ApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiModel.swift; sourceTree = "<group>"; };
+		AE93A2FC2BC54D28003AA73F /* FoodApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodApiModel.swift; sourceTree = "<group>"; };
+		AE93A2FE2BC55FE0003AA73F /* GPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
+		AE93A3022BC56859003AA73F /* APIKEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKEY.swift; sourceTree = "<group>"; };
 		AEFCDAB92B8DE25900D3BACD /* Discover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverApp.swift; sourceTree = "<group>"; };
 		AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -303,7 +307,8 @@
 			children = (
 				AE9144C82BB427070007F831 /* SearchModel.swift */,
 				AE93A2FA2BC54B34003AA73F /* Error.swift */,
-				AE93A2FC2BC54D28003AA73F /* ApiModel.swift */,
+				AE93A2FC2BC54D28003AA73F /* FoodApiModel.swift */,
+				AE93A2FE2BC55FE0003AA73F /* GPS.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */,
 				AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */,
 				AEFCDAC22B8DE25900D3BACD /* Preview Content */,
+				AE93A3022BC56859003AA73F /* APIKEY.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 				AE69B1AA2BA443EA00247433 /* DiscoverDetailView.swift in Sources */,
 				AE69B1AF2BA4994D00247433 /* AddPictureView.swift in Sources */,
 				AE69B1902B90D98900247433 /* FireBaseManager.swift in Sources */,
+				AE93A3032BC56859003AA73F /* APIKEY.swift in Sources */,
 				AEFCDADC2B8DEDAE00D3BACD /* SplashScreen.swift in Sources */,
 				AE93A2F52BC3D461003AA73F /* SearchDetailView.swift in Sources */,
 				AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */,
@@ -521,12 +528,13 @@
 				AE69B1972BA0A57000247433 /* SearchMainView.swift in Sources */,
 				AE69B1502B909F4C00247433 /* MainTabView.swift in Sources */,
 				AE9144CB2BB42A650007F831 /* SearchElement.swift in Sources */,
-				AE93A2FD2BC54D28003AA73F /* ApiModel.swift in Sources */,
+				AE93A2FD2BC54D28003AA73F /* FoodApiModel.swift in Sources */,
 				AE69B1AD2BA446AD00247433 /* CommentView.swift in Sources */,
 				AE69B1992BA0A59800247433 /* MessagesMainView.swift in Sources */,
 				AEFCDB052B8E1D9C00D3BACD /* FirePost.swift in Sources */,
 				AE9144B42BB2D1E50007F831 /* ProfileViewModel.swift in Sources */,
 				AE69B19B2BA0A5B900247433 /* ProfileMainView.swift in Sources */,
+				AE93A2FF2BC55FE0003AA73F /* GPS.swift in Sources */,
 				AE9144AE2BB2D1A80007F831 /* SearchViewModel.swift in Sources */,
 				AE69B1922B90DF4300247433 /* SettingMainView.swift in Sources */,
 				AEFCDACC2B8DE2E700D3BACD /* Repository.swift in Sources */,

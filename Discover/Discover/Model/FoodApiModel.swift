@@ -8,20 +8,22 @@
 import Foundation
 
 
-struct ApiModel: Codable {
-    let places: [Place]
+struct FoodApiModel: Codable {
+    let foodplaces: [FoodPlace]
 }
 //Sobald eine API gefunden wurde, muss abgeglichen werden, wie die antwort auf die anfrage eines APICALLS aussieht und aufgebaut ist.
 //Dem entsprechend können die Structs aufgebaut werden.
 
 
-struct Place: Codable{
-    var title: String
-    var description: String
-    var urlToImage: URL?
-    var destination: String
-    var opens: String
+struct FoodPlace: Codable{
+    var name: String
+    var image_url: URL?
+    var location: Location
     var rating: String
-    var category: String
  //Die eigenschaften müssen so benannt werden, wie sie in der JSON auch benannt sind
 }
+
+struct Location: Codable{
+    var display_address: [String]
+}
+
