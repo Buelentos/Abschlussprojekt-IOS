@@ -11,13 +11,15 @@ class DiscoverViewModel: ObservableObject {
     @Published var showFilter = false
     private var manager = FireBaseManager.sharedFireBase
     private var listener: ListenerRegistration?
-    var selectedCountry = ""
-    var country = ["", "Deutschland", "Türkiye", "USA"]
-    var selctedCity = ""
-    var citiesOfGermany = ["Berlin", "Hamburg", "Frankfurt", "Stuttgart"]
-    var citiesOfTurkey = ["Ankara", "Istanbul", "Kars", "Ardahan"]
-    var citiesOfUSA = ["Washington", "New York", "Compton", "Miami"]
-    var categories = ["All", "Sport", "Dinner", "Fun", "Gaming"]
+    @Published var selectedCountry = ""
+    @Published var country = ["", "Deutschland", "Türkiye", "USA"]
+    @Published var selectedCity = ""
+    @Published var citiesOfGermany = ["Berlin", "Hamburg", "Frankfurt", "Stuttgart"]
+    @Published var citiesOfTurkey = ["Ankara", "Istanbul", "Kars", "Ardahan"]
+    @Published var citiesOfUSA = ["Washington", "New York", "Compton", "Miami"]
+    @Published var categories = ["All", "Sport", "Dinner", "Fun", "Gaming"]
+    @Published var selectedFisch = ""
+
     var mainList = [FirePost]()
     var searchInputDiscover = ""
     

@@ -17,38 +17,42 @@ struct FilterView: View {
         
         List{
             Section(header: Text("Please choise your destination")){
-                Picker("Country", selection: $discoverViewModel.selectedCountry){
-                    ForEach(discoverViewModel.country, id: \.self){
-                        Text($0)
-                    }
-                }
                 
-                if discoverViewModel.selectedCountry == "Deutschland" {
-                    Picker("City", selection: $discoverViewModel.selctedCity){
-                        ForEach(discoverViewModel.citiesOfGermany, id: \.self){
+                VStack{
+                    
+                    Picker("Country", selection: $discoverViewModel.selectedCountry){
+                        ForEach(discoverViewModel.country, id: \.self){
                             Text($0)
                         }
                     }
-                }
-                else if (discoverViewModel.selectedCountry == "Türkiye"){
-                    Picker("City", selection: $discoverViewModel.selctedCity){
-                        ForEach(discoverViewModel.citiesOfTurkey, id: \.self){
-                            Text($0)
+                    
+                    
+                    if discoverViewModel.selectedCountry == "Deutschland" {
+                        Picker("City", selection: $discoverViewModel.selectedCity){
+                            ForEach(discoverViewModel.citiesOfGermany, id: \.self){
+                                Text($0)
+                            }
                         }
                     }
-                }
-                else if (discoverViewModel.selectedCountry == "USA"){
-                    Picker("City", selection: $discoverViewModel.selctedCity){
-                        ForEach(discoverViewModel.citiesOfUSA, id: \.self){
-                            Text($0)
+                    else if (discoverViewModel.selectedCountry == "Türkiye"){
+                        Picker("City", selection: $discoverViewModel.selectedCity){
+                            ForEach(discoverViewModel.citiesOfTurkey, id: \.self){
+                                Text($0)
+                            }
                         }
                     }
+                    else if (discoverViewModel.selectedCountry == "USA"){
+                        Picker("City", selection: $discoverViewModel.selectedCity){
+                            ForEach(discoverViewModel.citiesOfUSA, id: \.self){
+                                Text($0)
+                            }
+                        }
+                    }
+                    
                 }
-                
-                
             }
             
-            Picker("category", selection: $discoverViewModel.categories){
+            Picker("category", selection: $discoverViewModel.selectedFisch){
                 ForEach(discoverViewModel.categories, id: \.self){
                     Text($0)
                 }
