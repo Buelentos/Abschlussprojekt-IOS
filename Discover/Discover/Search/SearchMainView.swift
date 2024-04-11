@@ -12,13 +12,18 @@ struct SearchMainView: View {
     var body: some View {
         
         NavigationStack {
-            HStack{
-                Picker("Category", selection: $searchViewModel.selectedCategory) {
-                    Text("FOOD")
-                    Text("SPORT")
-                }
+            VStack{
+                Picker(selection: $searchViewModel.selectedCategory, label: Text("bug")) {
+                    ForEach(SearchViewModel.FilterOptions.allCases, id: \.self){ option in
+                        Text(option.rawValue)
+                    }
+                }.pickerStyle(.segmented).padding(.horizontal)
+                    .onChange(of: searchViewModel.selectedCategory) { oldValue, newValue in
+                        searchViewModel.load()
+                        print("fisch oder was du willst")
+                    }
                 ScrollView{
-                    ForEach(searchViewModel.searchItemList){ searchItem in
+                    ForEach(searchViewModel.listOfPlaces){ searchItem in
                         NavigationLink(value: searchItem) {
                             SearchElement( einSearchElement: searchItem)
                         }
@@ -34,6 +39,15 @@ struct SearchMainView: View {
                         .environmentObject(searchViewModel)
                     
                 })
+                
+                .toolbar{
+                    
+                    ToolbarItem() {
+                        
+                        
+                        
+                    }
+                }
                 
             }
         }

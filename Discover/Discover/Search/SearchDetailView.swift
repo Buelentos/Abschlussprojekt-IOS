@@ -16,7 +16,7 @@ struct SearchDetailView: View {
             HStack{
                 
                 VStack {
-                    Text(searchEvent.title).padding(.top).font(.largeTitle)
+                    Text(searchEvent.title ?? "lala").padding(.top).font(.largeTitle)
                     AsyncImage(
                         url: URL(string: searchEvent.picture ?? "FAIL"),
                         content: { image in
@@ -92,6 +92,6 @@ struct SearchDetailView: View {
 }
 
 #Preview {
-    SearchDetailView(searchEvent: SearchModel(id: "thfgjk", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/bkVMulDpO4XDhUBmMbIdPdJhhKy1%2FBlatt?alt=media&token=30176601-d959-4581-9439-108d9f4f2e82", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: [" BlaBlaStraße 6, PLZ/Ort"], opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: "3/10"))
+    SearchDetailView(searchEvent: SearchModel(id: "thfgjk", picture: "https://firebasestorage.googleapis.com:443/v0/b/discover-68f7d.appspot.com/o/bkVMulDpO4XDhUBmMbIdPdJhhKy1%2FBlatt?alt=media&token=30176601-d959-4581-9439-108d9f4f2e82", title: "Pütrücs Markt", description: "Kleiner Drogeriemarkt", destination: [" BlaBlaStraße 6, PLZ/Ort"], opens: "Öffnungszeiten: Werktags -> 06:00 bis 18:00 Uhr, Sonntags -> Geschlossen ", rating: 3))
         .environmentObject(SearchViewModel())
 }
