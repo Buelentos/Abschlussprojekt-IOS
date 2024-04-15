@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SearchMainView: View {
     @EnvironmentObject var searchViewModel: SearchViewModel
+   
     var body: some View {
         
         NavigationStack {
@@ -44,12 +45,27 @@ struct SearchMainView: View {
                     
                     ToolbarItem() {
                         
-                        
+                        Image(systemName: "location.fill.viewfinder")
+                            .frame(width: 100, height: 100).onTapGesture {
+                                searchViewModel.showAlert.toggle()
+                            }
                         
                     }
+                }.alert("Stadt für die Suche!", isPresented: $searchViewModel.showAlert){
+                    TextField("Stadtsuche", text: $searchViewModel.userAlertInputLocation )
+                } message: {
+                    TextField("Stadtsuche", text: $searchViewModel.userAlertInputLocation )
                 }
+            
+                
+                
                 
             }
+        }.onAppear{
+            searchViewModel.load()
+        }
+        .onChange(of: searchViewModel.userAlertInputLocation) { oldValue, newValue in
+            searchViewModel.load()
         }
     }
 }

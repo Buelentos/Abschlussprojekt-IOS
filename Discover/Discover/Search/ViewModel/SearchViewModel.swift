@@ -13,6 +13,8 @@ class SearchViewModel: ObservableObject{
     var searchInput = ""
     @Published var listOfPlaces: [SearchModel] = []
     @Published var selectedCategory: FilterOptions = .food
+    @Published var showAlert = false
+    @Published var userAlertInputLocation = "Hamburg"
     
     
     enum FilterOptions: String, CaseIterable {
@@ -31,7 +33,7 @@ class SearchViewModel: ObservableObject{
             "Authorization": apiKey
         ]
         if selectedCategory == .food {
-            let request = NSMutableURLRequest(url: NSURL(string: "https://api.yelp.com/v3/businesses/search?sort_by=best_match&limit=20")! as URL,
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api.yelp.com/v3/businesses/search?sort_by=best_match&limit=20&location=\(userAlertInputLocation)")! as URL,
                                               cachePolicy: .useProtocolCachePolicy,
                                               timeoutInterval: 10.0)
             request.httpMethod = "GET"

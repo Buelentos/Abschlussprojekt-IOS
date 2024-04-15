@@ -28,8 +28,8 @@ struct SearchElement: View {
             Spacer()
             VStack {
                 Text(einSearchElement.title ?? "lala")
-                Text(einSearchElement.description ?? "FAIL")
-                Text("Rating: \(einSearchElement.rating)")
+                Text(einSearchElement.description ?? "")
+                Text("Rating: \(einSearchElement.rating?.formatted() ?? "0")")
             }.foregroundColor(.black)
             Spacer()
         }.padding().frame(width: 350,height: 120).background(.blue).cornerRadius(20)

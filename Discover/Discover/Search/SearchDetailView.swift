@@ -34,7 +34,7 @@ struct SearchDetailView: View {
                     HStack {
                         Text("Adresse:").font(.headline)
                         Spacer()
-                        Text("\(searchEvent.destination)")
+                        Text("\(searchEvent.destination ?? ["Fail","Fail"])")
                     }.padding()
                     Divider().background(.black)
                     HStack {
