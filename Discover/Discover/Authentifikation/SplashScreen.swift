@@ -13,11 +13,10 @@ struct SplashScreen: View {
                 AnmeldenView()
                     .environmentObject(authViewModel)
             }else {
-                Text("SPLASHSCREEN")
-                Image(.logo)
+                Image(.logo).resizable().frame(width: .infinity, height: .infinity).ignoresSafeArea()
             }
         }.onAppear{
-            DispatchQueue.main.asyncAfter(deadline: .now()+3){
+            DispatchQueue.main.asyncAfter(deadline: .now()+2){
                 withAnimation{
                     isActive = true
                 }

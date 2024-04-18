@@ -29,7 +29,7 @@ struct AccountView: View {
             }.foregroundColor(.orange)
             
             Button("Account löschen"){
-                //Es müssen alle bilder die von diesem Account erstellt wurden aus den Listen gelöscht werden, wo sie hochgeladen wurden
+                
                 settingViewModel.delete()
                 settingViewModel.removeListener()
             }.foregroundColor(.red)
