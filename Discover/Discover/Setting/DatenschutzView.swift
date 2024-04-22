@@ -13,7 +13,9 @@ struct DatenschutzView: View {
     @EnvironmentObject private var settingViewModel: SettingViewModel
     
     var body: some View {
+        
         Text("DATENSCHUTZVIEW")
+        
     }
 }
 

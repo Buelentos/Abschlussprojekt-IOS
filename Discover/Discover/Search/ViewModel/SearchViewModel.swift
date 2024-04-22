@@ -49,22 +49,47 @@ class SearchViewModel: ObservableObject{
             return searchmodels
             
         }
-    
-//        else if selectedCategory == "sport" {
-//            
-//            guard let url = URL(string: "HIER KOMMT DIE ANDERE URL FÜR SPORTAPI") else {
-//                throw URLError()
-//            }
-//            
-//            let (data, _) = try await URLSession.shared.data(from: url)
-//            
-//            let searchmodels = try JSONDecoder().decode(SPORTAPI!!!!!!!!!.self, from: data).foodplaces.map{ SPORTEVENT in
-//                SearchModel(id: UUID().uuidString, picture: SPORTEVENT.image_url?.absoluteString, title: SPORTEVENT.name, description: nil, destination: SPORTEVENT.location.display_address, opens: nil, rating: SPORTEVENT.rating)
-//            }
-//            return searchmodels
-//            
-//            
-//        }
+        
+        else if selectedCategory == .event {
+            
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api.yelp.com/v3/events?limit=20&location=\(userAlertInputLocation)&start_date=\(Int(Date().timeIntervalSince1970))")! as URL,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            request.httpMethod = "GET"
+            request.allHTTPHeaderFields = headers
+            
+            
+            let (data, _) = try await URLSession.shared.data(for: request as URLRequest)
+            print(String(decoding: data, as: UTF8.self))
+            
+            let searchmodels = try JSONDecoder().decode(EventAPIModel.self, from: data).events.map{ event in
+                SearchModel(id: UUID().uuidString, picture: event.image_url?.absoluteString, title: event.name ?? "Fisch", description: event.description ?? "lala", destination: event.location?.display_address ?? ["Fisch","Street"], opens: nil, rating: nil)
+            }
+            return searchmodels
+        }
+        else if selectedCategory == .sport {
+            
+            let request = NSMutableURLRequest(url: NSURL(string: "https://api.yelp.com/v3/businesses/search?categories=active&limit=20&location=\(userAlertInputLocation)")! as URL,
+                                              cachePolicy: .useProtocolCachePolicy,
+                                              timeoutInterval: 10.0)
+            request.httpMethod = "GET"
+            request.allHTTPHeaderFields = headers
+            
+            
+            let (data, _) = try await URLSession.shared.data(for: request as URLRequest)
+            print(String(decoding: data, as: UTF8.self))
+            
+            let searchModels = try JSONDecoder().decode(SportAPIModel.self, from: data).businesses.map{ sport in
+                SearchModel(id: UUID().uuidString, picture: sport.image_url?.absoluteString, title: sport.name ?? "Fisch", description: nil, destination: sport.location?.display_address ?? ["Fisch","Street"], opens: nil, rating: sport.rating ?? 2)
+            }
+            
+            return searchModels
+        }
+        else if selectedCategory == .gaming {
+            
+            
+        }
+        
         return []
     }
     
@@ -87,5 +112,5 @@ class SearchViewModel: ObservableObject{
     
     
     
-
+    
 }

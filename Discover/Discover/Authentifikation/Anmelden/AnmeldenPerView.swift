@@ -10,6 +10,7 @@ import SwiftUI
 struct AnmeldenPerView: View {
     var body: some View {
         
+        
         Spacer()
         
         Button("Facebook"){
@@ -31,6 +32,7 @@ struct AnmeldenPerView: View {
         Spacer()
     }
 }
+
 
 #Preview {
     AnmeldenPerView()

@@ -14,7 +14,6 @@ struct DiscoverView: View {
     
     var body: some View {
         
-        
         NavigationStack {
             ScrollView{
                 

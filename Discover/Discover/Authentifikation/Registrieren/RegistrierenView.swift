@@ -12,6 +12,7 @@ struct RegistrierenView: View {
     
     
     var body: some View {
+        
         VStack {
             Spacer()
             HStack {
@@ -66,8 +67,8 @@ struct RegistrierenView: View {
             
         }
     }
-    
 }
+
 
 #Preview {
     RegistrierenView()

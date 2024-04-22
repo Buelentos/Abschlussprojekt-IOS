@@ -13,6 +13,7 @@ struct SearchElement: View {
     var einSearchElement: SearchModel
     
     var body: some View {
+        
         HStack{
             AsyncImage(
                 url: URL(string: einSearchElement.picture ?? ""),
@@ -33,6 +34,7 @@ struct SearchElement: View {
             }.foregroundColor(.black)
             Spacer()
         }.padding().frame(width: 350,height: 120).background(.blue).cornerRadius(20)
+        
     }
 }
 

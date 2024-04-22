@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SearchMainView: View {
     @EnvironmentObject var searchViewModel: SearchViewModel
-   
+    
     var body: some View {
         
         NavigationStack {
@@ -56,7 +56,7 @@ struct SearchMainView: View {
                 } message: {
                     TextField("Stadtsuche", text: $searchViewModel.userAlertInputLocation )
                 }
-            
+                
                 
                 
                 
@@ -66,6 +66,7 @@ struct SearchMainView: View {
         }
         .onChange(of: searchViewModel.userAlertInputLocation) { oldValue, newValue in
             searchViewModel.load()
+            
         }
     }
 }

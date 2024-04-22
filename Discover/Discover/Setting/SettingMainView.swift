@@ -12,6 +12,7 @@ struct SettingMainView: View {
     @EnvironmentObject private var settingViewModel: SettingViewModel
     
     var body: some View {
+        
         NavigationStack {
             List {
                 

@@ -13,10 +13,11 @@ struct UserView: View {
     @EnvironmentObject private var settingViewModel: SettingViewModel
     
     var body: some View {
+        
         Text("USERVIEW!")
+        
     }
 }
-
 #Preview {
     UserView()
         .environmentObject(AuthentifikationViewModel())

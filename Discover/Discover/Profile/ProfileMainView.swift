@@ -19,6 +19,7 @@ struct ProfileMainView: View {
     var verticalreihe = 0
     
     var body: some View {
+        
         VStack{
             HStack{
                 AsyncImage(
@@ -94,6 +95,7 @@ struct ProfileMainView: View {
                 
                 
             }//ScrollViewKlammer
+            
         }
     }
 }

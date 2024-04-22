@@ -13,9 +13,10 @@ struct AccountView: View {
     @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     @EnvironmentObject private var settingViewModel: SettingViewModel
     @StateObject var locationManager = LocationManager()
-
+    
     
     var body: some View {
+        
         List (){
             Button("Abmelden"){
                 authViewModel.logout()
@@ -35,15 +36,16 @@ struct AccountView: View {
             }.foregroundColor(.red)
             
             
-
-//                LocationButton {
-//                    locationManager.requestLocation()
-//                }
-//                .frame(height: 44)
-//                .padding()
-//            // Button ist um standtort zu erfragen
-            }
-        
+            
+            //                LocationButton {
+            //                    locationManager.requestLocation()
+            //                }
+            //                .frame(height: 44)
+            //                .padding()
+            //            // Button ist um standtort zu erfragen
+            
+            
+        }
     }
 }
 
