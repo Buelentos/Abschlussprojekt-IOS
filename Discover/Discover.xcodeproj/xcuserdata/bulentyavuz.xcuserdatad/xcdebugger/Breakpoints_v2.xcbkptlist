@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "1D7063B4-B0F7-4A3E-9E8B-1B658E4E606F"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4E12C3B1-3664-415B-96EE-49A8B13B6CEA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Discover/Search/ViewModel/SearchViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "fetchApis()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EBD5C956-AD23-43CB-9A7F-710EB92B2304"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Discover/Setting/ViewModel/SettingViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "delete()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EBD5C956-AD23-43CB-9A7F-710EB92B2304 - 69b2d5e6d7c756f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Discover.SettingViewModel.delete() -&gt; ()"
+                  moduleName = "Discover"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bulentyavuz/Desktop/Abschlussprojekt%20IOS/Discover/Discover/Setting/ViewModel/SettingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32">
+               </Location>
+               <Location
+                  uuid = "EBD5C956-AD23-43CB-9A7F-710EB92B2304 - 2f478472cab5c6c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Discover.SettingViewModel.delete() -&gt; ()"
+                  moduleName = "Discover"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bulentyavuz/Desktop/Abschlussprojekt%20IOS/Discover/Discover/Setting/ViewModel/SettingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA0D3F51-2476-4C23-8AB6-65056B5D2670"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Discover/Setting/ViewModel/SettingViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "delete()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FA0D3F51-2476-4C23-8AB6-65056B5D2670 - 69b2d5e6d7c755a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Discover.SettingViewModel.delete() -&gt; ()"
+                  moduleName = "Discover"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bulentyavuz/Desktop/Abschlussprojekt%20IOS/Discover/Discover/Setting/ViewModel/SettingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37">
+               </Location>
+               <Location
+                  uuid = "FA0D3F51-2476-4C23-8AB6-65056B5D2670 - 594c88c9c12bf099"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in Discover.SettingViewModel.delete() -&gt; ()"
+                  moduleName = "Discover"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bulentyavuz/Desktop/Abschlussprojekt%20IOS/Discover/Discover/Setting/ViewModel/SettingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E9DB1409-EF03-4205-8EAE-F3719CADC365"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Discover/Setting/ViewModel/SettingViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "delete()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E9DB1409-EF03-4205-8EAE-F3719CADC365 - 8b718ca0d9883b14"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 () -&gt; () in Discover.SettingViewModel.delete() -&gt; ()"
+                  moduleName = "Discover"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bulentyavuz/Desktop/Abschlussprojekt%20IOS/Discover/Discover/Setting/ViewModel/SettingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42">
+               </Location>
+               <Location
+                  uuid = "E9DB1409-EF03-4205-8EAE-F3719CADC365 - 4e96391dba6880ea"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #3 () -&gt; () in Discover.SettingViewModel.delete() -&gt; ()"
+                  moduleName = "Discover"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/bulentyavuz/Desktop/Abschlussprojekt%20IOS/Discover/Discover/Setting/ViewModel/SettingViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

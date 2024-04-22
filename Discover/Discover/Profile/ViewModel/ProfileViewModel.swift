@@ -17,6 +17,9 @@ class ProfileViewModel: ObservableObject{
     @Published var uploadURL: String?
     @Published var sheetProfilePicture = false
     private var listener: ListenerRegistration?
+    @Published var userInputUserName = ""
+    @Published var userInputUserDescription = ""
+    @Published var showSheetUserData = false
     
     
     var authViewModel: AuthentifikationViewModel

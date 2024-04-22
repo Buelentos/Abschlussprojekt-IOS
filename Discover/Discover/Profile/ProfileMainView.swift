@@ -38,10 +38,18 @@ struct ProfileMainView: View {
                     Text(authViewModel.user?.benutzerName ?? "lala")
                     HStack {
                         Text("Member since: \(String(describing: authViewModel.user?.registerAt.formatted() ?? "failed"))")
-                        
                     }
                 }
+                
                 Spacer()
+                Image(systemName: "pencil.circle.fill")
+                    .resizable()
+                    .frame(width: 35, height: 35)
+                    .foregroundColor(.orange)
+                    .padding()
+                    .onTapGesture {
+                        profileViewModel.showSheetUserData.toggle()
+                    }
             }
             HStack {
                 Text(authViewModel.user?.beschreibung ?? "Keine Beschreibung").padding()
@@ -51,6 +59,11 @@ struct ProfileMainView: View {
                 }
                 .background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0).padding().sheet(isPresented: $profileViewModel.pictureSheetShow, content: {
                     AddPictureView()
+                        .environmentObject(profileViewModel)
+                })
+                
+                .sheet(isPresented: $profileViewModel.showSheetUserData, content: {
+                    ChangeUserDataView()
                         .environmentObject(profileViewModel)
                 })
             }

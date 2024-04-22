@@ -102,7 +102,7 @@ class AuthentifikationViewModel: ObservableObject {
             email: mail,
             benutzerName: name,
             registerAt: Date(),
-            beschreibung: "",
+            beschreibung: "Hier kommt die Beschreibung vom User",
             firstLogIn: true,
             likedPictures: [String](),
             uploadedPictures: [String](),

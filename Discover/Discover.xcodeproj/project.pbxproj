@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE36142E2BD19BFC00348C52 /* ChangeUserDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE36142D2BD19BFC00348C52 /* ChangeUserDataView.swift */; };
 		AE69B1502B909F4C00247433 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B14F2B909F4C00247433 /* MainTabView.swift */; };
 		AE69B1542B90D4FD00247433 /* FireUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE69B1532B90D4FD00247433 /* FireUser.swift */; };
 		AE69B1562B90D7A600247433 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AE69B1552B90D7A600247433 /* GoogleService-Info.plist */; };
@@ -78,6 +79,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AE36142D2BD19BFC00348C52 /* ChangeUserDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeUserDataView.swift; sourceTree = "<group>"; };
 		AE69B14F2B909F4C00247433 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		AE69B1532B90D4FD00247433 /* FireUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireUser.swift; sourceTree = "<group>"; };
 		AE69B1552B90D7A600247433 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				AE69B1B02BA4995100247433 /* AddPicture */,
 				AE69B19A2BA0A5B900247433 /* ProfileMainView.swift */,
 				AE9144CC2BB57AD00007F831 /* ProfilePictureSelectionView.swift */,
+				AE36142D2BD19BFC00348C52 /* ChangeUserDataView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				AE69B1972BA0A57000247433 /* SearchMainView.swift in Sources */,
 				AE69B1502B909F4C00247433 /* MainTabView.swift in Sources */,
 				AE9144CB2BB42A650007F831 /* SearchElement.swift in Sources */,
+				AE36142E2BD19BFC00348C52 /* ChangeUserDataView.swift in Sources */,
 				AE93A2FD2BC54D28003AA73F /* FoodApiModel.swift in Sources */,
 				AE69B1AD2BA446AD00247433 /* CommentView.swift in Sources */,
 				AE69B1992BA0A59800247433 /* MessagesMainView.swift in Sources */,

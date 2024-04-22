@@ -13,7 +13,11 @@ struct SplashScreen: View {
                 AnmeldenView()
                     .environmentObject(authViewModel)
             }else {
-                Image(.logo).resizable().frame(width: .infinity, height: .infinity).ignoresSafeArea()
+                Image(.logo)
+                    .resizable()
+                    .ignoresSafeArea()
+                    .scaledToFill()
+                    
             }
         }.onAppear{
             DispatchQueue.main.asyncAfter(deadline: .now()+2){
