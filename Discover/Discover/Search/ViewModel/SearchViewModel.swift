@@ -101,7 +101,7 @@ class SearchViewModel: ObservableObject{
         
         let (data, _) = try await URLSession.shared.data(for: request as URLRequest)
         
-        let searchModels = try JSONDecoder().decode(GamingAPIModel.self, from: data).games.map{ game in
+        let searchModels = try JSONDecoder().decode([Game].self, from: data).map{ game in
             SearchModel(id: UUID().uuidString, picture: game.thumbnail?.absoluteString, title: game.title, description: game.short_description, destination: nil, opens: nil, rating: nil)
         }
         
