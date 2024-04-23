@@ -9,9 +9,9 @@ import SwiftUI
 import PhotosUI
 
 struct ProfileMainView: View {
-    
     @EnvironmentObject var profileViewModel: ProfileViewModel
     @EnvironmentObject var authViewModel: AuthentifikationViewModel
+    @EnvironmentObject var discoverViewModel: DiscoverViewModel
     let columns = [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())]
     
     
@@ -87,14 +87,39 @@ struct ProfileMainView: View {
                                 ProgressView()
                             }
                         ).background(.gray.opacity(0.2))
+                            .onTapGesture{
+                                print(picture)
+                                profileViewModel.picture = String(picture)
+                                profileViewModel.alertToggle.toggle()
+                            }
                     }
                 }
                 
                 
-                
+               
                 
                 
             }//ScrollViewKlammer
+            
+            .alert("Bild löschen?!", isPresented: $profileViewModel.alertToggle){
+                Button("Löschen",role: .destructive){
+                    print("fisch3")//Funktion um ein ausgewähltes Foto zu löschen
+                    profileViewModel.removePictureFromFireBase(pictureToRemove: profileViewModel.picture) { _ in
+                        print(" delete succses")
+                        authViewModel.user?.uploadedPictures.removeAll(where: { picture in
+                            picture == profileViewModel.picture
+                        })
+                        discoverViewModel.mainList.removeAll(where: { picture in
+                            picture.url == profileViewModel.picture
+                        })
+                    }
+                }
+                Button("Abbrechen", role: .cancel){}
+            } message: {
+                Text("Wenn sie auf ''löschen'' drücken, wird Ihr ausgewähltes Foto gelöscht.")
+            }
+            
+            
             
         }
     }

@@ -25,9 +25,6 @@ struct DiscoverView: View {
                                 DiscoverListenElement(einbild: reihe)
                             }
                         }
-                        
-                        
-                        
                     }
                 }.padding(.leading).padding(.trailing)
                 

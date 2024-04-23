@@ -20,6 +20,9 @@ class ProfileViewModel: ObservableObject{
     @Published var userInputUserName = ""
     @Published var userInputUserDescription = ""
     @Published var showSheetUserData = false
+    @Published var alertToggle = false
+    @Published var picture = ""
+    
     
     
     var authViewModel: AuthentifikationViewModel
@@ -200,18 +203,41 @@ class ProfileViewModel: ObservableObject{
         self.profilePictureImage = uiImage
     }
     
-//    func loadProfilePicture(){
-//        self.listener = manager.fireStore.collection("\(String(describing: authViewModel.user?.profilePicture))")
-//            .addSnapshotListener{ post, error in
-//                if let error = error {
-//                    print("Error reading pets: \(error)")
-//                    return
-//                }
-//                guard let documents = post?.documents else {
-//                    print("Query Snapshot is empty")
-//                    return
-//                }
-//            }
-//    }
+    
+    
+    
+    func removePictureFromFireBase(pictureToRemove: String, completion: @escaping (Error?) -> Void) {
+        guard let uid = authViewModel.user?.id else {
+            completion(nil)
+            return
+        }
+        Firestore.firestore().collection("users").document(uid).updateData([
+            "uploadedPictures": FieldValue.arrayRemove([pictureToRemove])
+        ]) { error in
+            self.removePictureFromStorage(picture: pictureToRemove)
+            completion(error)
+        }
+        
+        Firestore.firestore().collection("posts").getDocuments { snapshot, error in
+            do { 
+                let pictureId =
+               try  snapshot?.documents.map{ doc in
+               try doc.data(as: FirePost.self)
+               }.first(where: { post in
+                   post.url == pictureToRemove
+               })?.id
+                if pictureId != nil {
+                    Firestore.firestore().collection("posts").document(pictureId ?? "").delete()
+                }
+            }catch{}
+        }
+        
+    }
+    
+    func removePictureFromStorage(picture: String){
+        Storage.storage().reference(forURL: picture).delete(){e in}
+    }
+    
     
 }
+

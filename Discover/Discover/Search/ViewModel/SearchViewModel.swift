@@ -86,7 +86,7 @@ class SearchViewModel: ObservableObject{
             return searchModels
         }
         else if selectedCategory == .gaming {
-            
+            try await fetchGamingApi()
             
         }
         
@@ -94,6 +94,19 @@ class SearchViewModel: ObservableObject{
     }
     
     
+    func fetchGamingApi() async throws -> [SearchModel]{
+        let request = NSMutableURLRequest(url: NSURL(string: "https://www.freetogame.com/api/games")! as URL,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        
+        let (data, _) = try await URLSession.shared.data(for: request as URLRequest)
+        
+        let searchModels = try JSONDecoder().decode(GamingAPIModel.self, from: data).games.map{ game in
+            SearchModel(id: UUID().uuidString, picture: game.thumbnail?.absoluteString, title: game.title, description: game.short_description, destination: nil, opens: nil, rating: nil)
+        }
+        
+        return searchModels
+    }
     
     
     @MainActor

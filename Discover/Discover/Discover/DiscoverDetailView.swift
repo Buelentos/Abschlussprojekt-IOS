@@ -9,54 +9,49 @@ struct DiscoverDetailView: View {
     var bild: FirePost
     
     var body: some View {
-        ZStack {
-            Image(.logo)
-                .resizable()
-                .ignoresSafeArea()
-                .scaledToFill()
-                .opacity(0.8)
-            ScrollView{
-                VStack{
-                    
-                    Text("TAG: \(bild.tag)")
-                    
-                    AsyncImage(
-                        url: URL(string: bild.url),
-                        content: { image in
-                            image
-                                .resizable().aspectRatio(contentMode: .fit)
-                                .frame(width:.infinity).scaledToFill()
-                        },
-                        placeholder: {
-                            ProgressView()
-                        }
-                    )
-                    
-                    HStack{
-                        VStack {
-                            Image(systemName: "heart").onTapGesture {
-                                
-                            }
-                            Text("\(bild.likes)")
-                        }
-                        VStack {
-                            //NavigationLink zur CommentView
-                            Image(systemName: "text.bubble")
-                            Text("Comments")
+        
+        ScrollView{
+            VStack{
+                
+                Text("TAG: \(bild.tag)")
+                
+                AsyncImage(
+                    url: URL(string: bild.url),
+                    content: { image in
+                        image
+                            .resizable().aspectRatio(contentMode: .fit)
+                            .frame(width:.infinity).scaledToFill()
+                    },
+                    placeholder: {
+                        ProgressView()
+                    }
+                )
+                
+                HStack{
+                    VStack {
+                        Image(systemName: "heart").onTapGesture {
                             
                         }
-                        Spacer()
-                        Image(systemName: "paperplane")
-                        Image(systemName: "bookmark").padding(.trailing)
+                        Text("\(bild.likes)")
+                    }
+                    VStack {
+                        //NavigationLink zur CommentView
+                        Image(systemName: "text.bubble")
+                        Text("Comments")
                         
-                    }.padding(.top).padding(.leading)
+                    }
+                    Spacer()
+                    Image(systemName: "paperplane")
+                    Image(systemName: "bookmark").padding(.trailing)
                     
-                    Text("Beschreibung: \n\(bild.beschreibung)").padding()
-                    
-                }
-            }//ScrollViewKlammer
-            .environmentObject(discoverViewModel)
-        }
+                }.padding(.top).padding(.leading)
+                
+                Text("Beschreibung: \n\(bild.beschreibung)").padding()
+                
+            }
+        }//ScrollViewKlammer
+        .environmentObject(discoverViewModel)
+        
     }
 }
 

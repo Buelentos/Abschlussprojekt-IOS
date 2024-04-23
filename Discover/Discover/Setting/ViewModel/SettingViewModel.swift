@@ -52,6 +52,7 @@ class SettingViewModel: ObservableObject{
                 if let error = error {
                     print("Error deleting user with id \(currentUser.uid): \(error)")
                 } else {
+                    FirebaseAuth.Auth.auth().currentUser?.delete()
                     print("User with id \(currentUser.uid) deleted from Firestore")
                 }
             }
