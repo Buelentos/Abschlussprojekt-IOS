@@ -8,7 +8,6 @@
 import Foundation
 
 struct GamingAPIModel: Codable{
-    
     var games: [Game]
 }
 

@@ -64,9 +64,7 @@
 		AE9144CB2BB42A650007F831 /* SearchElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9144CA2BB42A650007F831 /* SearchElement.swift */; };
 		AE9144CD2BB57AD00007F831 /* ProfilePictureSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9144CC2BB57AD00007F831 /* ProfilePictureSelectionView.swift */; };
 		AE93A2F52BC3D461003AA73F /* SearchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A2F42BC3D461003AA73F /* SearchDetailView.swift */; };
-		AE93A2FB2BC54B34003AA73F /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A2FA2BC54B34003AA73F /* Error.swift */; };
 		AE93A2FD2BC54D28003AA73F /* FoodApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A2FC2BC54D28003AA73F /* FoodApiModel.swift */; };
-		AE93A2FF2BC55FE0003AA73F /* GPS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A2FE2BC55FE0003AA73F /* GPS.swift */; };
 		AE93A3032BC56859003AA73F /* APIKEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE93A3022BC56859003AA73F /* APIKEY.swift */; };
 		AEFCDABD2B8DE25900D3BACD /* DiscoverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */; };
 		AEFCDAC12B8DE25900D3BACD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEFCDAC02B8DE25900D3BACD /* Assets.xcassets */; };
@@ -112,9 +110,7 @@
 		AE9144CA2BB42A650007F831 /* SearchElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchElement.swift; sourceTree = "<group>"; };
 		AE9144CC2BB57AD00007F831 /* ProfilePictureSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePictureSelectionView.swift; sourceTree = "<group>"; };
 		AE93A2F42BC3D461003AA73F /* SearchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailView.swift; sourceTree = "<group>"; };
-		AE93A2FA2BC54B34003AA73F /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		AE93A2FC2BC54D28003AA73F /* FoodApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodApiModel.swift; sourceTree = "<group>"; };
-		AE93A2FE2BC55FE0003AA73F /* GPS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPS.swift; sourceTree = "<group>"; };
 		AE93A3022BC56859003AA73F /* APIKEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKEY.swift; sourceTree = "<group>"; };
 		AEFCDAB92B8DE25900D3BACD /* Discover.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Discover.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEFCDABC2B8DE25900D3BACD /* DiscoverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverApp.swift; sourceTree = "<group>"; };
@@ -315,9 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				AE9144C82BB427070007F831 /* SearchModel.swift */,
-				AE93A2FA2BC54B34003AA73F /* Error.swift */,
 				AE93A2FC2BC54D28003AA73F /* FoodApiModel.swift */,
-				AE93A2FE2BC55FE0003AA73F /* GPS.swift */,
 				AE36142F2BD69A6300348C52 /* EventAPIModel.swift */,
 				AE3614312BD6B09400348C52 /* SportAPIModel.swift */,
 				AE64D0822BD7EE9200D58A27 /* GamingAPIModel.swift */,
@@ -549,7 +543,6 @@
 				AEFCDB052B8E1D9C00D3BACD /* FirePost.swift in Sources */,
 				AE9144B42BB2D1E50007F831 /* ProfileViewModel.swift in Sources */,
 				AE69B19B2BA0A5B900247433 /* ProfileMainView.swift in Sources */,
-				AE93A2FF2BC55FE0003AA73F /* GPS.swift in Sources */,
 				AE9144AE2BB2D1A80007F831 /* SearchViewModel.swift in Sources */,
 				AE69B1922B90DF4300247433 /* SettingMainView.swift in Sources */,
 				AEFCDACC2B8DE2E700D3BACD /* Repository.swift in Sources */,
@@ -563,7 +556,6 @@
 				AEFCDAD32B8DE62A00D3BACD /* RegistrierenView.swift in Sources */,
 				AEFCDAFD2B8E104C00D3BACD /* DiscoverView.swift in Sources */,
 				AE9144B72BB2D1FB0007F831 /* DiscoverViewModel.swift in Sources */,
-				AE93A2FB2BC54B34003AA73F /* Error.swift in Sources */,
 				AE9144BE2BB4213E0007F831 /* UserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

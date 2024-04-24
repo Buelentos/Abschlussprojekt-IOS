@@ -8,10 +8,8 @@
 import Foundation
 
 struct EventAPIModel: Codable{
-    
     var events: [Event]
 }
-
 
 struct Event: Codable{
     var name: String?

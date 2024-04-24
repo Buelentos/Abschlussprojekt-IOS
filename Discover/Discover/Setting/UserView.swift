@@ -8,14 +8,10 @@
 import SwiftUI
 
 struct UserView: View {
-    
     @EnvironmentObject private var authViewModel: AuthentifikationViewModel
     @EnvironmentObject private var settingViewModel: SettingViewModel
-    
     var body: some View {
-        
         Text("USERVIEW!")
-        
     }
 }
 #Preview {

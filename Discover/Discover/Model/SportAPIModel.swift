@@ -8,7 +8,6 @@
 import Foundation
 
 struct SportAPIModel: Codable{
-    
     var businesses: [Sport]
 }
 

@@ -49,6 +49,5 @@ struct SettingMainView: View {
 #Preview {
     SettingMainView()
         .environmentObject(AuthentifikationViewModel())
-        .environmentObject(SettingViewModel(authViewModel: AuthentifikationViewModel()
-                                           ))
+        .environmentObject(SettingViewModel(authViewModel: AuthentifikationViewModel()))
 }
