@@ -31,13 +31,11 @@ struct SearchMainView: View {
                     }
                 }
                 .navigationTitle("Search")
-                .searchable(text: $searchViewModel.searchInput, placement:  .navigationBarDrawer(displayMode: .always), prompt: "Suche nach etwas konkretem")
                 .navigationDestination(for: SearchModel.self, destination: { selectedEvent in
                     SearchDetailView(searchEvent: selectedEvent)
                         .environmentObject(searchViewModel)
                 })
                 .toolbar{
-                    
                     ToolbarItem() {
                         
                         Image(systemName: "location.fill.viewfinder")

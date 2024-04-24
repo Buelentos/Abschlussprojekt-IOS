@@ -10,7 +10,6 @@ import SwiftUI
 
 class SearchViewModel: ObservableObject{
     
-    var searchInput = ""
     @Published var listOfPlaces: [SearchModel] = []
     @Published var selectedCategory: FilterOptions = .food
     @Published var showAlert = false
