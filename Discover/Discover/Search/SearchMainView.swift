@@ -43,9 +43,7 @@ struct SearchMainView: View {
                                 searchViewModel.showAlert.toggle()
                             }
                     }
-                }.alert("Stadt für die Suche!", isPresented: $searchViewModel.showAlert){
-                    TextField("Stadtsuche", text: $searchViewModel.userAlertInputLocation )
-                } message: {
+                }.alert("Für welchen Ort suchst du?", isPresented: $searchViewModel.showAlert){
                     TextField("Stadtsuche", text: $searchViewModel.userAlertInputLocation )
                 }
             }

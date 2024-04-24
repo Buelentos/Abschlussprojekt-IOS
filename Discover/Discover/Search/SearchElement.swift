@@ -8,33 +8,44 @@
 import SwiftUI
 
 struct SearchElement: View {
-    
     @EnvironmentObject var searchViewModel: SearchViewModel
     var einSearchElement: SearchModel
-    
     var body: some View {
         
         HStack{
+            
             AsyncImage(
                 url: URL(string: einSearchElement.picture ?? ""),
                 content: { image in
-                    image.resizable().frame(width: 100, height: 100).cornerRadius(15)
+                    image
+                        .resizable()
+                        .frame(width: 100, height: 100)
+                        .cornerRadius(15)
                 },
                 placeholder: {
                     ProgressView()
                 }
             )
+            
+            Divider()
+                .background(.black)
             Spacer()
-            Divider().background(.black)
-            Spacer()
+            
             VStack {
-                Text(einSearchElement.title ?? "lala")
+                
+                Text(einSearchElement.title ?? "")
                 Text(einSearchElement.description ?? "")
                 Text("Rating: \(einSearchElement.rating?.formatted() ?? "0")")
-            }.foregroundColor(.black)
+            }
+            .foregroundColor(.black)
+            
             Spacer()
-        }.padding().frame(width: 350,height: 120).background(.blue).cornerRadius(20)
-        
+            
+        }
+        .padding()
+        .frame(width: 350,height: 120)
+        .background(.blue)
+        .cornerRadius(20)
     }
 }
 
