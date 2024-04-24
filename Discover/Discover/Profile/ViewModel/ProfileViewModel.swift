@@ -11,32 +11,28 @@ class ProfileViewModel: ObservableObject{
     
     @Published var pictureTAG = ""
     @Published var pictureBeschreibung = ""
-    @Published var pictureSheetShow = false
-    private let repo = Repository.sharedRepo
-    private var manager = FireBaseManager.sharedFireBase
-    @Published var uploadURL: String?
-    @Published var sheetProfilePicture = false
-    private var listener: ListenerRegistration?
+    @Published var picture = ""
     @Published var userInputUserName = ""
     @Published var userInputUserDescription = ""
+    @Published var pictureSheetShow = false
     @Published var showSheetUserData = false
     @Published var alertToggle = false
-    @Published var picture = ""
-    
-    
-    
+    @Published var sheetProfilePicture = false
+    @Published var uploadURL: String?
+    @Published var profileImage: UIImage?
+    @Published var profilePictureImage: UIImage?
+    private let repo = Repository.sharedRepo
+    private var manager = FireBaseManager.sharedFireBase
+    private var listener: ListenerRegistration?
     var authViewModel: AuthentifikationViewModel
     
     init(authViewModel: AuthentifikationViewModel) {
         self.authViewModel = authViewModel
     }
     
-    
     @Published var selectedPhotosPickerItem: PhotosPickerItem? {
         didSet { Task {try await loadImage() } }
     }
-    
-    @Published var profileImage: UIImage?
     
     @MainActor
     func loadImage() async throws {
@@ -45,8 +41,6 @@ class ProfileViewModel: ObservableObject{
         guard let uiImage = UIImage(data: imageData) else {return}
         self.profileImage = uiImage
     }
-    
-    
     
     func createPost(url: String, tag: String, beschreibung: String){
         let id = UUID().uuidString
@@ -58,7 +52,6 @@ class ProfileViewModel: ObservableObject{
             likes: 0,
             comments: [String]()
         )
-        
         do{
             try manager.fireStore.collection("posts").document(id).setData(from: firePost)
         } catch {
@@ -87,16 +80,12 @@ class ProfileViewModel: ObservableObject{
                     print("Failed to download URL from Storage: \(error)")
                     return
                 }
-                
                 if let downloadURL = url {
                     self.updateUserProfileImageURL(downloadURL)
                     self.createPost(url: downloadURL.absoluteString, tag: tag, beschreibung: beschreibung)
                     print("Succesfully pushed Image to Storage")
-                    
                 }
-                
             }
-            
         }
         authViewModel.fetchUser(id: self.authViewModel.user?.id ?? "")
     }
@@ -105,11 +94,9 @@ class ProfileViewModel: ObservableObject{
         guard let userId = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else { return }
         let userRef = FireBaseManager.sharedFireBase.fireStore.collection("users").document(userId)
         
-        // Fügen Sie das URL-String-Objekt zum Array hinzu
         userRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 if var uploadedPictures = document.data()?["uploadedPictures"] as? [String] {
-                    // Falls das Array bereits vorhanden ist, fügen Sie das URL-String-Objekt hinzu
                     uploadedPictures.append(url.absoluteString)
                     userRef.updateData(["uploadedPictures": uploadedPictures]) { error in
                         if let error = error {
@@ -120,7 +107,6 @@ class ProfileViewModel: ObservableObject{
                         self.authViewModel.fetchUser(id: self.authViewModel.user?.id ?? "")
                     }
                 } else {
-                    // Falls das Array nicht vorhanden ist, erstellen Sie ein neues Array mit dem URL-String-Objekt
                     userRef.updateData(["uploadedPictures": [url.absoluteString]]) { [self] error in
                         if let error = error {
                             print("Failed to update profile image URL: \(error)")
@@ -137,13 +123,11 @@ class ProfileViewModel: ObservableObject{
         uploadURL = url.absoluteString
     }
     
-    
     func resetPictureSelections (){
         self.pictureTAG = ""
         self.pictureBeschreibung = ""
         self.profileImage = nil
     }
-    
     
     func selectedProfilePictureToStorage(){
         guard let uid = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else {return}
@@ -169,12 +153,9 @@ class ProfileViewModel: ObservableObject{
                     self.updateUserProfileImage(downloadURL)
                     print("Succesfully pushed Image to Storage")
                 }
-                
             }
-            
         }
     }
-    
     
     private func updateUserProfileImage(_ url: URL) {
         guard let userId = FireBaseManager.sharedFireBase.authenticator.currentUser?.uid else { return }
@@ -193,8 +174,6 @@ class ProfileViewModel: ObservableObject{
         didSet { Task {try await loadImage2() } }
     }
     
-    @Published var profilePictureImage: UIImage?
-    
     @MainActor
     func loadImage2() async throws {
         guard let item = selectedPhotosPickerItem2 else {return}
@@ -202,9 +181,6 @@ class ProfileViewModel: ObservableObject{
         guard let uiImage = UIImage(data: imageData) else {return}
         self.profilePictureImage = uiImage
     }
-    
-    
-    
     
     func removePictureFromFireBase(pictureToRemove: String, completion: @escaping (Error?) -> Void) {
         guard let uid = authViewModel.user?.id else {
@@ -217,27 +193,23 @@ class ProfileViewModel: ObservableObject{
             self.removePictureFromStorage(picture: pictureToRemove)
             completion(error)
         }
-        
         Firestore.firestore().collection("posts").getDocuments { snapshot, error in
-            do { 
+            do {
                 let pictureId =
-               try  snapshot?.documents.map{ doc in
-               try doc.data(as: FirePost.self)
-               }.first(where: { post in
-                   post.url == pictureToRemove
-               })?.id
+                try  snapshot?.documents.map{ doc in
+                    try doc.data(as: FirePost.self)
+                }.first(where: { post in
+                    post.url == pictureToRemove
+                })?.id
                 if pictureId != nil {
                     Firestore.firestore().collection("posts").document(pictureId ?? "").delete()
                 }
             }catch{}
         }
-        
     }
     
     func removePictureFromStorage(picture: String){
         Storage.storage().reference(forURL: picture).delete(){e in}
     }
-    
-    
 }
 

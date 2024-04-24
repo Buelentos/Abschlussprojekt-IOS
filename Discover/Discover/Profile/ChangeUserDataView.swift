@@ -10,35 +10,24 @@ import SwiftUI
 struct ChangeUserDataView: View {
     @EnvironmentObject var profileViewModel: ProfileViewModel
     var body: some View {
+        
         List {
             Section("Username"){
                 TextField("UserName", text: $profileViewModel.userInputUserName)
             }
             Section("Beschreibung"){
-                TextField("Ich bin 95er, habe spaß an Fußball spielen & gucken", text: $profileViewModel.userInputUserName)
+                TextField("Ich bin 95er, habe spaß an Fußball spielen & gucken", text: $profileViewModel.userInputUserDescription)
             }
-            
             
             HStack {
                 Spacer()
                 Button("Änderungen speichern"){
-                    //Die änderungen müssen per Funktion übernommen werden, welche in der ProfileViewModel vorbereitet werden muss
-                    
+                    //Hier fehlt noch die Funktion, um das Eingegeben als Beschreibung zu übernehmen
+                    //Hier fehlt noch die Funktion, um das Eingegeben als Benutzername zu übernehmen
                     profileViewModel.showSheetUserData.toggle()
                 }
                 Spacer()
             }
-            Section(){
-                HStack {
-                    Spacer()
-                    Button("Bild Löschen"){
-                        // Funktion um ausgewähltes bild zu löschen
-                        // View um hochgeladene Bilder anzuzeigen um bild zu löschen
-                    }.foregroundColor(.red)
-                    Spacer()
-                }
-            }
-            
         }
     }
 }

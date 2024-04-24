@@ -10,9 +10,10 @@ import _PhotosUI_SwiftUI
 
 struct ProfilePictureSelectionView: View {
     @EnvironmentObject var profileViewModel: ProfileViewModel
-    
     var body: some View {
+        
         VStack{
+            
             Spacer()
             Text("Add Profile Picture")
             Spacer()
@@ -37,9 +38,16 @@ struct ProfilePictureSelectionView: View {
                 profileViewModel.selectedProfilePictureToStorage()
                 profileViewModel.resetPictureSelections()
                 profileViewModel.sheetProfilePicture.toggle()
-            }.background(.blue).buttonStyle(.bordered).foregroundColor(.white).cornerRadius(10.0)            .padding()
+            }
+            .background(.blue)
+            .buttonStyle(.bordered)
+            .foregroundColor(.white)
+            .cornerRadius(10.0)
+            .padding()
+            
             Spacer()
-        }    }
+        }
+    }
 }
 
 #Preview {

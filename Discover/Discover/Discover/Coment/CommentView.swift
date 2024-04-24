@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct CommentView: View {
-    
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
-    
     var body: some View {
+        
         List{
             VStack{
-                //ForEach(comentar){coment in
                 Text("Name des Users:")
                 Text("coment des Users")
-                //}
             }
         }
     }

@@ -10,13 +10,11 @@ import PhotosUI
 
 
 struct AddPictureView: View {
-    
     @EnvironmentObject var profileViewModel: ProfileViewModel
-    
-    
-    
     var body: some View {
+        
         VStack{
+            
             Spacer()
             Text("Add Picture")
             Spacer()
