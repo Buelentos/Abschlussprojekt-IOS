@@ -7,13 +7,12 @@ import FirebaseFirestore
 
 class DiscoverViewModel: ObservableObject {
     @Published var selectedCountry = ""
-    @Published var country = ["", "Deutschland", "Türkiye", "USA"]
     @Published var selectedCity = ""
+    @Published var country = ["", "Deutschland", "Türkiye", "USA"]
     @Published var citiesOfGermany = ["Berlin", "Hamburg", "Frankfurt", "Stuttgart"]
     @Published var citiesOfTurkey = ["Ankara", "Istanbul", "Kars", "Ardahan"]
     @Published var citiesOfUSA = ["Washington", "New York", "Compton", "Miami"]
     @Published var categories = ["All", "Sport", "Dinner", "Fun", "Gaming"]
-    @Published var selectedFisch = ""
     @Published var showFilter = false
     private let repo = Repository.sharedRepo
     private var manager = FireBaseManager.sharedFireBase

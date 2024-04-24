@@ -22,8 +22,7 @@ struct ChangeUserDataView: View {
             HStack {
                 Spacer()
                 Button("Änderungen speichern"){
-                    //Hier fehlt noch die Funktion, um das Eingegeben als Beschreibung zu übernehmen
-                    //Hier fehlt noch die Funktion, um das Eingegeben als Benutzername zu übernehmen
+                    profileViewModel.userDetailsUpdate()
                     profileViewModel.showSheetUserData.toggle()
                 }
                 Spacer()

@@ -8,25 +8,17 @@
 import SwiftUI
 
 struct FilterView: View {
-    
     @EnvironmentObject private var discoverViewModel: DiscoverViewModel
-    
-    
     var body: some View {
-        
         
         List{
             Section(header: Text("Please choise your destination")){
-                
                 VStack{
-                    
                     Picker("Country", selection: $discoverViewModel.selectedCountry){
                         ForEach(discoverViewModel.country, id: \.self){
                             Text($0)
                         }
                     }
-                    
-                    
                     if discoverViewModel.selectedCountry == "Deutschland" {
                         Picker("City", selection: $discoverViewModel.selectedCity){
                             ForEach(discoverViewModel.citiesOfGermany, id: \.self){
@@ -48,16 +40,13 @@ struct FilterView: View {
                             }
                         }
                     }
-                    
                 }
             }
-            
-            Picker("category", selection: $discoverViewModel.selectedFisch){
+            Picker("category", selection: $discoverViewModel.selectedCity){
                 ForEach(discoverViewModel.categories, id: \.self){
                     Text($0)
                 }
             }
-            
             Section{
                 HStack{
                     Spacer()
@@ -65,16 +54,13 @@ struct FilterView: View {
                         discoverViewModel.showFilter.toggle()
                         if !discoverViewModel.selectedCountry.isEmpty {
                             print(discoverViewModel.selectedCountry)
+                            //Hier fehlt noch die Funktion, welche die Fotos filtert
                         }
                     }
                     Spacer()
                 }
             }
-            
-            
         }
-        
-        
     }
 }
 

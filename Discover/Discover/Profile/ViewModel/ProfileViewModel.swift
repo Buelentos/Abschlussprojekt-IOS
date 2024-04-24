@@ -211,5 +211,10 @@ class ProfileViewModel: ObservableObject{
     func removePictureFromStorage(picture: String){
         Storage.storage().reference(forURL: picture).delete(){e in}
     }
+    
+    func userDetailsUpdate(){
+        authViewModel.user?.benutzerName = userInputUserName
+        authViewModel.user?.beschreibung = userInputUserDescription
+    }
 }
 

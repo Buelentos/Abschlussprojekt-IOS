@@ -9,26 +9,25 @@ import SwiftUI
 
 struct DiscoverListenElement: View {
     var einbild: FirePost
-    
-    
     var body: some View {
         
         HStack {
             AsyncImage(
                 url: URL(string: einbild.url),
                 content: { image in
-                    image.resizable()
+                    image
+                        .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 121, height: 121)
                         .scaledToFill()
                         .padding(.vertical)
-                        
                 },
                 placeholder: {
                     ProgressView()
                 }
             )
-        }.background(.gray.opacity(0.2))
+        }
+        .background(.gray.opacity(0.2))
     }
 }
 
